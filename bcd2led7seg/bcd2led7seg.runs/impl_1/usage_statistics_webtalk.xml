@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<webTalkData  fileName='usage_statistics_webtalk.xml'  majorVersion='1' minorVersion='0' timeStamp='Thu Aug 14 09:49:59 2025'>
+<webTalkData  fileName='usage_statistics_webtalk.xml'  majorVersion='1' minorVersion='0' timeStamp='Fri Aug 15 13:42:30 2025'>
 <section name="__ROOT__" level="0" order="1" description="">
  <section name="software_version_and_target_device" level="1" order="1" description="">
   <keyValuePair key="beta" value="FALSE" description="" />
   <keyValuePair key="build_version" value="2708876" description="" />
-  <keyValuePair key="date_generated" value="Thu Aug 14 09:49:59 2025" description="" />
+  <keyValuePair key="date_generated" value="Fri Aug 15 13:42:30 2025" description="" />
   <keyValuePair key="os_platform" value="WIN64" description="" />
   <keyValuePair key="product_version" value="Vivado v2019.2 (64-bit)" description="" />
   <keyValuePair key="project_id" value="59997ecdb3f14f2599e6379b413c0314" description="" />
-  <keyValuePair key="project_iteration" value="3" description="" />
+  <keyValuePair key="project_iteration" value="4" description="" />
   <keyValuePair key="random_id" value="cc032fa2ebd259c09a66d7bc7d853458" description="" />
   <keyValuePair key="registration_id" value="cc032fa2ebd259c09a66d7bc7d853458" description="" />
   <keyValuePair key="route_design" value="TRUE" description="" />
@@ -340,10 +340,10 @@
    <keyValuePair key="-verilog_define" value="default::[not_specified]" description="" />
   </section>
   <section name="usage" level="2" order="2" description="">
-   <keyValuePair key="elapsed" value="00:00:35s" description="" />
+   <keyValuePair key="elapsed" value="00:00:34s" description="" />
    <keyValuePair key="hls_ip" value="0" description="" />
-   <keyValuePair key="memory_gain" value="764.746MB" description="" />
-   <keyValuePair key="memory_peak" value="1261.867MB" description="" />
+   <keyValuePair key="memory_gain" value="766.109MB" description="" />
+   <keyValuePair key="memory_peak" value="1263.113MB" description="" />
   </section>
  </section>
  <section name="unisim_transformation" level="1" order="7" description="">
@@ -387,73 +387,78 @@
    <keyValuePair key="addsrcwizard_specify_hdl_netlist_block_design" value="1" description="" />
    <keyValuePair key="addsrcwizard_specify_or_create_constraint_files" value="1" description="" />
    <keyValuePair key="addsrcwizard_specify_simulation_specific_hdl_files" value="1" description="" />
-   <keyValuePair key="basedialog_ok" value="33" description="" />
+   <keyValuePair key="basedialog_ok" value="46" description="" />
    <keyValuePair key="boardchooser_board_table" value="2" description="" />
    <keyValuePair key="boardchooser_name" value="1" description="" />
    <keyValuePair key="boardchooser_vendor" value="1" description="" />
-   <keyValuePair key="cmdmsgdialog_ok" value="8" description="" />
+   <keyValuePair key="cmdmsgdialog_ok" value="13" description="" />
    <keyValuePair key="constraintschooserpanel_add_existing_or_create_new_constraints" value="1" description="" />
    <keyValuePair key="constraintschooserpanel_add_files" value="1" description="" />
    <keyValuePair key="constraintschooserpanel_create_file" value="1" description="" />
    <keyValuePair key="constraintschooserpanel_file_table" value="3" description="" />
    <keyValuePair key="createconstraintsfilepanel_file_name" value="1" description="" />
    <keyValuePair key="createsrcfiledialog_file_name" value="2" description="" />
-   <keyValuePair key="filesetpanel_file_set_panel_tree" value="70" description="" />
+   <keyValuePair key="filesetpanel_file_set_panel_tree" value="101" description="" />
    <keyValuePair key="filtertoolbar_show_all" value="2" description="" />
-   <keyValuePair key="flownavigatortreepanel_flow_navigator_tree" value="40" description="" />
+   <keyValuePair key="flownavigatortreepanel_flow_navigator_tree" value="42" description="" />
    <keyValuePair key="gettingstartedview_create_new_project" value="2" description="" />
-   <keyValuePair key="gettingstartedview_open_project" value="4" description="" />
+   <keyValuePair key="gettingstartedview_open_project" value="5" description="" />
    <keyValuePair key="hjfilechooserhelpers_jump_to_downloads_directory" value="1" description="" />
-   <keyValuePair key="mainmenumgr_file" value="2" description="" />
-   <keyValuePair key="mainmenumgr_project" value="2" description="" />
+   <keyValuePair key="mainmenumgr_file" value="4" description="" />
+   <keyValuePair key="mainmenumgr_project" value="3" description="" />
+   <keyValuePair key="msgtreepanel_message_view_tree" value="1" description="" />
    <keyValuePair key="msgview_clear_messages_resulting_from_user_executed" value="7" description="" />
    <keyValuePair key="msgview_error_messages" value="1" description="" />
    <keyValuePair key="msgview_information_messages" value="4" description="" />
    <keyValuePair key="msgview_status_messages" value="2" description="" />
-   <keyValuePair key="msgview_warning_messages" value="7" description="" />
-   <keyValuePair key="numjobschooser_number_of_jobs" value="3" description="" />
-   <keyValuePair key="pacommandnames_auto_connect_target" value="4" description="" />
-   <keyValuePair key="pacommandnames_open_hardware_manager" value="2" description="" />
+   <keyValuePair key="msgview_warning_messages" value="8" description="" />
+   <keyValuePair key="numjobschooser_number_of_jobs" value="4" description="" />
+   <keyValuePair key="openfileaction_ok" value="1" description="" />
+   <keyValuePair key="pacommandnames_add_sources" value="1" description="" />
+   <keyValuePair key="pacommandnames_auto_connect_target" value="5" description="" />
+   <keyValuePair key="pacommandnames_open_hardware_manager" value="3" description="" />
    <keyValuePair key="pacommandnames_open_project" value="1" description="" />
-   <keyValuePair key="pacommandnames_run_bitgen" value="3" description="" />
+   <keyValuePair key="pacommandnames_run_bitgen" value="4" description="" />
    <keyValuePair key="pacommandnames_simulation_relaunch" value="7" description="" />
    <keyValuePair key="pacommandnames_simulation_run_behavioral" value="10" description="" />
    <keyValuePair key="paviews_code" value="3" description="" />
    <keyValuePair key="paviews_flow_navigator" value="1" description="" />
-   <keyValuePair key="paviews_project_summary" value="11" description="" />
-   <keyValuePair key="programdebugtab_open_target" value="4" description="" />
-   <keyValuePair key="programdebugtab_program_device" value="3" description="" />
-   <keyValuePair key="programfpgadialog_program" value="4" description="" />
+   <keyValuePair key="paviews_project_summary" value="12" description="" />
+   <keyValuePair key="programdebugtab_open_target" value="5" description="" />
+   <keyValuePair key="programdebugtab_program_device" value="4" description="" />
+   <keyValuePair key="programfpgadialog_program" value="5" description="" />
    <keyValuePair key="projectnamechooser_project_name" value="1" description="" />
    <keyValuePair key="projecttab_reload" value="4" description="" />
+   <keyValuePair key="rdicommands_delete" value="5" description="" />
    <keyValuePair key="rdiviews_waveform_viewer" value="170" description="" />
    <keyValuePair key="simulationliverunforcomp_specify_time_and_units" value="8" description="" />
-   <keyValuePair key="srcchooserpanel_add_hdl_and_netlist_files_to_your_project" value="2" description="" />
+   <keyValuePair key="srcchooserpanel_add_hdl_and_netlist_files_to_your_project" value="3" description="" />
    <keyValuePair key="srcchooserpanel_create_file" value="2" description="" />
    <keyValuePair key="taskbanner_close" value="7" description="" />
    <keyValuePair key="waveformnametree_waveform_name_tree" value="7" description="" />
   </section>
   <section name="java_command_handlers" level="2" order="2" description="">
-   <keyValuePair key="addsources" value="4" description="" />
-   <keyValuePair key="autoconnecttarget" value="4" description="" />
-   <keyValuePair key="launchprogramfpga" value="3" description="" />
+   <keyValuePair key="addsources" value="5" description="" />
+   <keyValuePair key="autoconnecttarget" value="5" description="" />
+   <keyValuePair key="editdelete" value="5" description="" />
+   <keyValuePair key="launchprogramfpga" value="4" description="" />
    <keyValuePair key="newproject" value="2" description="" />
-   <keyValuePair key="openhardwaremanager" value="3" description="" />
-   <keyValuePair key="openproject" value="5" description="" />
+   <keyValuePair key="openhardwaremanager" value="4" description="" />
+   <keyValuePair key="openproject" value="6" description="" />
    <keyValuePair key="openrecenttarget" value="3" description="" />
-   <keyValuePair key="runbitgen" value="4" description="" />
-   <keyValuePair key="runimplementation" value="3" description="" />
-   <keyValuePair key="runsynthesis" value="4" description="" />
+   <keyValuePair key="runbitgen" value="5" description="" />
+   <keyValuePair key="runimplementation" value="4" description="" />
+   <keyValuePair key="runsynthesis" value="5" description="" />
    <keyValuePair key="simulationrelaunch" value="7" description="" />
    <keyValuePair key="simulationrun" value="10" description="" />
    <keyValuePair key="viewtaskprojectmanager" value="2" description="" />
-   <keyValuePair key="viewtaskrtlanalysis" value="3" description="" />
+   <keyValuePair key="viewtaskrtlanalysis" value="4" description="" />
   </section>
   <section name="other_data" level="2" order="3" description="">
-   <keyValuePair key="guimode" value="4" description="" />
+   <keyValuePair key="guimode" value="5" description="" />
   </section>
   <section name="project_data" level="2" order="4" description="">
-   <keyValuePair key="constraintsetcount" value="2" description="" />
+   <keyValuePair key="constraintsetcount" value="1" description="" />
    <keyValuePair key="core_container" value="false" description="" />
    <keyValuePair key="currentimplrun" value="impl_1" description="" />
    <keyValuePair key="currentsynthesisrun" value="synth_1" description="" />

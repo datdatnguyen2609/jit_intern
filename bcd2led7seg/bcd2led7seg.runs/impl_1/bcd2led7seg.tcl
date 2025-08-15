@@ -68,10 +68,9 @@ set ACTIVE_STEP write_bitstream
 set rc [catch {
   create_msg_db write_bitstream.pb
   set_param chipscope.maxJobs 3
-  set_param synth.incrementalSynthesisCache C:/Users/datda/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-4328-Datdatnguyen/incrSyn
-  set_param xicom.use_bs_reader 1
+  set_param synth.incrementalSynthesisCache C:/Users/datda/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-8844-Datdatnguyen/incrSyn
   open_checkpoint bcd2led7seg_routed.dcp
-  set_property webtalk.parent_dir C:/Users/datda/Downloads/prj/bcd2led7seg/bcd2led7seg.cache/wt [current_project]
+  set_property webtalk.parent_dir C:/Users/datda/Downloads/jit_intern/bcd2led7seg/bcd2led7seg.cache/wt [current_project]
   catch { write_mem_info -force bcd2led7seg.mmi }
   write_bitstream -force bcd2led7seg.bit 
   catch {write_debug_probes -quiet -force bcd2led7seg}
