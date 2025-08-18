@@ -1,0 +1,102 @@
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
+| Date         : Mon Aug 18 11:34:27 2025
+| Host         : Datdatnguyen running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file bcd2led7seg_top_control_sets_placed.rpt
+| Design       : bcd2led7seg_top
+| Device       : xc7a100t
+--------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    24 |
+|    Minimum number of control sets                        |    24 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    53 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    24 |
+| >= 0 to < 4        |     0 |
+| >= 4 to < 6        |     3 |
+| >= 6 to < 8        |     0 |
+| >= 8 to < 10       |     0 |
+| >= 10 to < 12      |     0 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     0 |
+| >= 16              |    21 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |               5 |            1 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |             562 |          160 |
+| Yes          | No                    | No                     |               4 |            2 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |               0 |            0 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++------------------+----------------------------+------------------------------------------------+------------------+----------------+
+|   Clock Signal   |        Enable Signal       |                Set/Reset Signal                | Slice Load Count | Bel Load Count |
++------------------+----------------------------+------------------------------------------------+------------------+----------------+
+|  I_clk_IBUF_BUFG | u_ssc/O_bcd_out[3]_i_1_n_0 |                                                |                2 |              4 |
+|  I_clk_IBUF_BUFG |                            |                                                |                1 |              5 |
+|  I_clk_IBUF_BUFG |                            | u_ssc/O_anode[4]_i_1_n_0                       |                1 |              5 |
+|  I_clk_IBUF_BUFG |                            | u_ssc/R_pwm_counter[0]_i_1_n_0                 |                5 |             17 |
+|  I_clk_IBUF_BUFG |                            | GEN_SW_DB[10].u_db_sw/R_counter[0]_i_1__11_n_0 |                6 |             22 |
+|  I_clk_IBUF_BUFG |                            | GEN_SW_DB[11].u_db_sw/R_counter[0]_i_1__12_n_0 |                6 |             22 |
+|  I_clk_IBUF_BUFG |                            | GEN_SW_DB[5].u_db_sw/R_counter[0]_i_1__6_n_0   |                6 |             22 |
+|  I_clk_IBUF_BUFG |                            | GEN_SW_DB[6].u_db_sw/R_counter[0]_i_1__7_n_0   |                6 |             22 |
+|  I_clk_IBUF_BUFG |                            | GEN_SW_DB[7].u_db_sw/R_counter[0]_i_1__8_n_0   |                6 |             22 |
+|  I_clk_IBUF_BUFG |                            | GEN_SW_DB[8].u_db_sw/R_counter[0]_i_1__9_n_0   |                6 |             22 |
+|  I_clk_IBUF_BUFG |                            | GEN_SW_DB[9].u_db_sw/R_counter[0]_i_1__10_n_0  |                6 |             22 |
+|  I_clk_IBUF_BUFG |                            | u_db_dn/R_counter[0]_i_1__0_n_0                |                6 |             22 |
+|  I_clk_IBUF_BUFG |                            | u_db_up/R_counter[0]_i_1_n_0                   |                6 |             22 |
+|  I_clk_IBUF_BUFG |                            | GEN_SW_DB[0].u_db_sw/R_counter[0]_i_1__1_n_0   |                6 |             22 |
+|  I_clk_IBUF_BUFG |                            | GEN_SW_DB[1].u_db_sw/R_counter[0]_i_1__2_n_0   |                6 |             22 |
+|  I_clk_IBUF_BUFG |                            | GEN_SW_DB[2].u_db_sw/R_counter[0]_i_1__3_n_0   |                6 |             22 |
+|  I_clk_IBUF_BUFG |                            | GEN_SW_DB[3].u_db_sw/R_counter[0]_i_1__4_n_0   |                6 |             22 |
+|  I_clk_IBUF_BUFG |                            | GEN_SW_DB[4].u_db_sw/R_counter[0]_i_1__5_n_0   |                6 |             22 |
+|  I_clk_IBUF_BUFG |                            | GEN_SW_DB[12].u_db_sw/R_counter[0]_i_1__13_n_0 |                6 |             22 |
+|  I_clk_IBUF_BUFG |                            | GEN_SW_DB[13].u_db_sw/R_counter[0]_i_1__14_n_0 |                6 |             22 |
+|  I_clk_IBUF_BUFG |                            | GEN_SW_DB[14].u_db_sw/R_counter[0]_i_1__15_n_0 |                6 |             22 |
+|  I_clk_IBUF_BUFG |                            | GEN_SW_DB[15].u_db_sw/R_counter[0]_i_1__16_n_0 |                6 |             22 |
+|  I_clk_IBUF_BUFG |                            | u_ssc/O_bcd_out[3]_i_1_n_0                     |                6 |             24 |
+|  I_clk_IBUF_BUFG |                            | I_rst_IBUF                                     |               40 |            120 |
++------------------+----------------------------+------------------------------------------------+------------------+----------------+
+
+

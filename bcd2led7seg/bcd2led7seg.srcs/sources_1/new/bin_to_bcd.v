@@ -1,34 +1,60 @@
 module bin_to_bcd(
-    input  wire [14:0] data,
-    output reg  [3:0]  bit0, bit1, bit2, bit3, bit4, // LSD -> MSD
-    output reg  [19:0] BCD                            // {bit4,bit3,bit2,bit1,bit0}
-);
-    integer i;
-    reg [34:0] shift_reg;  // {BCD[19:0], BIN[14:0]} - shift reg to shift BIN to BCD
+    input  wire        I_clk,
+    input  wire        I_rst,
+    input  wire [14:0] I_data,
+    output reg  [3:0]  O_bit0,  // LSD
+    output reg  [3:0]  O_bit1,
+    output reg  [3:0]  O_bit2,
+    output reg  [3:0]  O_bit3,
+    output reg  [3:0]  O_bit4,  // MSD
+    output reg  [19:0] O_BCD    // {O_bit4,O_bit3,O_bit2,O_bit1,O_bit0}
+  );
+  integer i;
+  reg [34:0] R_shift;  // {BCD[19:0], BIN[14:0]}
 
-    always @* begin
-        // init with BCD = 0 and BIN = data
-        shift_reg = {20'd0, data};
-
-        // Repeat 15 times with each bit of the input
-        for (i = 0; i < 15; i = i + 1) begin
-            // Add-3 for each nibble if >= 5
-            if (shift_reg[18:15] >= 5) shift_reg[18:15] = shift_reg[18:15] + 4'd3;
-            if (shift_reg[22:19] >= 5) shift_reg[22:19] = shift_reg[22:19] + 4'd3;
-            if (shift_reg[26:23] >= 5) shift_reg[26:23] = shift_reg[26:23] + 4'd3;
-            if (shift_reg[30:27] >= 5) shift_reg[30:27] = shift_reg[30:27] + 4'd3;
-            if (shift_reg[34:31] >= 5) shift_reg[34:31] = shift_reg[34:31] + 4'd3;
-
-            // Shift left 1 bit for all the reg
-            shift_reg = shift_reg << 1;
-        end
-
-        // Get the BCD output 
-        BCD  = shift_reg[34:15];     // All the BCD reg
-        bit0 = shift_reg[18:15];     // 10^0
-        bit1 = shift_reg[22:19];     // 10^1
-        bit2 = shift_reg[26:23];     // 10^2
-        bit3 = shift_reg[30:27];     // 10^3
-        bit4 = shift_reg[34:31];     // 10^4
+  always @(posedge I_clk)
+  begin
+    if (I_rst)
+    begin
+      O_bit0  <= 4'd0;
+      O_bit1  <= 4'd0;
+      O_bit2  <= 4'd0;
+      O_bit3  <= 4'd0;
+      O_bit4  <= 4'd0;
+      O_BCD   <= 20'd0;
+      R_shift <= 35'd0;
     end
+    else
+    begin
+      // Khởi tạo: BCD = 0, BIN = I_data
+      R_shift = {20'd0, I_data};
+
+      // Double-Dabble: lặp 15 lần cho 15 bit nhị phân
+      for (i = 0; i < 15; i = i + 1)
+      begin
+        // Cộng 3 cho từng nibble BCD nếu >= 5
+        if (R_shift[34:31] >= 5)
+          R_shift[34:31] = R_shift[34:31] + 4'd3; // digit 4 (MSD)
+        if (R_shift[30:27] >= 5)
+          R_shift[30:27] = R_shift[30:27] + 4'd3; // digit 3
+        if (R_shift[26:23] >= 5)
+          R_shift[26:23] = R_shift[26:23] + 4'd3; // digit 2
+        if (R_shift[22:19] >= 5)
+          R_shift[22:19] = R_shift[22:19] + 4'd3; // digit 1
+        if (R_shift[18:15] >= 5)
+          R_shift[18:15] = R_shift[18:15] + 4'd3; // digit 0 (LSD)
+
+        // Dịch trái 1 bit (đưa dần các bit BIN vào vùng BCD)
+        R_shift = R_shift << 1;
+      end
+
+      // Chốt kết quả ra cổng
+      O_BCD  <= R_shift[34:15];  // toàn bộ 5 nibble BCD
+      O_bit4 <= R_shift[34:31];  // MSD
+      O_bit3 <= R_shift[30:27];
+      O_bit2 <= R_shift[26:23];
+      O_bit1 <= R_shift[22:19];
+      O_bit0 <= R_shift[18:15];  // LSD
+    end
+  end
 endmodule

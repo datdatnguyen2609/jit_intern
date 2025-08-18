@@ -1,7 +1,7 @@
-Running: xsim.dir/bcd2led7seg_tb_behav/xsimk.exe -simmode gui -wdb bcd2led7seg_tb_behav.wdb -simrunnum 0 -socket 51888
+Running: xsim.dir/bcd2led7seg_tb_behav/xsimk.exe -simmode gui -wdb bcd2led7seg_tb_behav.wdb -simrunnum 0 -socket 53209
 Design successfully loaded
-Design Loading Memory Usage: 7868 KB (Peak: 7868 KB)
+Design Loading Memory Usage: 7888 KB (Peak: 7888 KB)
 Design Loading CPU Usage: 15 ms
 Simulation completed
-Simulation Memory Usage: 8716 KB (Peak: 8716 KB)
-Simulation CPU Usage: 30 ms
+Simulation Memory Usage: 8608 KB (Peak: 8608 KB)
+Simulation CPU Usage: 61 ms

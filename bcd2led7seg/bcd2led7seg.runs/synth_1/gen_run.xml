@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1755239981">
-  <File Type="PA-TCL" Name="bcd2led7seg.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="bcd2led7seg_drc_synth.rpt"/>
-  <File Type="REPORTS-TCL" Name="bcd2led7seg_reports.tcl"/>
-  <File Type="RDS-RDS" Name="bcd2led7seg.vds"/>
-  <File Type="RDS-UTIL" Name="bcd2led7seg_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="bcd2led7seg_utilization_synth.pb"/>
-  <File Type="RDS-DCP" Name="bcd2led7seg.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="bcd2led7seg_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="bcd2led7seg_timing_summary_synth.pb"/>
+<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1755491552">
+  <File Type="PA-TCL" Name="bcd2led7seg_top.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="bcd2led7seg_top_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="bcd2led7seg_top_reports.tcl"/>
+  <File Type="RDS-RDS" Name="bcd2led7seg_top.vds"/>
+  <File Type="RDS-UTIL" Name="bcd2led7seg_top_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="bcd2led7seg_top_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="bcd2led7seg_top.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="bcd2led7seg_top_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="bcd2led7seg_top_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/bin_to_bcd.v">
@@ -39,7 +39,7 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/bcd2led7seg.v">
+    <File Path="$PSRCDIR/sources_1/new/bcd2led7seg_top.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -48,7 +48,7 @@
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="bcd2led7seg"/>
+      <Option Name="TopModule" Val="bcd2led7seg_top"/>
       <Option Name="TopAutoSet" Val="TRUE"/>
     </Config>
   </FileSet>

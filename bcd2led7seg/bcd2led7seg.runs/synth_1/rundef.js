@@ -23,7 +23,7 @@ eval( EAInclude(ISEJScriptLib) );
 
 
 ISEStep( "vivado",
-         "-log bcd2led7seg.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source bcd2led7seg.tcl" );
+         "-log bcd2led7seg_top.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source bcd2led7seg_top.tcl" );
 
 
 

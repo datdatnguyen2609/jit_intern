@@ -2,11 +2,11 @@
 # Vivado v2019.2 (64-bit)
 # SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
 # IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
-# Start of session at: Fri Aug 15 13:39:44 2025
-# Process ID: 10128
+# Start of session at: Mon Aug 18 11:32:34 2025
+# Process ID: 22516
 # Current directory: C:/Users/datda/Downloads/jit_intern/bcd2led7seg/bcd2led7seg.runs/synth_1
-# Command line: vivado.exe -log bcd2led7seg.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source bcd2led7seg.tcl
-# Log file: C:/Users/datda/Downloads/jit_intern/bcd2led7seg/bcd2led7seg.runs/synth_1/bcd2led7seg.vds
+# Command line: vivado.exe -log bcd2led7seg_top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source bcd2led7seg_top.tcl
+# Log file: C:/Users/datda/Downloads/jit_intern/bcd2led7seg/bcd2led7seg.runs/synth_1/bcd2led7seg_top.vds
 # Journal file: C:/Users/datda/Downloads/jit_intern/bcd2led7seg/bcd2led7seg.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
-source bcd2led7seg.tcl -notrace
+source bcd2led7seg_top.tcl -notrace
