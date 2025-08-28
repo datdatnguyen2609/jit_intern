@@ -1,0 +1,143 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Thu Aug 21 08:24:04 2025
+# Process ID: 1916
+# Current directory: C:/Users/datda/Downloads/jit_intern/bcd2led7seg
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent9956 C:\Users\datda\Downloads\jit_intern\bcd2led7seg\bcd2led7seg.xpr
+# Log file: C:/Users/datda/Downloads/jit_intern/bcd2led7seg/vivado.log
+# Journal file: C:/Users/datda/Downloads/jit_intern/bcd2led7seg\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/datda/Downloads/jit_intern/bcd2led7seg/bcd2led7seg.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/FPGA/Xilinx_install/Vivado/2019.2/data/ip'.
+open_project: Time (s): cpu = 00:00:15 ; elapsed = 00:00:12 . Memory (MB): peak = 902.223 ; gain = 273.867
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+add_files -fileset sim_1 -norecurse C:/Users/datda/Downloads/jit_intern/bcd2led7seg/bcd2led7seg.srcs/sim_1/new/seven_seg_controller_tb.v
+set_property top seven_seg_controller_tb [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/datda/Downloads/jit_intern/bcd2led7seg/bcd2led7seg.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'seven_seg_controller_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/datda/Downloads/jit_intern/bcd2led7seg/bcd2led7seg.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj seven_seg_controller_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/datda/Downloads/jit_intern/bcd2led7seg/bcd2led7seg.srcs/sources_1/new/bin_to_bcd.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module bin_to_bcd
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/datda/Downloads/jit_intern/bcd2led7seg/bcd2led7seg.srcs/sources_1/new/debouncing.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module debounce
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/datda/Downloads/jit_intern/bcd2led7seg/bcd2led7seg.srcs/sources_1/new/seven_seg_controller.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module seven_seg_controller
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/datda/Downloads/jit_intern/bcd2led7seg/bcd2led7seg.srcs/sources_1/new/seven_seg_converter.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module seven_seg_converter
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/datda/Downloads/jit_intern/bcd2led7seg/bcd2led7seg.srcs/sources_1/new/bcd2led7seg_top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module bcd2led7seg_top
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/datda/Downloads/jit_intern/bcd2led7seg/bcd2led7seg.srcs/sim_1/new/bcd2led7seg_top_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module bcd2led7seg_top_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/datda/Downloads/jit_intern/bcd2led7seg/bcd2led7seg.srcs/sim_1/new/seven_seg_controller_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module seven_seg_controller_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/datda/Downloads/jit_intern/bcd2led7seg/bcd2led7seg.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [USF-XSim-69] 'compile' step finished in '4' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/datda/Downloads/jit_intern/bcd2led7seg/bcd2led7seg.sim/sim_1/behav/xsim'
+"xelab -wto 59997ecdb3f14f2599e6379b413c0314 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot seven_seg_controller_tb_behav xil_defaultlib.seven_seg_controller_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: E:/FPGA/Xilinx_install/Vivado/2019.2/bin/unwrapped/win64.o/xelab.exe -wto 59997ecdb3f14f2599e6379b413c0314 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot seven_seg_controller_tb_behav xil_defaultlib.seven_seg_controller_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "C:/Users/datda/Downloads/jit_intern/bcd2led7seg/bcd2led7seg.srcs/sources_1/new/seven_seg_controller.v" Line 1. Module seven_seg_controller(CLK_FREQ=1000000) doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.seven_seg_controller(CLK_FREQ=10...
+Compiling module xil_defaultlib.seven_seg_controller_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot seven_seg_controller_tb_behav
+
+****** Webtalk v2019.2 (64-bit)
+  **** SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+  **** IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source C:/Users/datda/Downloads/jit_intern/bcd2led7seg/bcd2led7seg.sim/sim_1/behav/xsim/xsim.dir/seven_seg_controller_tb_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Thu Aug 21 08:56:36 2025...
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 951.223 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '8' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/datda/Downloads/jit_intern/bcd2led7seg/bcd2led7seg.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "seven_seg_controller_tb_behav -key {Behavioral:sim_1:Functional:seven_seg_controller_tb} -tclbatch {seven_seg_controller_tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+source seven_seg_controller_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'seven_seg_controller_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:10 ; elapsed = 00:00:18 . Memory (MB): peak = 961.535 ; gain = 10.312
+run 10 ms
+=== TEST: Fast scanning (240 Hz) ===
+=== TEST: Slow scanning (2 Hz) ===
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+set_property top bcd2led7seg_top_tb [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/datda/Downloads/jit_intern/bcd2led7seg/bcd2led7seg.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'bcd2led7seg_top_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/datda/Downloads/jit_intern/bcd2led7seg/bcd2led7seg.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj bcd2led7seg_top_tb_vlog.prj"
+INFO: [Common 17-41] Interrupt caught. Command should exit soon.
+run_program: Time (s): cpu = 00:00:13 ; elapsed = 00:07:27 . Memory (MB): peak = 1051.141 ; gain = 0.000
+INFO: [Common 17-344] 'run_program' was cancelled
+INFO: [Vivado 12-5357] 'compile' step aborted
+launch_simulation: Time (s): cpu = 00:00:13 ; elapsed = 00:07:27 . Memory (MB): peak = 1051.141 ; gain = 0.000
+INFO: [Common 17-344] 'launch_simulation' was cancelled
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/datda/Downloads/jit_intern/bcd2led7seg/bcd2led7seg.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'bcd2led7seg_top_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/datda/Downloads/jit_intern/bcd2led7seg/bcd2led7seg.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj bcd2led7seg_top_tb_vlog.prj"
+INFO: [Common 17-41] Interrupt caught. Command should exit soon.
+run_program: Time (s): cpu = 00:00:03 ; elapsed = 00:01:32 . Memory (MB): peak = 1051.141 ; gain = 0.000
+INFO: [Common 17-344] 'run_program' was cancelled
+INFO: [Vivado 12-5357] 'compile' step aborted
+launch_simulation: Time (s): cpu = 00:00:03 ; elapsed = 00:01:32 . Memory (MB): peak = 1051.141 ; gain = 0.000
+INFO: [Common 17-344] 'launch_simulation' was cancelled
+exit
+INFO: [Common 17-206] Exiting Vivado at Thu Aug 21 09:28:46 2025...

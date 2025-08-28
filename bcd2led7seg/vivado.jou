@@ -2,32 +2,12 @@
 # Vivado v2019.2 (64-bit)
 # SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
 # IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
-# Start of session at: Thu Aug 21 08:24:04 2025
-# Process ID: 1916
+# Start of session at: Thu Aug 28 08:46:07 2025
+# Process ID: 12484
 # Current directory: C:/Users/datda/Downloads/jit_intern/bcd2led7seg
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent9956 C:\Users\datda\Downloads\jit_intern\bcd2led7seg\bcd2led7seg.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent8476 C:\Users\datda\Downloads\jit_intern\bcd2led7seg\bcd2led7seg.xpr
 # Log file: C:/Users/datda/Downloads/jit_intern/bcd2led7seg/vivado.log
 # Journal file: C:/Users/datda/Downloads/jit_intern/bcd2led7seg\vivado.jou
 #-----------------------------------------------------------
 start_gui
 open_project C:/Users/datda/Downloads/jit_intern/bcd2led7seg/bcd2led7seg.xpr
-set_property SOURCE_SET sources_1 [get_filesets sim_1]
-add_files -fileset sim_1 -norecurse C:/Users/datda/Downloads/jit_intern/bcd2led7seg/bcd2led7seg.srcs/sim_1/new/seven_seg_controller_tb.v
-# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
-set_property source_mgmt_mode None [current_project]
-set_property top seven_seg_controller_tb [get_filesets sim_1]
-set_property top_lib xil_defaultlib [get_filesets sim_1]
-# Re-enabling previously disabled source management mode.
-set_property source_mgmt_mode DisplayOnly [current_project]
-launch_simulation
-source seven_seg_controller_tb.tcl
-run 10 ms
-close_sim
-# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
-set_property source_mgmt_mode None [current_project]
-set_property top bcd2led7seg_top_tb [get_filesets sim_1]
-set_property top_lib xil_defaultlib [get_filesets sim_1]
-# Re-enabling previously disabled source management mode.
-set_property source_mgmt_mode DisplayOnly [current_project]
-launch_simulation
-launch_simulation
