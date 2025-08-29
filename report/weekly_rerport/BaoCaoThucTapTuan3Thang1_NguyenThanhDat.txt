@@ -1,0 +1,13 @@
+Tên dự án: Thực tập 2025 - Tuần 3 - Tháng 1: Tiến độ 20% / Thời hạn: 11/2025
+Người thực hiện: Nguyễn Thành Đạt
+	- LED 7 thanh và SW: 13-14/8/2025 → 100% 	
+	- Thiết kế giao tiếp đọc cảm biến nhiệt độ (ADT7420) qua giao tiếp I2C. Kết quả nhiệt độ hiển thị lên led 7 thanh: 18-29/8/2025 - Tiến độ 20% (tìm hiểu giao thức truyền thông I2C và vẽ sơ đồ khối hoạt động)
+	Dự kiến hoàn thành 29/8/2025
+- Chi tiết:
+	+ Học hỏi thêm được kĩ năng viết báo cáo kỹ thuật cho 1 thiết kế chi tiết, cụ thể theo các bước
+	+ Kĩ năng vẽ các sơ đồ sóng, sơ đồ tư duy
+	+ Nghiên cứu phương pháp hoạt động của 1 giao thức truyền thông
+
+- Vấn đề: 
+	+ Bổ sung thêm kĩ năng sử dụng Visio và Excel
+	+ Phương pháp viết Testbench

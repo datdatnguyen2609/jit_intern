@@ -1,0 +1,14 @@
+Tên dự án: Thực tập 2025 - Tuần 2 - Tháng 1: Tiến độ 15% / Thời hạn: 11/2025
+Người thực hiện: Nguyễn Thành Đạt
+	- LED 7 thanh và SW: 13-14/8/2025 → 90% (Đang thêm khối PWM để có thể tăng giảm độ sáng cho các LED 7 thanh) 
+	Dự kiến hoàn thành 18/8/2025
+	- Thiết kế giao tiếp đọc cảm biến nhiệt độ (ADT7420) qua giao tiếp I2C. Kết quả nhiệt độ hiển thị lên led 7 thanh: 18-29/8/2025
+	Dự kiến hoàn thành 29/8/2025
+Chi tiết:
+- Phát triển được kĩ năng code theo các module đơn lẻ để dễ dàng tái sử dụng các module cũ, kết hợp với các Parameter để có thể chỉnh sửa các tham số 1 cách dễ dàng
+- Kĩ năng Debug, đặt tên biến 1 cách rõ ràng
+
+- Vấn đề: 
+	+ Bổ sung thêm các kĩ năng debug trên mạch thật, phải tư duy thêm để xử lý các bài toán trên FPGA.
+	+ Phải vẽ sơ đồ trước khi tiến hành code để thực hiện công việc 1 cách rõ ràng.
+	+ Cần hướng dẫn thêm về kỹ năng viết report.

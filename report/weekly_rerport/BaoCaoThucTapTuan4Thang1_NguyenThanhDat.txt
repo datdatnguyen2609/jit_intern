@@ -1,0 +1,14 @@
+Tên dự án: Thực tập 2025 - Tuần 4 - Tháng 1: Tiến độ 30% / Thời hạn: 11/2025
+Người thực hiện: Nguyễn Thành Đạt
+	- Sửa lại báo cáo bài xử lý LED 7 đoạn: 25 - 29/8/2025 → 85% (Tiếp tục sửa lại các vấn đề trong phần nhận xét của anh Tuấn) 
+	Dự kiến hoàn thành 29/8/2025
+	- Thiết kế giao tiếp đọc cảm biến nhiệt độ (ADT7420) qua giao tiếp I2C. Kết quả nhiệt độ hiển thị lên led 7 thanh: 18-29/8/2025 -> tiến độ 20% (triển khai sơ đồ khối, với khối xuất ra scl)
+	Dự kiến hoàn thành 10/9/2025
+=> Chi tiết:
+- Hoàn thiện được những vấn đề còn thiếu sót trong quá trình thực hiện báo cáo 
+- Nâng cao khả năng triển khai các bài toán lớn thành các module nhỏ
+- Thực hành nghiên cứu về khả năng triển khai in-out trên cùng 1 cổng giao tiếp 
+
+=> Vấn đề: 
+- Cần hướng dẫn thêm về kỹ năng viết testbench.
+- Bổ sung thêm về kĩ năng làm report

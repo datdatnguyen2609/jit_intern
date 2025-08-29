@@ -1,0 +1,19 @@
+Tên dự án: Thực tập 2025 - Tuần 1 - Tháng 1: Tiến độ 10% / Thời hạn: 11/2025
+Người thực hiện: Nguyễn Thành Đạt
+	- Tìm hiểu các cổng Logic, DFF, Các dạng bài tập: 6/8/2025　→ 100% (Hoàn thành) 　
+	Thực tế: 5/8/2025
+	- Giải các dạng bài tập: 8/8/2025 → 100% (Hoàn thành) 　
+	Thực tế: 6/8/2025
+	- Hướng dẫn download và cài đặt Vivado: 11/8/2025 → 100% (Hoàn thành) 
+	Thực tế: 7/8/2025
+	- Làm quen GPIO, SW và LED, tạo file .xdc: 12/8/2025　→ 100% (Hoàn thành)
+	Thực tế: 7/8/2025
+	- LED 7 thanh và SW: 13-14/8/2025 → 60% (Đang triển khai các module biến đổi từ số binary sang các số decimal) 
+	Dự kiến hoàn thành 11/8/2025
+
+Chi tiết:
+- Hoàn thành tốt so với tiến độ đề ra, do đã có sự chuẩn bị trước cho các nội dung cần triển khai.
+- Hiểu về thiết bị, datasheet của kit FPGA NEXYS A7-100T, cũng như là phần mềm Vivado Design Suite.
+- Vấn đề: 
+	+ Cần trao đổi thêm về các kĩ năng debug, kiểm soát các tín hiêu để nhanh chóng khắc phục các lỗi.
+	+ Mong muốn học hỏi thêm các mẹo để có thể code 1 cách chuẩn xác.
