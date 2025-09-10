@@ -2,17 +2,13 @@
 # Vivado v2019.2 (64-bit)
 # SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
 # IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
-# Start of session at: Wed Sep 10 10:21:19 2025
-# Process ID: 12012
+# Start of session at: Thu Sep  4 09:03:20 2025
+# Process ID: 11436
 # Current directory: C:/Users/datda/Downloads/jit_intern/i2c_controller
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent17088 C:\Users\datda\Downloads\jit_intern\i2c_controller\i2c_controller.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent6452 C:\Users\datda\Downloads\jit_intern\i2c_controller\i2c_controller.xpr
 # Log file: C:/Users/datda/Downloads/jit_intern/i2c_controller/vivado.log
 # Journal file: C:/Users/datda/Downloads/jit_intern/i2c_controller\vivado.jou
 #-----------------------------------------------------------
 start_gui
 open_project C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.xpr
 update_compile_order -fileset sources_1
-launch_simulation
-source scl_gen_tb.tcl
-run 10 us
-close_sim
