@@ -2,7 +2,7 @@
 
 module scl_gen#(
     parameter integer CLK_FREQ = 100_000_000,
-    parameter integer SCL_FREQ = 100_000
+    parameter integer SCL_FREQ = 200_000
 )(
     input  wire I_CLK,
     input  wire I_RST,
