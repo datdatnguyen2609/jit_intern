@@ -1,0 +1,14 @@
+Tên dự án: Thực tập FPGA Tên dự án: Thực tập 2025 - Tuần 2 - Tháng 2: Tiến độ 35% / Thời hạn: 12/2025
+Người thực hiện: Nguyễn Thành Đạt
+Tìm hiểu về giao tiếp I2C: 			Thời gian 18–29/08/2025 	– Tiến độ 80% (tìm hiểu timing diagram, các khối chức năng)	– Dự kiến hoàn thành 19/09/2025 – Thực tại 10/09/2025
+Thiết kế RTL cho giao tiếp I2C: 		Thời gian 8/9 – 12/9		– Tiến độ 80% 							– Dự kiến hoàn thành 15/09/2025 
+Thiết kế RTL đọc cảm biến nhiệt độ: 		Thời gian 8/9 – 12/09 		– Tiến độ 30% (triển khai SDA, tìm hiểu lý thuyết open drain) 	– Dự kiến hoàn thành 19/09/2025
+Kết quả hiển thị lên LED 7 thanh: 		Thời gian -/-  			– Tiến độ 0% 							– Dự kiến hoàn thành 22/09/2025 
+Sử dụng SW và BTN cho chức năng Write/Read: 	Thời gian -/-  			– Tiến độ 0% 							– Dự kiến hoàn thành 25/09/2025 
+Làm báo cáo và tài liệu thiết kế: 		Thời gian -/- 			– Tiến độ 0% 							– Dự kiến hoàn thành 25/09/2025 
++ Phát triển thêm về cách thao tác với FSM có nhiều bước.
++ Áp dụng các lý thuyết open-drain vào code.
++ Nâng cao khả năng đọc hiểu tài liệu datasheet của cảm biến.
+- Vấn đề: 
++ Xử lý quá nhiều tín hiệu nên hơi rối. (FSM hơi nhiều stage, đã note lại ra giấy để hiểu hơn về FSM)
++ Cần hệ thống hóa code rõ ràng hơn. (Sử dụng comment để tách các khối)
