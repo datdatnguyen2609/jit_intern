@@ -1,14 +1,8 @@
 Vivado Simulator 2019.2
 Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
-Running: E:/FPGA/Xilinx_install/Vivado/2019.2/bin/unwrapped/win64.o/xelab.exe -wto bd3ea96680974ebf88e6e6598e2bb076 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot scl_gen_tb_behav xil_defaultlib.scl_gen_tb xil_defaultlib.glbl -log elaborate.log 
+Running: D:/App_FPGA/Vivado/2019.2/bin/unwrapped/win64.o/xelab.exe -wto bd3ea96680974ebf88e6e6598e2bb076 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot i2c_master_tb_behav xil_defaultlib.i2c_master_tb xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
 Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling module xil_defaultlib.scl_gen_default
-Compiling module xil_defaultlib.scl_gen_tb
-Compiling module xil_defaultlib.glbl
-Built simulation snapshot scl_gen_tb_behav
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel

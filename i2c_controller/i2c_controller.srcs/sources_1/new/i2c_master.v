@@ -1,294 +1,385 @@
-module i2c_master (
-    input i_CLK,
-    input i_RST,
-    inout io_SDA,
-    output [7:0] o_temp_data,
-    output o_SDA_dir,
-    output o_SCL
-  );
-  //==========================================================
-  // Khai bao bien
-  reg [3:0] r_counter = 4'b0;
-  reg r_subCLK = 1'b1;
+`timescale 1ns/1ps
+// ===================================================================
+// I2C Master (Open-Drain) - sync-only reset, single-if style per state
+// - START / RESTART / STOP
+// - Write 1 register, optional Read N bytes (0 => write only)
+// - NACK detect, busy/done flags
+// - Read stream: (o_rd_valid, o_rd_data)
+// ===================================================================
+module i2c_master #(
+  parameter integer CLK_HZ = 100_000_000,
+  parameter integer SCL_HZ = 100_000
+)(
+  input  wire        i_clk,
+  input  wire        i_rst_n,        // sync active-low reset
 
-  //==========================================================
-  // Tao subclk
-  always @(posedge i_CLK)
-  begin
-    if (i_RST)
-    begin
-      r_counter <= 4'b0;
-      r_subCLK <= 1'b0;
-    end
-  end
-  else
-    if (r_counter == 9)
-    begin
-      r_counter <= 4'd0;
-      r_subCLK <= ~r_subCLK;
-    end
-    else
-      r_counter <= r_counter + 1;
-  assign o_SCL = r_subCLK;
+  // Request (pulse i_start for 1 clk)
+  input  wire        i_start,
+  input  wire [6:0]  i_dev_addr,
+  input  wire [7:0]  i_reg_addr,
+  input  wire [7:0]  i_wr_data,
+  input  wire [7:0]  i_read_len,
 
-  //===========================================================
-  // Khai bao bien MSB, LSB de nhan du lieu
-  parameter [7:0] address_plus_read = 8'h97;
-  reg [7:0] r_MSB = 8'b0;
-  reg [7:0] r_LSB = 8'b0;
-  reg r_obit = 1'b1;
-  reg [11:0] r_count = 12'b0;
-  reg [7:0] r_temp_data
-      //===========================================================
-      // Khai bao FSM
-      localparam [4:0] POWER_UP   = 5'h00,
-      START      = 5'h01,
-      SEND_ADDR6 = 5'h02,
-      SEND_ADDR5 = 5'h03,
-      SEND_ADDR4 = 5'h04,
-      SEND_ADDR3 = 5'h05,
-      SEND_ADDR2 = 5'h06,
-      SEND_ADDR1 = 5'h07,
-      SEND_ADDR0 = 5'h08,
-      SEND_RW    = 5'h09,
-      REC_ACK    = 5'h0A,
-      REC_MSB7   = 5'h0B,
-      REC_MSB6	= 5'h0C,
-      REC_MSB5	= 5'h0D,
-      REC_MSB4	= 5'h0E,
-      REC_MSB3	= 5'h0F,
-      REC_MSB2	= 5'h10,
-      REC_MSB1	= 5'h11,
-      REC_MSB0	= 5'h12,
-      SEND_ACK   = 5'h13,
-      REC_LSB7   = 5'h14,
-      REC_LSB6	= 5'h15,
-      REC_LSB5	= 5'h16,
-      REC_LSB4	= 5'h17,
-      REC_LSB3	= 5'h18,
-      REC_LSB2	= 5'h19,
-      REC_LSB1	= 5'h1A,
-      REC_LSB0	= 5'h1B,
-      NACK       = 5'h1C;
+  // Status / result
+  output reg         o_busy,
+  output reg         o_done,
+  output reg         o_nack,
 
-  reg [4:0] r_stage = POWER_UP;
-  //===========================================================
-  //
-  always @(posedge i_CLK)
-  begin
-    if (i_RST)
-    begin
-      r_stage <= START;
-      r_count <= 12'd2000;
-    end
-    else
-    begin
-      r_count <= r_count + 1;
-      case (r_stage)
-        POWER_UP    :
-        begin
-          if(r_count == 12'd1999)
-            r_state <= START;
-        end
-        START       :
-        begin
-          if(r_count == 12'd2004)
-            r_obit <= 1'b0;          // send START condition 1/4 clock after SCL goes high
-          if(r_count == 12'd2013)
-            r_state <= SEND_ADDR6;
-        end
-        SEND_ADDR6  :
-        begin
-          r_obit <= sensor_address_plus_read[7];
-          if(r_count == 12'd2033)
-            r_state <= SEND_ADDR5;
-        end
-        SEND_ADDR5  :
-        begin
-          r_obit <= sensor_address_plus_read[6];
-          if(r_count == 12'd2053)
-            r_state <= SEND_ADDR4;
-        end
-        SEND_ADDR4  :
-        begin
-          r_obit <= sensor_address_plus_read[5];
-          if(r_count == 12'd2073)
-            r_state <= SEND_ADDR3;
-        end
-        SEND_ADDR3  :
-        begin
-          r_obit <= sensor_address_plus_read[4];
-          if(r_count == 12'd2093)
-            r_state <= SEND_ADDR2;
-        end
-        SEND_ADDR2  :
-        begin
-          r_obit <= sensor_address_plus_read[3];
-          if(r_count == 12'd2113)
-            r_state <= SEND_ADDR1;
-        end
-        SEND_ADDR1  :
-        begin
-          r_obit <= sensor_address_plus_read[2];
-          if(r_count == 12'd2133)
-            r_state <= SEND_ADDR0;
-        end
-        SEND_ADDR0  :
-        begin
-          r_obit <= sensor_address_plus_read[1];
-          if(r_count == 12'd2153)
-            r_state <= SEND_RW;
-        end
-        SEND_RW     :
-        begin
-          r_obit <= sensor_address_plus_read[0];
-          if(r_count == 12'd2169)
-            r_state <= REC_ACK;
-        end
-        REC_ACK     :
-        begin
-          if(r_count == 12'd2189)
-            r_state <= REC_MSB7;
-        end
-        REC_MSB7     :
-        begin
-          r_MSB[7] <= i_bit;
-          if(r_count == 12'd2209)
-            r_state <= REC_MSB6;
+  // Read stream
+  output reg  [7:0]  o_rd_data,
+  output reg         o_rd_valid,
 
-        end
-        REC_MSB6     :
-        begin
-          r_MSB[6] <= i_bit;
-          if(r_count == 12'd2229)
-            r_state <= REC_MSB5;
+  // I2C bus (OPEN-DRAIN) - external pull-ups required
+  inout  wire        io_SDA,
+  inout  wire        io_SCL
+);
 
-        end
-        REC_MSB5     :
-        begin
-          r_MSB[5] <= i_bit;
-          if(r_count == 12'd2249)
-            r_state <= REC_MSB4;
+  // ========================= Open-Drain ============================
+  reg  r_sda_lo, r_scl_lo;     // 1 => pull LOW, 0 => release (Z)
+  assign io_SDA = r_sda_lo ? 1'b0 : 1'bz;
+  assign io_SCL = r_scl_lo ? 1'b0 : 1'bz;
 
-        end
-        REC_MSB4     :
-        begin
-          r_MSB[4] <= i_bit;
-          if(r_count == 12'd2269)
-            r_state <= REC_MSB3;
+  wire w_sda_in = io_SDA;      // sample SDA
+  wire w_scl_in = io_SCL;      // (clock stretching not handled)
 
-        end
-        REC_MSB3     :
-        begin
-          r_MSB[3] <= i_bit;
-          if(r_count == 12'd2289)
-            r_state <= REC_MSB2;
+  // ========================= Bit Phasing ===========================
+  localparam integer PHASES_PER_BIT      = 4;
+  localparam integer TICKS_PER_PHASE_INT = (CLK_HZ / (SCL_HZ * PHASES_PER_BIT));
+  localparam integer TICKS_PER_PHASE     = (TICKS_PER_PHASE_INT < 1) ? 1 : TICKS_PER_PHASE_INT;
+  localparam integer TICK_W              = (TICKS_PER_PHASE <= 1) ? 1 : $clog2(TICKS_PER_PHASE);
 
-        end
-        REC_MSB2     :
-        begin
-          r_MSB[2] <= i_bit;
-          if(r_count == 12'd2309)
-            r_state <= REC_MSB1;
+  reg [TICK_W-1:0] r_tick_cnt;
+  reg [1:0]        r_phase;      // 0..3
+  reg              r_phase_en;   // 1-clk pulse per phase advance
 
-        end
-        REC_MSB1     :
-        begin
-          r_MSB[1] <= i_bit;
-          if(r_count == 12'd2329)
-            r_state <= REC_MSB0;
+  // Pha d?ng c? ?? "single-if per state"
+  wire p0      = (r_phase == 2'd0);
+  wire p1      = (r_phase == 2'd1);
+  wire p2      = (r_phase == 2'd2);
+  wire p3      = (r_phase == 2'd3);
+  wire last_p  = p3;
 
-        end
-        REC_MSB0     :
-        begin
-          r_obit <= 1'b0;
-          r_MSB[0] <= i_bit;
-          if(r_count == 12'd2349)
-            r_state <= SEND_ACK;
+  // ========================= FSM ===============================
+  localparam [4:0]
+    ST_IDLE        = 5'd0,
+    ST_START_A     = 5'd1,
+    ST_ADDRW_BIT   = 5'd2,
+    ST_ADDRW_ACK   = 5'd3,
+    ST_REG_BIT     = 5'd4,
+    ST_REG_ACK     = 5'd5,
+    ST_RESTART_A   = 5'd6,
+    ST_RESTART_B   = 5'd7,
+    ST_ADDRR_BIT   = 5'd8,
+    ST_ADDRR_ACK   = 5'd9,
+    ST_READ_BIT    = 5'd10,
+    ST_READ_ACK    = 5'd11,
+    ST_DATAW_BIT   = 5'd12,
+    ST_DATAW_ACK   = 5'd13,
+    ST_STOP_A      = 5'd14,
+    ST_DONE        = 5'd16,
+    ST_ERROR       = 5'd17;
 
+  reg [4:0] r_state;
+
+  // Shift/Data regs
+  reg [7:0] r_shifter;
+  reg [2:0] r_bit_cnt;          // 7..0
+  reg [7:0] r_rd_byte;
+  reg [7:0] r_rd_target;        // latched i_read_len
+  reg [7:0] r_rd_idx;
+
+  // Latched inputs
+  reg [6:0] r_dev_addr_q;
+  reg [7:0] r_reg_addr_q;
+  reg [7:0] r_wr_data_q;
+
+  // ========================= Sequential Core =======================
+  always @(posedge i_clk) begin
+    // -------- default pulses --------
+    o_done     <= 1'b0;
+    o_rd_valid <= 1'b0;
+
+    // ======= synchronous reset =======
+    if (!i_rst_n) begin
+      // Phase generator
+      r_tick_cnt <= {TICK_W{1'b0}};
+      r_phase_en <= 1'b0;
+      r_phase    <= 2'd0;
+
+      // I2C lines (idle released -> HIGH via pull-ups)
+      r_sda_lo   <= 1'b0;
+      r_scl_lo   <= 1'b0;
+
+      // Outputs / flags
+      o_busy     <= 1'b0;
+      o_done     <= 1'b0;
+      o_nack     <= 1'b0;
+      o_rd_data  <= 8'h00;
+
+      // FSM/data
+      r_state      <= ST_IDLE;
+      r_shifter    <= 8'h00;
+      r_bit_cnt    <= 3'd7;
+      r_rd_byte    <= 8'h00;
+      r_rd_target  <= 8'd0;
+      r_rd_idx     <= 8'd0;
+      r_dev_addr_q <= 7'd0;
+      r_reg_addr_q <= 8'd0;
+      r_wr_data_q  <= 8'd0;
+
+    end else begin
+      // -------- phase tick --------
+      if (r_tick_cnt == TICKS_PER_PHASE-1) begin
+        r_tick_cnt <= {TICK_W{1'b0}};
+        r_phase_en <= 1'b1;
+      end else begin
+        r_tick_cnt <= r_tick_cnt + {{(TICK_W-1){1'b0}},1'b1};
+        r_phase_en <= 1'b0;
+      end
+
+      // -------- SCL waveform per phase (??ng b?) --------
+      if (r_phase_en) begin
+        // single-if theo pha: n?u không ph?i p0/p1/p3 thì gi? nguyên
+        if (p0 || p1 || p3) begin
+          r_scl_lo <= p0 ? 1'b1 : (p1 ? 1'b0 : 1'b1);
         end
-        SEND_ACK   :
-        begin
-          if(r_count == 12'd2369)
-            r_state <= REC_LSB7;
-        end
-        REC_LSB7    :
-        begin
-          r_LSB[7] <= i_bit;
-          if(r_count == 12'd2389)
-            r_state <= REC_LSB6;
-        end
-        REC_LSB6    :
-        begin
-          r_LSB[6] <= i_bit;
-          if(r_count == 12'd2409)
-            r_state <= REC_LSB5;
-        end
-        REC_LSB5    :
-        begin
-          r_LSB[5] <= i_bit;
-          if(r_count == 12'd2429)
-            r_state <= REC_LSB4;
-        end
-        REC_LSB4    :
-        begin
-          r_LSB[4] <= i_bit;
-          if(r_count == 12'd2449)
-            r_state <= REC_LSB3;
-        end
-        REC_LSB3    :
-        begin
-          r_LSB[3] <= i_bit;
-          if(r_count == 12'd2469)
-            r_state <= REC_LSB2;
-        end
-        REC_LSB2    :
-        begin
-          r_LSB[2] <= i_bit;
-          if(r_count == 12'd2489)
-            r_state <= REC_LSB1;
-        end
-        REC_LSB1    :
-        begin
-          r_LSB[1] <= i_bit;
-          if(r_count == 12'd2509)
-            r_state <= REC_LSB0;
-        end
-        REC_LSB0    :
-        begin
-          r_obit <= 1'b1;
-          r_LSB[0] <= i_bit;
-          if(r_count == 12'd2529)
-            r_state <= NACK;
-        end
-        NACK        :
-        begin
-          if(r_count == 12'd2559)
-          begin
-            r_count <= 12'd2000;
-            r_state <= START;
+      end
+
+      // -------------------- FSM --------------------
+      if (r_phase_en) begin
+        case (r_state)
+
+          // ===================== IDLE =====================
+          ST_IDLE: begin
+            // single-if per state
+            if (i_start) begin
+              o_busy       <= 1'b1;
+              o_nack       <= 1'b0;
+              r_dev_addr_q <= i_dev_addr;
+              r_reg_addr_q <= i_reg_addr;
+              r_wr_data_q  <= i_wr_data;
+              r_rd_target  <= i_read_len;
+              r_bit_cnt    <= 3'd7;
+              r_rd_idx     <= 8'd0;
+              r_sda_lo     <= 1'b1;          // START window (SCL high)
+              r_state      <= ST_START_A;
+              r_phase      <= 2'd0;          // re-align minor phase
+            end else begin
+              o_busy   <= 1'b0;
+              r_sda_lo <= 1'b0;              // release
+              r_scl_lo <= 1'b0;              // release
+            end
           end
-        end
-      endcase
+
+          // ===================== START ====================
+          ST_START_A: begin
+            if (last_p) begin
+              r_shifter <= {r_dev_addr_q,1'b0}; // addr + W
+              r_bit_cnt <= 3'd7;
+              r_state   <= ST_ADDRW_BIT;
+            end else begin
+              r_sda_lo <= 1'b1;               // keep SDA low across START
+            end
+          end
+
+          // ===== send 8 bits: (addr+W) =====
+          ST_ADDRW_BIT: begin
+            if (last_p) begin
+              r_shifter <= {r_shifter[6:0],1'b0};
+              r_state   <= (r_bit_cnt == 3'd0) ? ST_ADDRW_ACK : ST_ADDRW_BIT;
+              r_sda_lo  <= (r_bit_cnt == 3'd0) ? 1'b0 : r_sda_lo; // release for ACK
+              r_bit_cnt <= (r_bit_cnt == 3'd0) ? 3'd0 : (r_bit_cnt - 3'd1);
+            end else begin
+              // p0: drive MSB; các pha khác gi? nguyên
+              r_sda_lo <= p0 ? ~r_shifter[7] : r_sda_lo;
+            end
+          end
+
+          // ===== ACK after (addr+W) =====
+          ST_ADDRW_ACK: begin
+            if (last_p) begin
+              r_state   <= o_nack ? ST_ERROR : ST_REG_BIT;
+              r_shifter <= o_nack ? r_shifter : r_reg_addr_q;
+              r_bit_cnt <= o_nack ? r_bit_cnt : 3'd7;
+            end else begin
+              // p2 sample ACK; release SDA
+              o_nack  <= (p2 && (w_sda_in == 1'b1)) ? 1'b1 : o_nack;
+              r_sda_lo <= 1'b0;
+            end
+          end
+
+          // ===== send 8 bits: register address =====
+          ST_REG_BIT: begin
+            if (last_p) begin
+              r_shifter <= {r_shifter[6:0],1'b0};
+              r_state   <= (r_bit_cnt == 3'd0) ? ST_REG_ACK : ST_REG_BIT;
+              r_sda_lo  <= (r_bit_cnt == 3'd0) ? 1'b0 : r_sda_lo; // release for ACK
+              r_bit_cnt <= (r_bit_cnt == 3'd0) ? 3'd0 : (r_bit_cnt - 3'd1);
+            end else begin
+              r_sda_lo <= p0 ? ~r_shifter[7] : r_sda_lo;
+            end
+          end
+
+          // ===== ACK after register address =====
+          ST_REG_ACK: begin
+            if (last_p) begin
+              r_state   <= o_nack ? ST_ERROR :
+                           ((r_rd_target != 8'd0) ? ST_RESTART_A : ST_DATAW_BIT);
+              r_sda_lo  <= (o_nack) ? r_sda_lo :
+                           ((r_rd_target != 8'd0) ? 1'b1 : r_sda_lo); // prepare repeated START if read
+              r_shifter <= (o_nack || (r_rd_target != 8'd0)) ? r_shifter : r_wr_data_q;
+              r_bit_cnt <= (o_nack || (r_rd_target != 8'd0)) ? r_bit_cnt : 3'd7;
+            end else begin
+              o_nack  <= (p2 && (w_sda_in == 1'b1)) ? 1'b1 : o_nack;
+              r_sda_lo <= 1'b0;
+            end
+          end
+
+          // ===== RESTART =====
+          ST_RESTART_A: begin
+            if (last_p) begin
+              r_state <= ST_RESTART_B;
+            end else begin
+              r_sda_lo <= p1 ? 1'b1 : r_sda_lo; // hold low through window
+            end
+          end
+
+          ST_RESTART_B: begin
+            if (last_p) begin
+              r_shifter <= {r_dev_addr_q,1'b1}; // addr + R
+              r_bit_cnt <= 3'd7;
+              r_state   <= ST_ADDRR_BIT;
+            end else begin
+              r_sda_lo <= p0 ? ~r_shifter[7] : r_sda_lo;
+            end
+          end
+
+          // ===== send 8 bits: (addr+R) =====
+          ST_ADDRR_BIT: begin
+            if (last_p) begin
+              r_shifter <= {r_shifter[6:0],1'b0};
+              r_state   <= (r_bit_cnt == 3'd0) ? ST_ADDRR_ACK : ST_ADDRR_BIT;
+              r_sda_lo  <= (r_bit_cnt == 3'd0) ? 1'b0 : r_sda_lo; // release for ACK
+              r_bit_cnt <= (r_bit_cnt == 3'd0) ? 3'd0 : (r_bit_cnt - 3'd1);
+            end else begin
+              r_sda_lo <= p0 ? ~r_shifter[7] : r_sda_lo;
+            end
+          end
+
+          // ===== ACK after (addr+R) =====
+          ST_ADDRR_ACK: begin
+            if (last_p) begin
+              r_state   <= o_nack ? ST_ERROR : ST_READ_BIT;
+              r_bit_cnt <= o_nack ? r_bit_cnt : 3'd7;
+              r_rd_byte <= o_nack ? r_rd_byte : 8'h00;
+              r_rd_idx  <= o_nack ? r_rd_idx  : 8'd0;
+            end else begin
+              o_nack  <= (p2 && (w_sda_in == 1'b1)) ? 1'b1 : o_nack;
+              r_sda_lo <= 1'b0;
+            end
+          end
+
+          // ===== READ 8 bits =====
+          ST_READ_BIT: begin
+            if (last_p) begin
+              if (r_bit_cnt == 3'd0) begin
+                o_rd_data  <= r_rd_byte;
+                o_rd_valid <= 1'b1;
+                r_state    <= ST_READ_ACK;
+              end else begin
+                r_bit_cnt <= r_bit_cnt - 3'd1;
+              end
+            end else begin
+              // p0: release SDA for slave drive; p2: sample
+              r_sda_lo  <= p0 ? 1'b0 : r_sda_lo;
+              r_rd_byte <= p2 ? {r_rd_byte[6:0], w_sda_in} : r_rd_byte;
+            end
+          end
+
+          // ===== Master ACK/NACK =====
+          ST_READ_ACK: begin
+            if (last_p) begin
+              r_rd_idx <= r_rd_idx + 8'd1;
+              if (r_rd_idx + 8'd1 < r_rd_target) begin
+                r_bit_cnt <= 3'd7;
+                r_rd_byte <= 8'h00;
+                r_state   <= ST_READ_BIT;
+              end else begin
+                r_sda_lo  <= 1'b1;      // prepare STOP
+                r_state   <= ST_STOP_A;
+              end
+            end else begin
+              // p0: drive ACK(0) if còn ??c; NACK(1) n?u là byte cu?i
+              r_sda_lo <= p0 ? ((r_rd_idx + 8'd1 < r_rd_target) ? 1'b1 : 1'b0) : r_sda_lo;
+            end
+          end
+
+          // ===== WRITE data byte =====
+          ST_DATAW_BIT: begin
+            if (last_p) begin
+              r_shifter <= {r_shifter[6:0],1'b0};
+              r_state   <= (r_bit_cnt == 3'd0) ? ST_DATAW_ACK : ST_DATAW_BIT;
+              r_sda_lo  <= (r_bit_cnt == 3'd0) ? 1'b0 : r_sda_lo; // release for ACK
+              r_bit_cnt <= (r_bit_cnt == 3'd0) ? 3'd0 : (r_bit_cnt - 3'd1);
+            end else begin
+              r_sda_lo <= p0 ? ~r_shifter[7] : r_sda_lo;
+            end
+          end
+
+          ST_DATAW_ACK: begin
+            if (last_p) begin
+              if (o_nack) begin
+                r_state <= ST_ERROR;
+              end else begin
+                r_sda_lo <= 1'b1;                 // pull low before STOP window
+                r_state  <= ST_STOP_A;
+              end
+            end else begin
+              o_nack <= (p2 && (w_sda_in == 1'b1)) ? 1'b1 : o_nack;
+            end
+          end
+
+          // ===== STOP: SDA rising while SCL HIGH =====
+          ST_STOP_A: begin
+            if (last_p) begin
+              r_state <= ST_DONE;
+            end else begin
+              // p1: release SCL(high), p2: release SDA (rising)
+              r_scl_lo <= p1 ? 1'b0 : r_scl_lo;
+              r_sda_lo <= p2 ? 1'b0 : r_sda_lo;
+            end
+          end
+
+          // ===== DONE =====
+          ST_DONE: begin
+            if (1'b1) begin // single-if gi? form
+              o_busy  <= 1'b0;
+              o_done  <= 1'b1;
+              r_state <= ST_IDLE;
+            end
+          end
+
+          // ===== ERROR -> STOP safely =====
+          ST_ERROR: begin
+            if (last_p) begin
+              o_busy  <= 1'b0;
+              o_done  <= 1'b1;
+              r_state <= ST_IDLE;
+            end else begin
+              // p0: both low, p1: release SCL, p2: release SDA
+              r_sda_lo <= p0 ? 1'b1 : (p2 ? 1'b0 : r_sda_lo);
+              r_scl_lo <= p0 ? 1'b1 : (p1 ? 1'b0 : r_scl_lo);
+            end
+          end
+
+          default: begin
+            if (1'b1) r_state <= ST_IDLE;
+          end
+        endcase
+
+        // advance minor phase
+        r_phase <= r_phase + 2'd1;
+      end
     end
   end
-  //===========================================================
-  //
-  // Buffer for temperature data
-  always @(posedge i_CLK)
-    if(r_stage == NACK)
-      r_temp_data <= { r_MSB[6:0], r_LSB[7] };
-
-  // Control direction of SDA bidirectional inout signal
-  assign r_SDA_dir = (r_stage == POWER_UP || r_stage == START || r_stage == SEND_ADDR6 || r_stage == SEND_ADDR5 ||
-                      r_stage == SEND_ADDR4 || r_stage == SEND_ADDR3 || r_stage == SEND_ADDR2 || r_stage == SEND_ADDR1 ||
-                      r_stage == SEND_ADDR0 || r_stage == SEND_RW || r_stage == SEND_ACK || r_stage == NACK) ? 1 : 0;
-  // Set the value of SDA for output - from master to sensor
-  assign io_SDA = r_SDA_dir ? r_obit : 1'bz;
-  // Set value of input wire when SDA is used as an input - from sensor to master
-  assign i_bit = io_SDA;
-  // Outputted temperature data
-  assign o_temp_data = r_temp_data;
-  //============================================================
 endmodule
-

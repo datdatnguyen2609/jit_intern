@@ -1,0 +1,209 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Tue Sep 16 07:53:51 2025
+# Process ID: 6828
+# Current directory: C:/Users/datda/Downloads/jit_intern/i2c_controller
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent10040 C:\Users\datda\Downloads\jit_intern\i2c_controller\i2c_controller.xpr
+# Log file: C:/Users/datda/Downloads/jit_intern/i2c_controller/vivado.log
+# Journal file: C:/Users/datda/Downloads/jit_intern/i2c_controller\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.xpr
+Scanning sources...
+Finished scanning sources
+CRITICAL WARNING: [Board 49-67] The board_part definition was not found for digilentinc.com:nexys-a7-100t:part0:1.3. This can happen sometimes when you use custom board part. You can resolve this issue by setting 'board.repoPaths' parameter, pointing to the location of custom board files. Valid board_part values can be retrieved with the 'get_board_parts' Tcl command.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/App_FPGA/Vivado/2019.2/data/ip'.
+update_compile_order -fileset sources_1
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+close [ open C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.srcs/sim_1/new/i2c_master_tb.v w ]
+add_files -fileset sim_1 C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.srcs/sim_1/new/i2c_master_tb.v
+update_compile_order -fileset sim_1
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'scl_gen_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj scl_gen_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.srcs/sources_1/new/scl_gen.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module scl_gen
+ERROR: [VRFC 10-2989] 'I_EN' is not declared [C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.srcs/sources_1/new/scl_gen.v:25]
+ERROR: [VRFC 10-2865] module 'scl_gen' ignored due to previous errors [C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.srcs/sources_1/new/scl_gen.v:3]
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [USF-XSim-99] Step results log file:'C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.sim/sim_1/behav/xsim/xvlog.log'
+ERROR: [USF-XSim-62] 'compile' step failed with error(s). Please check the Tcl console output or 'C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.sim/sim_1/behav/xsim/xvlog.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+set_property top i2c_master_tb [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+update_compile_order -fileset sim_1
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'i2c_master_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj i2c_master_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.srcs/sim_1/new/i2c_master_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module i2c_master_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.sim/sim_1/behav/xsim'
+"xelab -wto bd3ea96680974ebf88e6e6598e2bb076 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot i2c_master_tb_behav xil_defaultlib.i2c_master_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: D:/App_FPGA/Vivado/2019.2/bin/unwrapped/win64.o/xelab.exe -wto bd3ea96680974ebf88e6e6598e2bb076 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot i2c_master_tb_behav xil_defaultlib.i2c_master_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+ERROR: [VRFC 10-2063] Module <i2c_master_open_drain> not found while processing module instance <dut> [C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.srcs/sim_1/new/i2c_master_tb.v:28]
+ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-99] Step results log file:'C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.sim/sim_1/behav/xsim/elaborate.log'
+ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or 'C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.sim/sim_1/behav/xsim/elaborate.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'i2c_master_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj i2c_master_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.srcs/sources_1/new/i2c_master.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module i2c_master
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.srcs/sim_1/new/i2c_master_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module i2c_master_tb
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.sim/sim_1/behav/xsim'
+"xelab -wto bd3ea96680974ebf88e6e6598e2bb076 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot i2c_master_tb_behav xil_defaultlib.i2c_master_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: D:/App_FPGA/Vivado/2019.2/bin/unwrapped/win64.o/xelab.exe -wto bd3ea96680974ebf88e6e6598e2bb076 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot i2c_master_tb_behav xil_defaultlib.i2c_master_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.i2c_master_default
+Compiling module xil_defaultlib.i2c_master_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot i2c_master_tb_behav
+
+****** Webtalk v2019.2 (64-bit)
+  **** SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+  **** IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.sim/sim_1/behav/xsim/xsim.dir/i2c_master_tb_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Tue Sep 16 08:07:05 2025...
+run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 1186.621 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '6' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "i2c_master_tb_behav -key {Behavioral:sim_1:Functional:i2c_master_tb} -tclbatch {i2c_master_tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+source i2c_master_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'i2c_master_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 1186.621 ; gain = 0.000
+run 10 us
+run 10 us
+run 10 us
+run 1 s
+run: Time (s): cpu = 00:07:10 ; elapsed = 00:07:21 . Memory (MB): peak = 1186.621 ; gain = 0.000
+step
+Stopped at time : 5614295655 ns : File "C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.srcs/sim_1/new/i2c_master_tb.v" Line 81
+step
+Stopped at time : 5614295655 ns : File "C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.srcs/sim_1/new/i2c_master_tb.v" Line 114
+step
+Stopped at time : 5614295655 ns : File "C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.srcs/sim_1/new/i2c_master_tb.v" Line 113
+step
+Stopped at time : 5614295655 ns : File "C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.srcs/sources_1/new/i2c_master.v" Line 93
+step
+Stopped at time : 5614295655 ns : File "C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.srcs/sources_1/new/i2c_master.v" Line 94
+step
+Stopped at time : 5614295655 ns : File "C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.srcs/sources_1/new/i2c_master.v" Line 97
+step
+Stopped at time : 5614295655 ns : File "C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.srcs/sources_1/new/i2c_master.v" Line 126
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'i2c_master_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj i2c_master_tb_vlog.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.sim/sim_1/behav/xsim'
+"xelab -wto bd3ea96680974ebf88e6e6598e2bb076 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot i2c_master_tb_behav xil_defaultlib.i2c_master_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: D:/App_FPGA/Vivado/2019.2/bin/unwrapped/win64.o/xelab.exe -wto bd3ea96680974ebf88e6e6598e2bb076 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot i2c_master_tb_behav xil_defaultlib.i2c_master_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "i2c_master_tb_behav -key {Behavioral:sim_1:Functional:i2c_master_tb} -tclbatch {i2c_master_tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+source i2c_master_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'i2c_master_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:02 ; elapsed = 00:00:05 . Memory (MB): peak = 1186.621 ; gain = 0.000
+clear
+invalid command name "clear"
+quit
+INFO: [Common 17-206] Exiting Vivado at Tue Sep 16 08:18:19 2025...
