@@ -1,4 +1,4 @@
 Vivado Simulator 2019.2
 Time resolution is 1 ps
 DONE: nack=1, last_byte=00, word=0000
-$finish called at time : 72445 ns : File "C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.srcs/sim_1/new/i2c_master_tb.v" Line 157
+$finish called at time : 72445 ns : File "C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.srcs/sim_1/new/i2c_master_tb.v" Line 171

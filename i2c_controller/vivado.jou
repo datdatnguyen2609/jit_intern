@@ -11,3 +11,12 @@
 #-----------------------------------------------------------
 start_gui
 open_project C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.xpr
+update_compile_order -fileset sources_1
+launch_simulation
+source i2c_master_tb.tcl
+run 1 ms
+close_sim
+launch_simulation
+source i2c_master_tb.tcl
+run 1 ms
+close_sim
