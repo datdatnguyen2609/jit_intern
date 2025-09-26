@@ -1,0 +1,107 @@
+/*
+
+Xilinx Vivado v2019.2 (64-bit) [Major: 2019, Minor: 2]
+SW Build: 2708876 on Wed Nov  6 21:40:23 MST 2019
+IP Build: 2700528 on Thu Nov  7 00:09:20 MST 2019
+
+Process ID (PID): 6832
+License: Customer
+
+Current time: 	Fri Sep 26 13:36:34 ICT 2025
+Time zone: 	Indochina Time (Asia/Bangkok)
+
+OS: Windows 10
+OS Version: 10.0
+OS Architecture: amd64
+Available processors (cores): 12
+
+Screen size: 1920x1080
+Screen resolution (DPI): 125
+Available screens: 1
+Available disk space: 37 GB
+Default font: family=Segoe UI,name=Segoe UI,style=plain,size=15
+
+Java version: 	9.0.4 64-bit
+Java home: 	E:/FPGA/Xilinx_install/Vivado/2019.2/tps/win64/jre9.0.4
+Java executable location: 	E:/FPGA/Xilinx_install/Vivado/2019.2/tps/win64/jre9.0.4/bin/java.exe
+Java initial memory (-Xms): 	128 MB
+Java maximum memory (-Xmx):	 3 GB
+
+
+User name: 	datda
+User home directory: C:/Users/datda
+User working directory: C:/Users/datda/Downloads/jit_intern/i2c_controller
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI_BASEROOT: E:/FPGA/Xilinx_install/Vivado
+HDI_APPROOT: E:/FPGA/Xilinx_install/Vivado/2019.2
+RDI_DATADIR: E:/FPGA/Xilinx_install/Vivado/2019.2/data
+RDI_BINDIR: E:/FPGA/Xilinx_install/Vivado/2019.2/bin
+
+Vivado preferences file location: C:/Users/datda/AppData/Roaming/Xilinx/Vivado/2019.2/vivado.xml
+Vivado preferences directory: C:/Users/datda/AppData/Roaming/Xilinx/Vivado/2019.2/
+Vivado layouts directory: C:/Users/datda/AppData/Roaming/Xilinx/Vivado/2019.2/layouts
+PlanAhead jar file location: 	E:/FPGA/Xilinx_install/Vivado/2019.2/lib/classes/planAhead.jar
+Vivado log file location: 	C:/Users/datda/Downloads/jit_intern/i2c_controller/vivado.log
+Vivado journal file location: 	C:/Users/datda/Downloads/jit_intern/i2c_controller/vivado.jou
+Engine tmp dir: 	C:/Users/datda/Downloads/jit_intern/i2c_controller/.Xil/Vivado-6832-Datdatnguyen
+
+Xilinx Environment Variables
+----------------------------
+XILINX: E:/FPGA/Xilinx_install/Vivado/2019.2/ids_lite/ISE
+XILINX_DSP: E:/FPGA/Xilinx_install/Vivado/2019.2/ids_lite/ISE
+XILINX_PLANAHEAD: E:/FPGA/Xilinx_install/Vivado/2019.2
+XILINX_SDK: E:/FPGA/Xilinx_install/Vitis/2019.2
+XILINX_VITIS: E:/FPGA/Xilinx_install/Vitis/2019.2
+XILINX_VIVADO: E:/FPGA/Xilinx_install/Vivado/2019.2
+XILINX_VIVADO_HLS: E:/FPGA/Xilinx_install/Vivado/2019.2
+
+
+GUI allocated memory:	128 MB
+GUI max memory:		3,072 MB
+Engine allocated memory: 632 MB
+
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// TclEventType: PROJECT_OPEN_DIALOG
+// Tcl Message: start_gui 
+// TclEventType: PROJECT_OPEN_DIALOG
+// [GUI Memory]: 78 MB (+79200kb) [00:00:08]
+// [Engine Memory]: 604 MB (+481581kb) [00:00:08]
+// bB (cr):  Open Project : addNotify
+// Opening Vivado Project: C:\Users\datda\Downloads\jit_intern\i2c_controller\i2c_controller.xpr. Version: Vivado v2019.2 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// Tcl Message: open_project C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.xpr 
+// HMemoryUtils.trashcanNow. Engine heap size: 665 MB. GUI used memory: 52 MB. Current time: 9/26/25, 1:36:36 PM ICT
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_DASHBOARD_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_NEW
+// Tcl Message: open_project C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.xpr 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified 
+// TclEventType: PROJECT_NEW
+// [Engine Memory]: 808 MB (+182533kb) [00:00:19]
+// [GUI Memory]: 84 MB (+2129kb) [00:00:19]
+// [GUI Memory]: 103 MB (+15337kb) [00:00:20]
+// [Engine Memory]: 860 MB (+12193kb) [00:00:21]
+// WARNING: HEventQueue.dispatchEvent() is taking  3052 ms.
+// Tcl Message: INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/FPGA/Xilinx_install/Vivado/2019.2/data/ip'. 
