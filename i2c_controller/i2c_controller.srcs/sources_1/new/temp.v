@@ -24,13 +24,13 @@ output [15:0] dis_data;      // du lieu hien thi ra LED
 reg sw1_r,sw2_r;             // gia tri nut sau debounce (cap nhat moi 20 ms)
 reg[19:0] cnt_20ms;          // bo dem 20 ms
 
-always @ (posedge clk or negedge rst_n)
+always @ (posedge clk)
 	if(rst_n)
 	   cnt_20ms <= 20'd0;
 	else
 	   cnt_20ms <= cnt_20ms+1'b1; // dem len
 
-always @ (posedge clk or negedge rst_n)
+always @ (posedge clk)
 	if(rst_n)
 		begin
 			sw1_r <= 1'b1;   // mac dinh nut tha (1)
@@ -54,7 +54,7 @@ reg[31:0] count;
 reg clk1='b0;                // xung cham hien thi
 reg scl_r;                   // ghi nho trang thai SCL
 
-always @ (posedge clk or negedge rst_n)
+always @ (posedge clk)
 	if(rst_n)
 	   cnt_delay <= 10'd0;
 	else if(cnt_delay == 10'd999)
@@ -79,7 +79,7 @@ always @ (posedge clk)
 end
 
 // Pha SCL theo cnt_delay
-always @ (posedge clk or negedge rst_n) begin
+always @ (posedge clk) begin
 	if(rst_n)
 	   cnt <= 3'd5;
 	else
@@ -101,7 +101,7 @@ end
 `define SCL_LOW		(cnt==3'd3) // giu muc L (thay doi du lieu)
 
 // Xuat SCL
-always @ (posedge clk or negedge rst_n)
+always @ (posedge clk)
 	if(rst_n)
 	    scl_r <= 1'b0;
 	else if(cnt==3'd0)
@@ -152,7 +152,7 @@ reg sda_link;                 // 1: master drive SDA (output), 0: tha (input)
 reg[3:0] num;                 // dem bit trong 1 byte (0..8)
 
 // FSM trien khai trinh tu I2C co ban
-always @ (posedge clk or negedge rst_n) begin
+always @ (posedge clk) begin
 	if(rst_n)
 		begin
 			cstate   <= IDLE;

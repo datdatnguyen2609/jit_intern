@@ -2,176 +2,168 @@
 
 module i2c_master_tb;
 
-  // -------- Clock 100 MHz & reset --------
-  reg i_clk, i_rst_n;
-  initial begin
-    i_clk = 1'b0;
-    forever #5 i_clk = ~i_clk; // 10ns -> 100 MHz
-  end
-  initial begin
-    i_rst_n = 1'b0;
-    repeat (10) @(posedge i_clk);
-    i_rst_n = 1'b1;
-  end
+  // --------------------------------
+  // Clock 200 kHz (T = 5 us)
+  // --------------------------------
+  reg i_clk_200k = 1'b0;
+  always #2500 i_clk_200k = ~i_clk_200k; // 2.5 us half-period
 
-  // -------- DUT I/O --------
-  reg        i_start;
-  reg        i_op;           // 1 = read, 0 = write
-  reg [7:0]  i_reg_addr;
-  reg [15:0] i_wr_data;
-  reg [7:0]  i_read_len;
+  // --------------------------------
+  // Bus I2C
+  // --------------------------------
+  wire       o_scl;        // tu DUT
+  tri1       io_sda;       // SDA co pull-up
+  pullup     PU_SDA(io_sda);
 
-  wire       o_busy, o_done, o_nack, o_rd_valid;
-  wire [7:0] o_rd_byte;
-  wire [15:0] o_rd_word;
+  wire [7:0] o_temp_data;
 
-  wire o_scl;              // SCL from DUT (push-pull)
-  tri  sda_wire;           // SDA shared bus (open-drain)
-  pullup(sda_wire);        // pull-up cho SDA
-
-  // -------- DUT --------
+  // --------------------------------
+  // DUT
+  // --------------------------------
   i2c_master #(
-    .CLK_HZ(100_000_000),
-    .SCL_HZ(400_000)
+    .P_ADDR_R(8'h97)
   ) dut (
-    .i_clk      (i_clk),
-    .i_rst_n    (i_rst_n),
-    .i_start    (i_start),
-    .i_op       (i_op),
-    .i_reg_addr (i_reg_addr),
-    .i_wr_data  (i_wr_data),
-    .i_read_len (i_read_len),
-    .o_busy     (o_busy),
-    .o_done     (o_done),
-    .o_nack     (o_nack),
-    .o_rd_valid (o_rd_valid),
-    .o_rd_byte  (o_rd_byte),
-    .o_rd_word  (o_rd_word),
-    .io_sda     (sda_wire),
-    .o_scl      (o_scl)
+    .i_clk_200k (i_clk_200k),
+    .io_sda     (io_sda),
+    .o_scl      (o_scl),
+    .o_temp_data(o_temp_data)
   );
 
-  // ============================================================
-  //      SLAVE ADT7420 DON GIAN (ACK + tra ve 0x1A, 0xC0)
-  // ============================================================
-  localparam [7:0] ADDR_W = 8'h90, ADDR_R = 8'h91;
-  localparam [7:0] MSB    = 8'h1A,  LSB   = 8'hC0;
+  // --------------------------------
+  // Slave mo phong cuc ngan: ACK + tra 2 byte
+  // - Open-drain: chi keo 0 khi can
+  // - Muc dich: giup DUT di qua cac stage
+  // --------------------------------
+  reg sda_drive0 = 1'b0; // 1: keo 0, 0: tha (pull-up = 1)
+  assign io_sda = sda_drive0 ? 1'b0 : 1'bz;
 
-  // Slave chi keo 0 hoac tha Z tren SDA
-  reg slave_drive0;                 // 1 => keo SDA = 0; 0 => tha Z
-  assign sda_wire = slave_drive0 ? 1'b0 : 1'bz;
+  // Mau du lieu
+  reg [7:0] data_msb = 8'hA5;
+  reg [7:0] data_lsb = 8'h5A;
 
-  // Dong bo SCL/SDA de phat hien START
+  // Phat hien START (SDA xuong khi SCL=1)
   reg sda_q, scl_q;
-  always @(posedge i_clk) begin
-    sda_q <= sda_wire;
+  always @(posedge i_clk_200k) begin
+    sda_q <= io_sda;
     scl_q <= o_scl;
   end
-  wire start_cond = (sda_q==1'b1 && sda_wire==1'b0 && o_scl==1'b1);
+  wire start_cond = (sda_q==1'b1 && io_sda==1'b0 && o_scl==1'b1);
 
-  // Dem canh len SCL; quan ly phase 0/1
-  integer pos_cnt;
-  reg phase;          // 0: phien 1 (ADDR_W+REG), 1: phien 2 (ADDR_R+READ)
-  reg saw_start;      // da thay START lan dau
+  // Dem canh len SCL sau START de canh vi tri ACK/DATA
+  integer bit_idx;
+  reg     in_frame = 1'b0;
+  reg [7:0] sh_data;
+  reg [3:0] data_phase; // 0: addr, 1: ACKa, 2: D0, 3: ACK0, 4: D1, 5: ACK1
 
-  always @(posedge i_clk) begin
-    if (!i_rst_n) begin
-      pos_cnt   <= 0;
-      phase     <= 1'b0;
-      saw_start <= 1'b0;
-    end else if (start_cond) begin
-      pos_cnt <= 0;
-      if (!saw_start) begin
-        saw_start <= 1'b1;  // START dau tien -> phase 0
-        phase     <= 1'b0;
-      end else begin
-        phase     <= 1'b1;  // repeated START -> phase 1
-      end
-    end else if (o_scl==1'b1 && scl_q==1'b0) begin
-      pos_cnt <= pos_cnt + 1;
-    end
-  end
-
-  // Chi so bit (4-bit) de tranh X; khoi tao trong reset
-  reg [3:0] idx_msb, idx_lsb;
-
-  // Dap ung ACK va phat data bang 1 always
-  // Phase 0 (write): ACK1 @8, tha @9; ACK2 @17, tha @18
-  // Phase 1 (read):  ACK3 @8, tha @9
-  //  MSB bits @10..17 (7..0), master ACK @18 (slave tha)
-  //  LSB bits @19..26 (7..0), master NACK @27 (slave tha)
-  always @(negedge o_scl or negedge i_rst_n) begin
-    if (!i_rst_n) begin
-      slave_drive0 <= 1'b0;
-      idx_msb      <= 4'd7;
-      idx_lsb      <= 4'd7;
-    end else begin
-      // mac dinh tha
-      slave_drive0 <= 1'b0;
-
-      if (phase==1'b0) begin
-        // Phase 0: ADDR_W + REG_PTR
-        if (pos_cnt==8)  slave_drive0 <= 1'b1;  // ACK1
-        if (pos_cnt==9)  slave_drive0 <= 1'b0;  // tha
-        if (pos_cnt==17) slave_drive0 <= 1'b1;  // ACK2
-        if (pos_cnt==18) slave_drive0 <= 1'b0;  // tha
-      end
-      else begin
-        // Phase 1: ADDR_R + READ
-        if (pos_cnt==8)  slave_drive0 <= 1'b1;  // ACK3
-        if (pos_cnt==9)  begin
-          slave_drive0 <= 1'b0;                 // tha
-          idx_msb      <= 4'd7;                 // chuan bi phat MSB
-        end
-
-        // Phat MSB bit 7..0 @10..17
-        if (pos_cnt>=10 && pos_cnt<=17) begin
-          slave_drive0 <= (MSB[idx_msb]==1'b0); // 0: keo, 1: tha
-          idx_msb      <= idx_msb - 1'b1;
-        end
-
-        // Master ACK sau MSB
-        if (pos_cnt==18) begin
-          slave_drive0 <= 1'b0;
-          idx_lsb      <= 4'd7;                 // chuan bi phat LSB
-        end
-
-        // Phat LSB bit 7..0 @19..26
-        if (pos_cnt>=19 && pos_cnt<=26) begin
-          slave_drive0 <= (LSB[idx_lsb]==1'b0);
-          idx_lsb      <= idx_lsb - 1'b1;
-        end
-
-        // Sau do master NACK @27, slave tha
-        if (pos_cnt>=27) begin
-          slave_drive0 <= 1'b0;
-        end
-      end
-    end
-  end
-
-  // -------- Stimulus: doc 2 byte tu reg 0x00 --------
   initial begin
-    // $dumpfile("tb.vcd"); $dumpvars(0, i2c_master_tb);
-    i_start    = 1'b0;
-    i_op       = 1'b1;      // READ
-    i_reg_addr = 8'h00;     // temperature MSB ptr
-    i_wr_data  = 16'h0000;
-    i_read_len = 8'd2;      // doc 2 byte
+    sh_data    = data_msb;
+    data_phase = 0;
+  end
 
-    @(posedge i_rst_n);
-    repeat (20) @(posedge i_clk);
+  // Logic don: 
+  // - Khi START: vao frame, reset dem
+  // - Sau 8 canh len SCL dau (ADDR), o bit ACK -> keo 0 (ACK)
+  // - Sau do 8 bit du lieu: dat bit khi SCL LOW (truoc canh len), tha/keo tuy theo bit
+  // - Sau MSB: de master ACK (tha), Sau LSB: de master NACK (tha)
+  always @(posedge i_clk_200k) begin
+    if (start_cond) begin
+      in_frame  <= 1'b1;
+      bit_idx   <= 0;
+      data_phase<= 0;
+      sda_drive0<= 1'b0;  // de DUT gui addr
+    end
 
-    @(posedge i_clk) i_start = 1'b1;
-    @(posedge i_clk) i_start = 1'b0;
+    if (in_frame) begin
+      // ACK cho dia chi sau 8 canh len
+      if (data_phase==0 && scl_q==1'b0 && o_scl==1'b1) begin
+        bit_idx <= bit_idx + 1;
+        if (bit_idx==7) data_phase <= 1; // chuan bi ACKa
+      end
 
-    wait (o_done==1'b1);
-    $display("DONE: nack=%0d, last_byte=%02h, word=%04h", o_nack, o_rd_byte, o_rd_word);
-    repeat (20) @(posedge i_clk);
+      // Phat ACKa: keo 0 trong 1 bit ACK
+      if (data_phase==1) begin
+        if (scl_q==1'b1 && o_scl==1'b0) sda_drive0 <= 1'b1; // bat dau ACK
+        if (scl_q==1'b0 && o_scl==1'b1) sda_drive0 <= 1'b1; // giu
+        if (scl_q==1'b1 && o_scl==1'b0) begin               // ket thuc ACK
+          sda_drive0 <= 1'b0;
+          data_phase <= 2;
+          bit_idx    <= 7;
+          sh_data    <= data_msb;
+        end
+      end
+
+      // Gui 8 bit MSB: dat bit khi SCL LOW
+      if (data_phase==2) begin
+        if (scl_q==1'b1 && o_scl==1'b0) begin // falling
+          sda_drive0 <= (sh_data[bit_idx]==1'b0) ? 1'b1 : 1'b0;
+        end
+        if (scl_q==1'b0 && o_scl==1'b1) begin // rising
+          if (bit_idx==0) begin
+            sda_drive0 <= 1'b0; // tha de master ACK
+            data_phase <= 3;
+          end else bit_idx <= bit_idx - 1;
+        end
+      end
+
+      // ACK0 cua master (slave chi tha)
+      if (data_phase==3 && scl_q==1'b1 && o_scl==1'b0) begin
+        data_phase <= 4;
+        bit_idx    <= 7;
+        sh_data    <= data_lsb;
+      end
+
+      // Gui 8 bit LSB
+      if (data_phase==4) begin
+        if (scl_q==1'b1 && o_scl==1'b0) sda_drive0 <= (sh_data[bit_idx]==1'b0) ? 1'b1 : 1'b0;
+        if (scl_q==1'b0 && o_scl==1'b1) begin
+          if (bit_idx==0) begin
+            sda_drive0 <= 1'b0; // tha de master NACK
+            data_phase <= 5;
+          end else bit_idx <= bit_idx - 1;
+        end
+      end
+
+      // ACK1 (NACK) cua master (slave tha) xong la ket thuc
+      if (data_phase==5 && scl_q==1'b1 && o_scl==1'b0) begin
+        in_frame   <= 1'b0;
+        sda_drive0 <= 1'b0;
+      end
+    end
+  end
+
+  // --------------------------------
+  // In ten stage khi DUT doi state
+  // --------------------------------
+  reg [3:0] prev_state;
+  function [127:0] f_state_name(input [3:0] s);
+    case (s)
+      4'd0:  f_state_name = "S_POWERUP";
+      4'd1:  f_state_name = "S_START";
+      4'd2:  f_state_name = "S_ADDR";
+      4'd3:  f_state_name = "S_ACKA";
+      4'd4:  f_state_name = "S_RMSB";
+      4'd5:  f_state_name = "S_MACK";
+      4'd6:  f_state_name = "S_RLSB";
+      4'd7:  f_state_name = "S_MNACK";
+      4'd8:  f_state_name = "S_STOP";
+      default: f_state_name = "UNKNOWN";
+    endcase
+  endfunction
+
+  initial begin
+    prev_state = 4'hF;
+    // chay ~50 ms la du thay vong lap
+    #50_000_000;
     $finish;
   end
 
-  // In ra tung byte doc duoc
-  always @(posedge i_clk) if (o_rd_valid) $display("[%0t] RD_BYTE=0x%02h", $time, o_rd_byte);
+  // Theo doi r_state (tham chieu phan cap)
+  always @(posedge i_clk_200k) begin
+    if (dut.r_state !== prev_state) begin
+      $display("[%0t ns] STATE: %s, o_temp_data=0x%0h",
+               $time, f_state_name(dut.r_state), o_temp_data);
+      prev_state <= dut.r_state;
+    end
+  end
 
 endmodule
