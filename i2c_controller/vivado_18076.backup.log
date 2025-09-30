@@ -1,0 +1,235 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Tue Sep 30 10:26:45 2025
+# Process ID: 18076
+# Current directory: C:/Users/datda/Downloads/jit_intern/i2c_controller
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent13900 C:\Users\datda\Downloads\jit_intern\i2c_controller\i2c_controller.xpr
+# Log file: C:/Users/datda/Downloads/jit_intern/i2c_controller/vivado.log
+# Journal file: C:/Users/datda/Downloads/jit_intern/i2c_controller\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/App_FPGA/Vivado/2019.2/data/ip'.
+open_project: Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 830.887 ; gain = 165.680
+update_compile_order -fileset sources_1
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'i2c_master_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj i2c_master_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.srcs/sources_1/new/i2c_master.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module i2c_master
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.srcs/sim_1/new/i2c_master_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module i2c_master_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.sim/sim_1/behav/xsim'
+"xelab -wto bd3ea96680974ebf88e6e6598e2bb076 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot i2c_master_tb_behav xil_defaultlib.i2c_master_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: D:/App_FPGA/Vivado/2019.2/bin/unwrapped/win64.o/xelab.exe -wto bd3ea96680974ebf88e6e6598e2bb076 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot i2c_master_tb_behav xil_defaultlib.i2c_master_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.i2c_master
+Compiling module xil_defaultlib.i2c_master_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot i2c_master_tb_behav
+
+****** Webtalk v2019.2 (64-bit)
+  **** SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+  **** IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.sim/sim_1/behav/xsim/xsim.dir/i2c_master_tb_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Tue Sep 30 10:27:49 2025...
+run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 852.250 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '5' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "i2c_master_tb_behav -key {Behavioral:sim_1:Functional:i2c_master_tb} -tclbatch {i2c_master_tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+source i2c_master_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'i2c_master_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:06 ; elapsed = 00:00:10 . Memory (MB): peak = 872.664 ; gain = 20.414
+run 1 s
+[2500000 ns] STATE:        S_POWERUP, o_temp_data=0xxx
+[10002500000 ns] STATE:          S_START, o_temp_data=0xxx
+[10057500000 ns] STATE:           S_ADDR, o_temp_data=0xxx
+[10807500000 ns] STATE:           S_ACKA, o_temp_data=0xxx
+[10907500000 ns] STATE:           S_RMSB, o_temp_data=0xxx
+[11707500000 ns] STATE:           S_MACK, o_temp_data=0xxx
+[11807500000 ns] STATE:           S_RLSB, o_temp_data=0xxx
+[11857500000 ns] STATE:          S_MNACK, o_temp_data=0xxx
+[12607500000 ns] STATE:           S_STOP, o_temp_data=0xxx
+[12707500000 ns] STATE:          UNKNOWN, o_temp_data=0xxx
+[13507500000 ns] STATE:          UNKNOWN, o_temp_data=0xxx
+[13607500000 ns] STATE:          UNKNOWN, o_temp_data=0xxx
+[14407500000 ns] STATE:          UNKNOWN, o_temp_data=0xxx
+[14507500000 ns] STATE:          UNKNOWN, o_temp_data=0xxx
+[14512500000 ns] STATE:          S_START, o_temp_data=0x96
+[14557500000 ns] STATE:           S_ADDR, o_temp_data=0x96
+[15307500000 ns] STATE:           S_ACKA, o_temp_data=0x96
+[15407500000 ns] STATE:           S_RMSB, o_temp_data=0x96
+[16207500000 ns] STATE:           S_MACK, o_temp_data=0x96
+[16307500000 ns] STATE:           S_RLSB, o_temp_data=0x96
+[16357500000 ns] STATE:          S_MNACK, o_temp_data=0x96
+[17107500000 ns] STATE:           S_STOP, o_temp_data=0x96
+[17207500000 ns] STATE:          UNKNOWN, o_temp_data=0x96
+[18007500000 ns] STATE:          UNKNOWN, o_temp_data=0x96
+[18107500000 ns] STATE:          UNKNOWN, o_temp_data=0x96
+[18907500000 ns] STATE:          UNKNOWN, o_temp_data=0x96
+[19007500000 ns] STATE:          UNKNOWN, o_temp_data=0x96
+[19012500000 ns] STATE:          S_START, o_temp_data=0x96
+[19057500000 ns] STATE:           S_ADDR, o_temp_data=0x96
+[19807500000 ns] STATE:           S_ACKA, o_temp_data=0x96
+[19907500000 ns] STATE:           S_RMSB, o_temp_data=0x96
+[20707500000 ns] STATE:           S_MACK, o_temp_data=0x96
+[20807500000 ns] STATE:           S_RLSB, o_temp_data=0x96
+[20857500000 ns] STATE:          S_MNACK, o_temp_data=0x96
+[21607500000 ns] STATE:           S_STOP, o_temp_data=0x96
+[21707500000 ns] STATE:          UNKNOWN, o_temp_data=0x96
+[22507500000 ns] STATE:          UNKNOWN, o_temp_data=0x96
+[22607500000 ns] STATE:          UNKNOWN, o_temp_data=0x96
+[23407500000 ns] STATE:          UNKNOWN, o_temp_data=0x96
+[23507500000 ns] STATE:          UNKNOWN, o_temp_data=0x96
+[23512500000 ns] STATE:          S_START, o_temp_data=0x96
+[23557500000 ns] STATE:           S_ADDR, o_temp_data=0x96
+[24307500000 ns] STATE:           S_ACKA, o_temp_data=0x96
+[24407500000 ns] STATE:           S_RMSB, o_temp_data=0x96
+[25207500000 ns] STATE:           S_MACK, o_temp_data=0x96
+[25307500000 ns] STATE:           S_RLSB, o_temp_data=0x96
+[25357500000 ns] STATE:          S_MNACK, o_temp_data=0x96
+[26107500000 ns] STATE:           S_STOP, o_temp_data=0x96
+[26207500000 ns] STATE:          UNKNOWN, o_temp_data=0x96
+[27007500000 ns] STATE:          UNKNOWN, o_temp_data=0x96
+[27107500000 ns] STATE:          UNKNOWN, o_temp_data=0x96
+[27907500000 ns] STATE:          UNKNOWN, o_temp_data=0x96
+[28007500000 ns] STATE:          UNKNOWN, o_temp_data=0x96
+[28012500000 ns] STATE:          S_START, o_temp_data=0x96
+[28057500000 ns] STATE:           S_ADDR, o_temp_data=0x96
+[28807500000 ns] STATE:           S_ACKA, o_temp_data=0x96
+[28907500000 ns] STATE:           S_RMSB, o_temp_data=0x96
+[29707500000 ns] STATE:           S_MACK, o_temp_data=0x96
+[29807500000 ns] STATE:           S_RLSB, o_temp_data=0x96
+[29857500000 ns] STATE:          S_MNACK, o_temp_data=0x96
+[30607500000 ns] STATE:           S_STOP, o_temp_data=0x96
+[30707500000 ns] STATE:          UNKNOWN, o_temp_data=0x96
+[31507500000 ns] STATE:          UNKNOWN, o_temp_data=0x96
+[31607500000 ns] STATE:          UNKNOWN, o_temp_data=0x96
+[32407500000 ns] STATE:          UNKNOWN, o_temp_data=0x96
+[32507500000 ns] STATE:          UNKNOWN, o_temp_data=0x96
+[32512500000 ns] STATE:          S_START, o_temp_data=0x96
+[32557500000 ns] STATE:           S_ADDR, o_temp_data=0x96
+[33307500000 ns] STATE:           S_ACKA, o_temp_data=0x96
+[33407500000 ns] STATE:           S_RMSB, o_temp_data=0x96
+[34207500000 ns] STATE:           S_MACK, o_temp_data=0x96
+[34307500000 ns] STATE:           S_RLSB, o_temp_data=0x96
+[34357500000 ns] STATE:          S_MNACK, o_temp_data=0x96
+[35107500000 ns] STATE:           S_STOP, o_temp_data=0x96
+[35207500000 ns] STATE:          UNKNOWN, o_temp_data=0x96
+[36007500000 ns] STATE:          UNKNOWN, o_temp_data=0x96
+[36107500000 ns] STATE:          UNKNOWN, o_temp_data=0x96
+[36907500000 ns] STATE:          UNKNOWN, o_temp_data=0x96
+[37007500000 ns] STATE:          UNKNOWN, o_temp_data=0x96
+[37012500000 ns] STATE:          S_START, o_temp_data=0x96
+[37057500000 ns] STATE:           S_ADDR, o_temp_data=0x96
+[37807500000 ns] STATE:           S_ACKA, o_temp_data=0x96
+[37907500000 ns] STATE:           S_RMSB, o_temp_data=0x96
+[38707500000 ns] STATE:           S_MACK, o_temp_data=0x96
+[38807500000 ns] STATE:           S_RLSB, o_temp_data=0x96
+[38857500000 ns] STATE:          S_MNACK, o_temp_data=0x96
+[39607500000 ns] STATE:           S_STOP, o_temp_data=0x96
+[39707500000 ns] STATE:          UNKNOWN, o_temp_data=0x96
+[40507500000 ns] STATE:          UNKNOWN, o_temp_data=0x96
+[40607500000 ns] STATE:          UNKNOWN, o_temp_data=0x96
+[41407500000 ns] STATE:          UNKNOWN, o_temp_data=0x96
+[41507500000 ns] STATE:          UNKNOWN, o_temp_data=0x96
+[41512500000 ns] STATE:          S_START, o_temp_data=0x96
+[41557500000 ns] STATE:           S_ADDR, o_temp_data=0x96
+[42307500000 ns] STATE:           S_ACKA, o_temp_data=0x96
+[42407500000 ns] STATE:           S_RMSB, o_temp_data=0x96
+[43207500000 ns] STATE:           S_MACK, o_temp_data=0x96
+[43307500000 ns] STATE:           S_RLSB, o_temp_data=0x96
+[43357500000 ns] STATE:          S_MNACK, o_temp_data=0x96
+[44107500000 ns] STATE:           S_STOP, o_temp_data=0x96
+[44207500000 ns] STATE:          UNKNOWN, o_temp_data=0x96
+[45007500000 ns] STATE:          UNKNOWN, o_temp_data=0x96
+[45107500000 ns] STATE:          UNKNOWN, o_temp_data=0x96
+[45907500000 ns] STATE:          UNKNOWN, o_temp_data=0x96
+[46007500000 ns] STATE:          UNKNOWN, o_temp_data=0x96
+[46012500000 ns] STATE:          S_START, o_temp_data=0x96
+[46057500000 ns] STATE:           S_ADDR, o_temp_data=0x96
+[46807500000 ns] STATE:           S_ACKA, o_temp_data=0x96
+[46907500000 ns] STATE:           S_RMSB, o_temp_data=0x96
+[47707500000 ns] STATE:           S_MACK, o_temp_data=0x96
+[47807500000 ns] STATE:           S_RLSB, o_temp_data=0x96
+[47857500000 ns] STATE:          S_MNACK, o_temp_data=0x96
+[48607500000 ns] STATE:           S_STOP, o_temp_data=0x96
+[48707500000 ns] STATE:          UNKNOWN, o_temp_data=0x96
+[49507500000 ns] STATE:          UNKNOWN, o_temp_data=0x96
+[49607500000 ns] STATE:          UNKNOWN, o_temp_data=0x96
+$finish called at time : 50 ms : File "C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.srcs/sim_1/new/i2c_master_tb.v" Line 157
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'i2c_master_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj i2c_master_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.srcs/sources_1/new/i2c_master.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module i2c_master
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.srcs/sim_1/new/i2c_master_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module i2c_master_tb
+ERROR: [VRFC 10-4982] syntax error near 'reg' [C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.srcs/sim_1/new/i2c_master_tb.v:68]
+ERROR: [VRFC 10-2790] Verilog 2000 keyword reg used in incorrect context [C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.srcs/sim_1/new/i2c_master_tb.v:68]
+ERROR: [VRFC 10-4982] syntax error near '}' [C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.srcs/sim_1/new/i2c_master_tb.v:80]
+ERROR: [VRFC 10-2939] 'typedef' is an unknown type [C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.srcs/sim_1/new/i2c_master_tb.v:68]
+ERROR: [VRFC 10-2939] 'ph_t' is an unknown type [C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.srcs/sim_1/new/i2c_master_tb.v:82]
+ERROR: [VRFC 10-2989] 'PH_IDLE' is not declared [C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.srcs/sim_1/new/i2c_master_tb.v:82]
+ERROR: [VRFC 10-2989] 'PH_IDLE' is not declared [C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.srcs/sim_1/new/i2c_master_tb.v:90]
+ERROR: [VRFC 10-2989] 'PH_IDLE' is not declared [C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.srcs/sim_1/new/i2c_master_tb.v:110]
+ERROR: [VRFC 10-2865] module 'i2c_master_tb' ignored due to previous errors [C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.srcs/sim_1/new/i2c_master_tb.v:3]
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-99] Step results log file:'C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.sim/sim_1/behav/xsim/xvlog.log'
+ERROR: [USF-XSim-62] 'compile' step failed with error(s). Please check the Tcl console output or 'C:/Users/datda/Downloads/jit_intern/i2c_controller/i2c_controller.sim/sim_1/behav/xsim/xvlog.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+exit
+INFO: [Common 17-206] Exiting Vivado at Tue Sep 30 10:56:59 2025...
