@@ -33,11 +33,11 @@ module i2c_master_tb;
   ) dut (
     .i_clk_200k (i_clk_200k),
     .i_rst      (i_rst),
-    .io_sda     (io_sda),
+    .io_sda     (io_sda),   
     .o_scl      (o_scl),
     .o_temp_data(o_temp_data)
   );
-
+    // de dong 36 la khong co input gi khi gui di (1'bz), khi nhan ve moi truyen gia tri o trong
   // --------------------------------
   // Slave mô ph?ng "siêu ng?n": ACK & tr? 2 byte
   // - Open-drain: ch? kéo 0 khi c?n
@@ -190,5 +190,5 @@ module i2c_master_tb;
     $display("Finish at %0t ns", $time);
     $finish;
   end
-
+    //
 endmodule

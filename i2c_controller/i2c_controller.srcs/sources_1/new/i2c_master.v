@@ -48,8 +48,8 @@ module i2c_master #
   // ==============================
   reg  r_sda_drive0;                 // 1: keo 0, 0: Z
   assign io_sda = r_sda_drive0 ? 1'b0 : 1'bz;
-  wire w_sda_in = io_sda;
-
+  wire w_sda_in = io_sda;           
+        // luc nao gui di thi sda co gia tri 0 hoac 1, khi doc ve thi thi keo ve 1'bz, luc output la 0 hoac 1, input = 1'bz, de input = 1'bz, co the kiem tra gia tri qua chan nay luon
   // ==============================
   // Thanh ghi du lieu
   // ==============================
