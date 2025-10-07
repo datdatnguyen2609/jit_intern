@@ -1,0 +1,13 @@
+Tên dự án: Thực tập FPGA Tên dự án: Thực tập 2025 - Tuần 1 - Tháng 3: Tiến độ 40% / Thời hạn: 12/2025
+Người thực hiện: Nguyễn Thành Đạt
+Tìm hiểu về giao tiếp I2C: 			Thời gian 22/9 - 30/9 		– Tiến độ 90% (tìm hiểu timing diagram, các khối chức năng)	– Dự kiến hoàn thành 22/09/2025 (bị chậm)
+Thiết kế RTL cho giao tiếp I2C: 		Thời gian 1/10 –  2/10		– Tiến độ 40% ()						– Dự kiến hoàn thành 24/09/2025 (bị chậm)
+Thiết kế RTL đọc cảm biến nhiệt độ: 		Thời gian 2/10 –  3/10 		– Tiến độ 40% () 						– Dự kiến hoàn thành 25/09/2025 (bị chậm)
+Làm báo cáo và tài liệu thiết kế: 		Thời gian 6/10 - 9/10 		– Tiến độ 0% 							– Dự kiến hoàn thành 07/10/2025 
+
+- Điểm nổi bật: 
+	+ Fix được các vấn đề anh Tuấn đã comment từ trước, nhưng chưa viết xong module top để nạp lên mạch
+	
+- Vấn đề: 
+	+ Bị mất 1 buổi do học bù trên trường và 1 buổi bị remote do bão, nên công việc không được trơn tru lắm => có thể phải tự bù để theo kịp tiến độ
+	
