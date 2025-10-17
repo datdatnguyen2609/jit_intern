@@ -1,0 +1,12 @@
+Tên dự án: Thực tập FPGA Tên dự án: Thực tập 2025 - Tuần 3 - Tháng 3: Tiến độ 50% / Thời hạn: 12/2025
+Người thực hiện: Nguyễn Thành Đạt
+Thiết kế RTL cho giao thức SPI:			Thời gian 13/10 - 17/10		- Tiến độ 50% (chuyển được state với testbench, tuy vậy chưa test trên FPGA)		- Dự kiến hoàn thành 20/10/2025 
+Đọc dữ liệu cảm biến ADXL362:			Thời gian 20/10 - 22/10		- Tiến độ 0%
+Thiết kế IP cho SPI:				Thời gian 23/10 - 24/10		- Tiến độ 0%
+Làm tài liệu:					Thời gian 27/10 - 29/10		- Tiến độ 0%
+- Điểm nổi bật: 
+	+ Thực hiện chuyển state SPI, testbench sơ bộ
+- Vấn đề: 
+	+ Xung của tín hiệu MOSI (Master Out Slave In) vẫn chưa đi đúng vào chính giữa cạnh xuống của SCLK => triển khai thêm counter
+	+ Chia 2 khối always để điều khiển state nhưng bị lỗi => gộp lại thành 1 always như bình thường
+		

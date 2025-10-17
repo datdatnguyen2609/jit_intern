@@ -1,0 +1,17 @@
+Tên dự án: Thực tập FPGA Tên dự án: Thực tập 2025 - Tuần 2 - Tháng 3: Tiến độ 45% / Thời hạn: 12/2025
+Người thực hiện: Nguyễn Thành Đạt
+Tìm hiểu về giao tiếp I2C: 			Thời gian 22/9 - 30/9 		– Tiến độ 100% (tìm hiểu timing diagram, các khối chức năng)	– Dự kiến hoàn thành 22/09/2025 (bị chậm)
+Thiết kế RTL cho giao tiếp I2C: 		Thời gian 1/10 –  2/10		– Tiến độ 100% ()						– Dự kiến hoàn thành 24/09/2025 (bị chậm)
+Thiết kế RTL đọc cảm biến nhiệt độ: 		Thời gian 2/10 –  3/10 		– Tiến độ 80% (đã hiển thị được trên các led đơn, chưa hiển thị trên led 7 đoạn) 																					– Dự kiến hoàn thành 25/09/2025 (bị chậm)
+Làm báo cáo và tài liệu thiết kế: 		// Delay để làm cùng báo cáo SPI
+Tìm hiểu về giao thức SPI:			Thời gian 7/10 - 15/10		- Tiến độ 50% (tìm hiểu được về timing diagram, cấu trúc của các dây kết nối)
+																		- Dự kiến hoàn thành 15/10/2025 
+- Điểm nổi bật: 
+	+ Tiến hành các bước cuối của module I2C.
+	+ Tìm hiểu thêm về module SPI.
+	+ Học thêm về cách debug trên mạch
+- Vấn đề: 
+	+ Bị lỗi ở "get value" khiến cho phần mềm không thể viết được file bitstream => cách giải quyết: xóa cả folder của project và tạo lại => đã giải quyết được
+		=> lần sau bị sẽ hỏi người hướng dẫn (anh Tuấn) để debug đoạn đó luôn.
+	+ Ngoại cảnh: ngập => làm ở nhà, tiến độ cũng chậm hơn.
+		
