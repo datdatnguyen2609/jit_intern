@@ -1,0 +1,1322 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Wed Oct 22 08:24:55 2025
+# Process ID: 19344
+# Current directory: C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent2052 C:\Users\datda\Downloads\jit_intern\spi_adxl362_controller\spi_adxl362_controller\spi_adxl362_controller.xpr
+# Log file: C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/vivado.log
+# Journal file: C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.xpr
+INFO: [ProjectBase 1-489] The host OS only allows 260 characters in a normal path. The project is stored in a path with more than 80 characters. If you experience issues with IP, Block Designs, or files not being found, please consider moving the project to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter.
+Current project path is 'C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller'
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/FPGA/Xilinx_install/Vivado/2019.2/data/ip'.
+open_project: Time (s): cpu = 00:00:15 ; elapsed = 00:00:07 . Memory (MB): peak = 929.930 ; gain = 267.965
+update_compile_order -fileset sources_1
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'spi_adxl362_controller_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj spi_adxl362_controller_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/spi_adxl362_controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module spi_adxl362_controller
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sim_1/new/spi_adxl362_controller_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module spi_adxl362_controller_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.sim/sim_1/behav/xsim'
+"xelab -wto 0ad23b6989d248f1b4032f109687a41a --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot spi_adxl362_controller_tb_behav xil_defaultlib.spi_adxl362_controller_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: E:/FPGA/Xilinx_install/Vivado/2019.2/bin/unwrapped/win64.o/xelab.exe -wto 0ad23b6989d248f1b4032f109687a41a --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot spi_adxl362_controller_tb_behav xil_defaultlib.spi_adxl362_controller_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.spi_adxl362_controller
+Compiling module xil_defaultlib.spi_adxl362_controller_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot spi_adxl362_controller_tb_behav
+
+****** Webtalk v2019.2 (64-bit)
+  **** SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+  **** IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.sim/sim_1/behav/xsim/xsim.dir/spi_adxl362_controller_tb_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Wed Oct 22 08:31:08 2025...
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 975.711 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '6' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "spi_adxl362_controller_tb_behav -key {Behavioral:sim_1:Functional:spi_adxl362_controller_tb} -tclbatch {spi_adxl362_controller_tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+source spi_adxl362_controller_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+[15000] CSN RISE  (frame end)
+[125000] CSN FALL (frame start)
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'spi_adxl362_controller_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:07 ; elapsed = 00:00:13 . Memory (MB): peak = 1002.875 ; gain = 27.164
+run 10 us
+[4935000] CSN RISE  (frame end)
+relaunch_sim
+Command: launch_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'spi_adxl362_controller_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj spi_adxl362_controller_tb_vlog.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+Command: launch_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.sim/sim_1/behav/xsim'
+"xelab -wto 0ad23b6989d248f1b4032f109687a41a --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot spi_adxl362_controller_tb_behav xil_defaultlib.spi_adxl362_controller_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: E:/FPGA/Xilinx_install/Vivado/2019.2/bin/unwrapped/win64.o/xelab.exe -wto 0ad23b6989d248f1b4032f109687a41a --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot spi_adxl362_controller_tb_behav xil_defaultlib.spi_adxl362_controller_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+[15000] CSN RISE  (frame end)
+[125000] CSN FALL (frame start)
+relaunch_sim: Time (s): cpu = 00:00:02 ; elapsed = 00:00:09 . Memory (MB): peak = 1004.938 ; gain = 0.000
+run all
+[4935000] CSN RISE  (frame end)
+relaunch_sim
+Command: launch_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'spi_adxl362_controller_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj spi_adxl362_controller_tb_vlog.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+Command: launch_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.sim/sim_1/behav/xsim'
+"xelab -wto 0ad23b6989d248f1b4032f109687a41a --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot spi_adxl362_controller_tb_behav xil_defaultlib.spi_adxl362_controller_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: E:/FPGA/Xilinx_install/Vivado/2019.2/bin/unwrapped/win64.o/xelab.exe -wto 0ad23b6989d248f1b4032f109687a41a --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot spi_adxl362_controller_tb_behav xil_defaultlib.spi_adxl362_controller_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+[15000] CSN RISE  (frame end)
+[125000] CSN FALL (frame start)
+relaunch_sim: Time (s): cpu = 00:00:02 ; elapsed = 00:00:07 . Memory (MB): peak = 1008.711 ; gain = 0.000
+run 5 us
+[4935000] CSN RISE  (frame end)
+update_compile_order -fileset sources_1
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+close [ open C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sim_1/new/top_tb.sv w ]
+add_files -fileset sim_1 C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sim_1/new/top_tb.sv
+update_compile_order -fileset sim_1
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'spi_adxl362_controller_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj spi_adxl362_controller_tb_vlog.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.sim/sim_1/behav/xsim'
+"xelab -wto 0ad23b6989d248f1b4032f109687a41a --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot spi_adxl362_controller_tb_behav xil_defaultlib.spi_adxl362_controller_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: E:/FPGA/Xilinx_install/Vivado/2019.2/bin/unwrapped/win64.o/xelab.exe -wto 0ad23b6989d248f1b4032f109687a41a --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot spi_adxl362_controller_tb_behav xil_defaultlib.spi_adxl362_controller_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "spi_adxl362_controller_tb_behav -key {Behavioral:sim_1:Functional:spi_adxl362_controller_tb} -tclbatch {spi_adxl362_controller_tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2019.2
+INFO: [Common 17-41] Interrupt caught. Command should exit soon.
+Time resolution is 1 ps
+source spi_adxl362_controller_tb.tcl
+INFO: [Common 17-344] 'xsim' was cancelled
+INFO: [Vivado 12-5357] 'simulate' step aborted
+launch_simulation: Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 1024.086 ; gain = 0.000
+INFO: [Common 17-344] 'launch_simulation' was cancelled
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+set_property top top_tb [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+update_compile_order -fileset sim_1
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'top_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj top_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sim_1/new/top_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_tb
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.sim/sim_1/behav/xsim'
+"xelab -wto 0ad23b6989d248f1b4032f109687a41a --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot top_tb_behav xil_defaultlib.top_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: E:/FPGA/Xilinx_install/Vivado/2019.2/bin/unwrapped/win64.o/xelab.exe -wto 0ad23b6989d248f1b4032f109687a41a --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot top_tb_behav xil_defaultlib.top_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.spi_adxl362_controller
+Compiling module xil_defaultlib.top
+Compiling module xil_defaultlib.top_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot top_tb_behav
+
+****** Webtalk v2019.2 (64-bit)
+  **** SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+  **** IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.sim/sim_1/behav/xsim/xsim.dir/top_tb_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Wed Oct 22 09:08:35 2025...
+INFO: [USF-XSim-69] 'elaborate' step finished in '5' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "top_tb_behav -key {Behavioral:sim_1:Functional:top_tb} -tclbatch {top_tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+source top_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'top_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:04 ; elapsed = 00:00:10 . Memory (MB): peak = 1024.086 ; gain = 0.000
+run 5 us
+run 5 us
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+close_sim: Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 1025.156 ; gain = 0.000
+set_property is_enabled false [get_files  C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/top.sv]
+set_property is_enabled false [get_files  C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sim_1/new/top_tb.sv]
+update_compile_order -fileset sim_1
+set_property is_enabled true [get_files  C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/top.sv]
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+synth_design -rtl -name rtl_1
+Command: synth_design -rtl -name rtl_1
+Starting synth_design
+Using part: xc7a100tcsg324-1
+Top: top
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+ERROR: [Synth 8-2543] port connections cannot be mixed ordered and named [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/top.sv:13]
+INFO: [Synth 8-2350] module top ignored due to previous errors [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/top.sv:1]
+Failed to read verilog 'C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/top.sv'
+2 Infos, 0 Warnings, 0 Critical Warnings and 2 Errors encountered.
+synth_design failed
+ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details
+synth_design -rtl -name rtl_1
+Command: synth_design -rtl -name rtl_1
+Starting synth_design
+Using part: xc7a100tcsg324-1
+Top: top
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1536.227 ; gain = 23.789
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'top' [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/top.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'spi_adxl362_controller' [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/spi_adxl362_controller.sv:2]
+	Parameter SCLK_TOGGLE bound to: 8'b00001010 
+	Parameter MOSI_DELAY bound to: 8'b00000101 
+	Parameter IDLE bound to: 3'b000 
+	Parameter START bound to: 3'b001 
+	Parameter INST_OUT bound to: 3'b010 
+	Parameter ADDR_OUT bound to: 3'b011 
+	Parameter WRITE_DATA bound to: 3'b100 
+	Parameter READ_DATA bound to: 3'b101 
+	Parameter ENDING bound to: 3'b110 
+INFO: [Synth 8-6155] done synthesizing module 'spi_adxl362_controller' (1#1) [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/spi_adxl362_controller.sv:2]
+WARNING: [Synth 8-7023] instance 'spi_module1' of module 'spi_adxl362_controller' has 13 connections declared, but only 11 given [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/top.sv:13]
+INFO: [Synth 8-6155] done synthesizing module 'top' (2#1) [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/top.sv:1]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1571.355 ; gain = 58.918
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1594.254 ; gain = 81.816
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1594.254 ; gain = 81.816
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1594.254 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/constrs_1/new/spi_adxl62_controller.xdc]
+Finished Parsing XDC File [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/constrs_1/new/spi_adxl62_controller.xdc]
+Completed Processing XDC Constraints
+
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1712.234 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+RTL Elaboration Complete:  : Time (s): cpu = 00:00:13 ; elapsed = 00:00:09 . Memory (MB): peak = 1712.234 ; gain = 199.797
+7 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:13 ; elapsed = 00:00:09 . Memory (MB): peak = 1712.234 ; gain = 199.797
+set_property package_pin "" [get_ports [list  {top_i_sw[7]}]]
+set_property package_pin "" [get_ports [list  {top_i_sw[7]}]]
+close_design
+synth_design -rtl -name rtl_1
+Command: synth_design -rtl -name rtl_1
+Starting synth_design
+Using part: xc7a100tcsg324-1
+Top: top
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 1760.246 ; gain = 25.156
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'top' [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/top.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'spi_adxl362_controller' [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/spi_adxl362_controller.sv:2]
+	Parameter SCLK_TOGGLE bound to: 8'b00001010 
+	Parameter MOSI_DELAY bound to: 8'b00000101 
+	Parameter IDLE bound to: 3'b000 
+	Parameter START bound to: 3'b001 
+	Parameter INST_OUT bound to: 3'b010 
+	Parameter ADDR_OUT bound to: 3'b011 
+	Parameter WRITE_DATA bound to: 3'b100 
+	Parameter READ_DATA bound to: 3'b101 
+	Parameter ENDING bound to: 3'b110 
+INFO: [Synth 8-6155] done synthesizing module 'spi_adxl362_controller' (1#1) [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/spi_adxl362_controller.sv:2]
+WARNING: [Synth 8-7023] instance 'spi_module1' of module 'spi_adxl362_controller' has 13 connections declared, but only 11 given [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/top.sv:13]
+INFO: [Synth 8-6155] done synthesizing module 'top' (2#1) [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/top.sv:1]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1760.730 ; gain = 25.641
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:04 . Memory (MB): peak = 1767.227 ; gain = 32.137
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:04 . Memory (MB): peak = 1767.227 ; gain = 32.137
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1767.227 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/constrs_1/new/spi_adxl62_controller.xdc]
+WARNING: [Vivado 12-584] No ports matched 'BTNR'. [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/constrs_1/new/spi_adxl62_controller.xdc:73]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/constrs_1/new/spi_adxl62_controller.xdc:73]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+Finished Parsing XDC File [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/constrs_1/new/spi_adxl62_controller.xdc]
+Completed Processing XDC Constraints
+
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1876.328 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+RTL Elaboration Complete:  : Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 1876.328 ; gain = 141.238
+7 Infos, 2 Warnings, 1 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 1876.328 ; gain = 141.238
+close_design
+synth_design -rtl -name rtl_1
+Command: synth_design -rtl -name rtl_1
+Starting synth_design
+Using part: xc7a100tcsg324-1
+Top: top
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1876.328 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'top' [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/top.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'spi_adxl362_controller' [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/spi_adxl362_controller.sv:2]
+	Parameter SCLK_TOGGLE bound to: 8'b00001010 
+	Parameter MOSI_DELAY bound to: 8'b00000101 
+	Parameter IDLE bound to: 3'b000 
+	Parameter START bound to: 3'b001 
+	Parameter INST_OUT bound to: 3'b010 
+	Parameter ADDR_OUT bound to: 3'b011 
+	Parameter WRITE_DATA bound to: 3'b100 
+	Parameter READ_DATA bound to: 3'b101 
+	Parameter ENDING bound to: 3'b110 
+INFO: [Synth 8-6155] done synthesizing module 'spi_adxl362_controller' (1#1) [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/spi_adxl362_controller.sv:2]
+WARNING: [Synth 8-7023] instance 'spi_module1' of module 'spi_adxl362_controller' has 13 connections declared, but only 11 given [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/top.sv:13]
+INFO: [Synth 8-6155] done synthesizing module 'top' (2#1) [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/top.sv:1]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1876.328 ; gain = 0.000
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1876.328 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1876.328 ; gain = 0.000
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1876.328 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/constrs_1/new/spi_adxl62_controller.xdc]
+Finished Parsing XDC File [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/constrs_1/new/spi_adxl62_controller.xdc]
+Completed Processing XDC Constraints
+
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1966.926 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+RTL Elaboration Complete:  : Time (s): cpu = 00:00:08 ; elapsed = 00:00:07 . Memory (MB): peak = 1966.926 ; gain = 90.598
+7 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:08 ; elapsed = 00:00:07 . Memory (MB): peak = 1966.926 ; gain = 90.598
+reset_run synth_1
+launch_runs synth_1 -jobs 12
+[Wed Oct 22 10:00:57 2025] Launched synth_1...
+Run output will be captured here: C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 12
+[Wed Oct 22 10:02:10 2025] Launched impl_1...
+Run output will be captured here: C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 12
+[Wed Oct 22 10:03:29 2025] Launched impl_1...
+Run output will be captured here: C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.runs/impl_1/runme.log
+open_hw_manager
+connect_hw_server -allow_non_jtag
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2019.2
+  **** Build date : Nov  6 2019 at 22:12:23
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:3042
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+
+****** Xilinx cs_server v2019.2.0
+  **** Build date : Nov 07 2019-12:28:22
+    ** Copyright 2017-2019 Xilinx, Inc. All Rights Reserved.
+
+
+
+connect_hw_server: Time (s): cpu = 00:00:01 ; elapsed = 00:00:07 . Memory (MB): peak = 1966.926 ; gain = 0.000
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210292BD78C2A
+set_property PROGRAM.FILE {C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.runs/impl_1/top.bit} [get_hw_devices xc7a100t_0]
+current_hw_device [get_hw_devices xc7a100t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.runs/impl_1/top.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.runs/impl_1/top.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210292BD78C2A
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'spi_adxl362_controller_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj spi_adxl362_controller_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/spi_adxl362_controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module spi_adxl362_controller
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sim_1/new/spi_adxl362_controller_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module spi_adxl362_controller_tb
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.sim/sim_1/behav/xsim'
+"xelab -wto 0ad23b6989d248f1b4032f109687a41a --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot spi_adxl362_controller_tb_behav xil_defaultlib.spi_adxl362_controller_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: E:/FPGA/Xilinx_install/Vivado/2019.2/bin/unwrapped/win64.o/xelab.exe -wto 0ad23b6989d248f1b4032f109687a41a --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot spi_adxl362_controller_tb_behav xil_defaultlib.spi_adxl362_controller_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.spi_adxl362_controller
+Compiling module xil_defaultlib.spi_adxl362_controller_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot spi_adxl362_controller_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "spi_adxl362_controller_tb_behav -key {Behavioral:sim_1:Functional:spi_adxl362_controller_tb} -tclbatch {spi_adxl362_controller_tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+source spi_adxl362_controller_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+[15000] CSN RISE  (frame end)
+[125000] CSN FALL (frame start)
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'spi_adxl362_controller_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 3107.246 ; gain = 13.195
+run 5 us
+[4935000] CSN RISE  (frame end)
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+set_property top top [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+update_compile_order -fileset sim_1
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'top' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj top_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/spi_adxl362_controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module spi_adxl362_controller
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.sim/sim_1/behav/xsim'
+"xelab -wto 0ad23b6989d248f1b4032f109687a41a --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot top_behav xil_defaultlib.top xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: E:/FPGA/Xilinx_install/Vivado/2019.2/bin/unwrapped/win64.o/xelab.exe -wto 0ad23b6989d248f1b4032f109687a41a --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot top_behav xil_defaultlib.top xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.spi_adxl362_controller
+Compiling module xil_defaultlib.top
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot top_behav
+
+****** Webtalk v2019.2 (64-bit)
+  **** SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+  **** IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.sim/sim_1/behav/xsim/xsim.dir/top_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Wed Oct 22 10:12:26 2025...
+INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [Common 17-41] Interrupt caught. Command should exit soon.
+INFO: [Common 17-344] 'get_property' was cancelled
+INFO: [Vivado 12-5357] 'simulate' step aborted
+launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 3161.746 ; gain = 0.000
+INFO: [Common 17-344] 'launch_simulation' was cancelled
+set_property is_enabled true [get_files  C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sim_1/new/top_tb.sv]
+update_compile_order -fileset sim_1
+set_property top spi_adxl362_controller_tb [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+update_compile_order -fileset sim_1
+set_property top top_tb [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+update_compile_order -fileset sim_1
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'top_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj top_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/spi_adxl362_controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module spi_adxl362_controller
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sim_1/new/top_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_tb
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.sim/sim_1/behav/xsim'
+"xelab -wto 0ad23b6989d248f1b4032f109687a41a --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot top_tb_behav xil_defaultlib.top_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: E:/FPGA/Xilinx_install/Vivado/2019.2/bin/unwrapped/win64.o/xelab.exe -wto 0ad23b6989d248f1b4032f109687a41a --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot top_tb_behav xil_defaultlib.top_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.spi_adxl362_controller
+Compiling module xil_defaultlib.top
+Compiling module xil_defaultlib.top_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot top_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "top_tb_behav -key {Behavioral:sim_1:Functional:top_tb} -tclbatch {top_tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+source top_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+=== BAT DAU MO PHONG ===
+Time=0 | CSN=x | SCLK=x | MOSI=x | MISO=0 | DIN=xx
+Time=5000 | CSN=x | SCLK=0 | MOSI=x | MISO=0 | DIN=xx
+Time=15000 | CSN=1 | SCLK=0 | MOSI=0 | MISO=0 | DIN=00
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'top_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 3172.477 ; gain = 5.523
+run 5 us
+=== KET THUC MO PHONG ===
+$stop called at time : 5 us : File "C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sim_1/new/top_tb.sv" Line 71
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'top_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj top_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/spi_adxl362_controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module spi_adxl362_controller
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sim_1/new/top_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_tb
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.sim/sim_1/behav/xsim'
+"xelab -wto 0ad23b6989d248f1b4032f109687a41a --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot top_tb_behav xil_defaultlib.top_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: E:/FPGA/Xilinx_install/Vivado/2019.2/bin/unwrapped/win64.o/xelab.exe -wto 0ad23b6989d248f1b4032f109687a41a --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot top_tb_behav xil_defaultlib.top_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.spi_adxl362_controller
+Compiling module xil_defaultlib.top
+Compiling module xil_defaultlib.top_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot top_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "top_tb_behav -key {Behavioral:sim_1:Functional:top_tb} -tclbatch {top_tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+source top_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+=== BAT DAU MO PHONG ===
+Time=0 | CSN=x | SCLK=x | MOSI=x | MISO=0 | DIN=xx
+Time=5000 | CSN=x | SCLK=0 | MOSI=x | MISO=0 | DIN=xx
+Time=15000 | CSN=1 | SCLK=0 | MOSI=0 | MISO=0 | DIN=00
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'top_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 3176.383 ; gain = 0.000
+run 5 us
+=== KET THUC MO PHONG ===
+$stop called at time : 5 us : File "C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sim_1/new/top_tb.sv" Line 71
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.runs/synth_1
+
+launch_runs synth_1 -jobs 12
+[Wed Oct 22 10:18:34 2025] Launched synth_1...
+Run output will be captured here: C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 12
+[Wed Oct 22 10:19:17 2025] Launched impl_1...
+Run output will be captured here: C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 12
+[Wed Oct 22 10:20:32 2025] Launched impl_1...
+Run output will be captured here: C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.runs/impl_1/runme.log
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210292BD78C2A
+INFO: [Labtools 27-1435] Device xc7a100t (JTAG device index = 0) is not programmed (DONE status = 0).
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.runs/impl_1/top.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+close_hw_manager
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'top_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj top_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/spi_adxl362_controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module spi_adxl362_controller
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sim_1/new/top_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_tb
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.sim/sim_1/behav/xsim'
+"xelab -wto 0ad23b6989d248f1b4032f109687a41a --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot top_tb_behav xil_defaultlib.top_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: E:/FPGA/Xilinx_install/Vivado/2019.2/bin/unwrapped/win64.o/xelab.exe -wto 0ad23b6989d248f1b4032f109687a41a --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot top_tb_behav xil_defaultlib.top_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.spi_adxl362_controller
+Compiling module xil_defaultlib.top
+Compiling module xil_defaultlib.top_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot top_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "top_tb_behav -key {Behavioral:sim_1:Functional:top_tb} -tclbatch {top_tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+source top_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+=== BAT DAU MO PHONG ===
+Time=0 | CSN=x | SCLK=x | MOSI=x | MISO=0 | DIN=xx
+Time=5000 | CSN=x | SCLK=0 | MOSI=x | MISO=0 | DIN=xx
+Time=15000 | CSN=1 | SCLK=0 | MOSI=0 | MISO=0 | DIN=00
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'top_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 3456.320 ; gain = 0.547
+run 5 us
+=== KET THUC MO PHONG ===
+$stop called at time : 5 us : File "C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sim_1/new/top_tb.sv" Line 71
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+set_property  ip_repo_paths  C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller [current_project]
+update_ip_catalog
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller'.
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+close_design
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7a100tcsg324-1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 3506.688 ; gain = 0.000
+INFO: [Project 1-479] Netlist was created with Vivado 2019.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/constrs_1/new/spi_adxl62_controller.xdc]
+Finished Parsing XDC File [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/constrs_1/new/spi_adxl62_controller.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3506.688 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+show_objects -name NET_ONLY [get_nets -hierarchical -top_net_of_hierarchical_group "*top*" ]
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'top_i_sw[0]'; it is not accessible from the fabric routing.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'top_i_sw[1]'; it is not accessible from the fabric routing.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'top_i_sw[2]'; it is not accessible from the fabric routing.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'top_i_sw[3]'; it is not accessible from the fabric routing.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'top_i_sw[4]'; it is not accessible from the fabric routing.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'top_i_sw[5]'; it is not accessible from the fabric routing.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'top_i_sw[6]'; it is not accessible from the fabric routing.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'top_i_sw[7]'; it is not accessible from the fabric routing.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'top_i_sw[0]'; it is not accessible from the fabric routing.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'top_i_sw[1]'; it is not accessible from the fabric routing.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'top_i_sw[2]'; it is not accessible from the fabric routing.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'top_i_sw[3]'; it is not accessible from the fabric routing.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'top_i_sw[4]'; it is not accessible from the fabric routing.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'top_i_sw[5]'; it is not accessible from the fabric routing.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'top_i_sw[6]'; it is not accessible from the fabric routing.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'top_i_sw[7]'; it is not accessible from the fabric routing.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'top_i_sw[0]'; it is not accessible from the fabric routing.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'top_i_sw[1]'; it is not accessible from the fabric routing.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'top_i_sw[2]'; it is not accessible from the fabric routing.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'top_i_sw[3]'; it is not accessible from the fabric routing.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'top_i_sw[4]'; it is not accessible from the fabric routing.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'top_i_sw[5]'; it is not accessible from the fabric routing.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'top_i_sw[6]'; it is not accessible from the fabric routing.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'top_i_sw[7]'; it is not accessible from the fabric routing.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'top_i_sw[0]'; it is not accessible from the fabric routing.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'top_i_sw[1]'; it is not accessible from the fabric routing.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'top_i_sw[2]'; it is not accessible from the fabric routing.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'top_i_sw[3]'; it is not accessible from the fabric routing.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'top_i_sw[4]'; it is not accessible from the fabric routing.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'top_i_sw[5]'; it is not accessible from the fabric routing.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'top_i_sw[6]'; it is not accessible from the fabric routing.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'top_i_sw[7]'; it is not accessible from the fabric routing.
+set_property mark_debug true [get_nets [list {top_i_sw_IBUF[0]} {top_i_sw_IBUF[1]} {top_i_sw_IBUF[2]} {top_i_sw_IBUF[3]} {top_i_sw_IBUF[4]} {top_i_sw_IBUF[5]} {top_i_sw_IBUF[6]} {top_i_sw_IBUF[7]}]]
+set_property mark_debug true [get_nets [list top_i_miso_IBUF]]
+set_property mark_debug true [get_nets [list top_o_mosi_OBUF]]
+create_debug_core u_ila_0 ila
+set_property C_DATA_DEPTH 1024 [get_debug_cores u_ila_0]
+set_property C_TRIGIN_EN false [get_debug_cores u_ila_0]
+set_property C_TRIGOUT_EN false [get_debug_cores u_ila_0]
+set_property C_ADV_TRIGGER false [get_debug_cores u_ila_0]
+set_property C_INPUT_PIPE_STAGES 0 [get_debug_cores u_ila_0]
+set_property C_EN_STRG_QUAL false [get_debug_cores u_ila_0]
+set_property ALL_PROBE_SAME_MU true [get_debug_cores u_ila_0]
+set_property ALL_PROBE_SAME_MU_CNT 1 [get_debug_cores u_ila_0]
+connect_debug_port u_ila_0/clk [get_nets [list top_i_clk_IBUF_BUFG ]]
+set_property port_width 8 [get_debug_ports u_ila_0/probe0]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe0]
+connect_debug_port u_ila_0/probe0 [get_nets [list {top_i_sw_IBUF[0]} {top_i_sw_IBUF[1]} {top_i_sw_IBUF[2]} {top_i_sw_IBUF[3]} {top_i_sw_IBUF[4]} {top_i_sw_IBUF[5]} {top_i_sw_IBUF[6]} {top_i_sw_IBUF[7]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe1]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe1]
+connect_debug_port u_ila_0/probe1 [get_nets [list top_i_miso_IBUF ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe2]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe2]
+connect_debug_port u_ila_0/probe2 [get_nets [list top_o_mosi_OBUF ]]
+set_property target_constrs_file C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/constrs_1/new/spi_adxl62_controller.xdc [current_fileset -constrset]
+save_constraints -force
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'top_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj top_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/spi_adxl362_controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module spi_adxl362_controller
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sim_1/new/top_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_tb
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.sim/sim_1/behav/xsim'
+"xelab -wto 0ad23b6989d248f1b4032f109687a41a --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot top_tb_behav xil_defaultlib.top_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: E:/FPGA/Xilinx_install/Vivado/2019.2/bin/unwrapped/win64.o/xelab.exe -wto 0ad23b6989d248f1b4032f109687a41a --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot top_tb_behav xil_defaultlib.top_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.spi_adxl362_controller
+Compiling module xil_defaultlib.top
+Compiling module xil_defaultlib.top_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot top_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "top_tb_behav -key {Behavioral:sim_1:Functional:top_tb} -tclbatch {top_tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+source top_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+=== BAT DAU MO PHONG ===
+Time=0 | CSN=x | SCLK=x | MOSI=x | MISO=0 | DIN=xx
+Time=5000 | CSN=x | SCLK=0 | MOSI=x | MISO=0 | DIN=xx
+Time=15000 | CSN=1 | SCLK=0 | MOSI=0 | MISO=0 | DIN=00
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'top_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 3906.328 ; gain = 4.266
+run 5 us
+=== KET THUC MO PHONG ===
+$stop called at time : 5 us : File "C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sim_1/new/top_tb.sv" Line 71
+run all
+run: Time (s): cpu = 00:00:08 ; elapsed = 00:00:06 . Memory (MB): peak = 3906.473 ; gain = 0.000
+run 5 us
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.runs/synth_1
+
+launch_runs synth_1 -jobs 12
+[Wed Oct 22 11:00:02 2025] Launched synth_1...
+Run output will be captured here: C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 12
+WARNING: [Project 1-478] Design 'synth_1' is stale and will not be used when launching 'impl_1'
+[Wed Oct 22 11:01:00 2025] Launched impl_1...
+Run output will be captured here: C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 12
+[Wed Oct 22 11:05:12 2025] Launched impl_1...
+Run output will be captured here: C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.runs/impl_1/runme.log
+open_hw_manager
+connect_hw_server -allow_non_jtag
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2019.2
+  **** Build date : Nov  6 2019 at 22:12:23
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:3042
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+
+****** Xilinx cs_server v2019.2.0
+  **** Build date : Nov 07 2019-12:28:22
+    ** Copyright 2017-2019 Xilinx, Inc. All Rights Reserved.
+
+
+
+connect_hw_server: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 4014.820 ; gain = 0.000
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210292BD78C2A
+set_property PROGRAM.FILE {C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.runs/impl_1/top.bit} [get_hw_devices xc7a100t_0]
+set_property PROBES.FILE {C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.runs/impl_1/top.ltx} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.runs/impl_1/top.ltx} [get_hw_devices xc7a100t_0]
+current_hw_device [get_hw_devices xc7a100t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+WARNING: [Labtools 27-3413] Dropping logic core with cellname:'u_ila_0' at location 'uuid_23E7D65A79BC59F7BC47406C1714DFAE' from probes file, since it cannot be found on the programmed device.
+set_property PROBES.FILE {C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.runs/impl_1/top.ltx} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.runs/impl_1/top.ltx} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.runs/impl_1/top.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-2302] Device xc7a100t (JTAG device index = 0) is programmed with a design that has 1 ILA core(s).
+display_hw_ila_data [ get_hw_ila_data hw_ila_data_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a100t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210292BD78C2A
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210292BD78C2A
+INFO: [Labtools 27-1435] Device xc7a100t (JTAG device index = 0) is not programmed (DONE status = 0).
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+set_property PROBES.FILE {C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.runs/impl_1/top.ltx} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.runs/impl_1/top.ltx} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.runs/impl_1/top.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-2302] Device xc7a100t (JTAG device index = 0) is programmed with a design that has 1 ILA core(s).
+display_hw_ila_data [ get_hw_ila_data hw_ila_data_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a100t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a100t_0] -filter {CELL_NAME=~"u_ila_0"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2025-Oct-22 11:07:50
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a100t_0] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a100t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2025-Oct-22 11:07:50
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a100t_0] -filter {CELL_NAME=~"u_ila_0"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2025-Oct-22 11:08:15
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a100t_0] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a100t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2025-Oct-22 11:08:15
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+startgroup 
+set_property CONTROL.DATA_DEPTH 16 [get_hw_ilas -of_objects [get_hw_devices xc7a100t_0] -filter {CELL_NAME=~"u_ila_0"}]
+set_property CONTROL.TRIGGER_POSITION 15 [get_hw_ilas -of_objects [get_hw_devices xc7a100t_0] -filter {CELL_NAME=~"u_ila_0"}]
+set_property CONTROL.WINDOW_COUNT 50 [get_hw_ilas -of_objects [get_hw_devices xc7a100t_0] -filter {CELL_NAME=~"u_ila_0"}]
+endgroup
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a100t_0] -filter {CELL_NAME=~"u_ila_0"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2025-Oct-22 11:08:47
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a100t_0] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a100t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+INFO: [Labtools 27-2214] The ILA core 'hw_ila_1' triggered in the last of '50' windows, at 2025-Oct-22 11:08:47.
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+set_property CONTROL.WINDOW_COUNT 20 [get_hw_ilas -of_objects [get_hw_devices xc7a100t_0] -filter {CELL_NAME=~"u_ila_0"}]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a100t_0] -filter {CELL_NAME=~"u_ila_0"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2025-Oct-22 11:09:01
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a100t_0] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a100t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+INFO: [Labtools 27-2214] The ILA core 'hw_ila_1' triggered in the last of '20' windows, at 2025-Oct-22 11:09:02.
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210292BD78C2A
+set_property top spi_adxl362_controller_tb [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+update_compile_order -fileset sim_1
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210292BD78C2A
+INFO: [Labtools 27-1435] Device xc7a100t (JTAG device index = 0) is not programmed (DONE status = 0).
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+set_property PROBES.FILE {C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.runs/impl_1/top.ltx} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.runs/impl_1/top.ltx} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.runs/impl_1/top.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-2302] Device xc7a100t (JTAG device index = 0) is programmed with a design that has 1 ILA core(s).
+display_hw_ila_data [ get_hw_ila_data hw_ila_data_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a100t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a100t_0] -filter {CELL_NAME=~"u_ila_0"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2025-Oct-22 11:25:41
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a100t_0] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a100t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+INFO: [Labtools 27-2214] The ILA core 'hw_ila_1' triggered in the last of '20' windows, at 2025-Oct-22 11:25:41.
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+set_property CONTROL.WINDOW_COUNT 1 [get_hw_ilas -of_objects [get_hw_devices xc7a100t_0] -filter {CELL_NAME=~"u_ila_0"}]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a100t_0] -filter {CELL_NAME=~"u_ila_0"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2025-Oct-22 11:26:05
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a100t_0] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a100t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2025-Oct-22 11:26:06
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a100t_0] -filter {CELL_NAME=~"u_ila_0"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2025-Oct-22 11:26:16
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a100t_0] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a100t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2025-Oct-22 11:26:16
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+set_property PROBES.FILE {C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.runs/impl_1/top.ltx} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.runs/impl_1/top.ltx} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.runs/impl_1/top.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-2302] Device xc7a100t (JTAG device index = 0) is programmed with a design that has 1 ILA core(s).
+display_hw_ila_data [ get_hw_ila_data hw_ila_data_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a100t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+set_property CONTROL.DATA_DEPTH 128 [get_hw_ilas -of_objects [get_hw_devices xc7a100t_0] -filter {CELL_NAME=~"u_ila_0"}]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a100t_0] -filter {CELL_NAME=~"u_ila_0"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2025-Oct-22 11:27:47
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a100t_0] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a100t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2025-Oct-22 11:27:47
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a100t_0] -filter {CELL_NAME=~"u_ila_0"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2025-Oct-22 11:27:54
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a100t_0] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a100t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2025-Oct-22 11:27:54
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+save_wave_config {C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.hw/hw_1/wave/hw_ila_data_1/hw_ila_data_1.wcfg}
+close_hw_manager
+close_design
+synth_design -rtl -name rtl_1
+Command: synth_design -rtl -name rtl_1
+Starting synth_design
+Using part: xc7a100tcsg324-1
+Top: top
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 4232.172 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'top' [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/top.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'spi_adxl362_controller' [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/spi_adxl362_controller.sv:2]
+	Parameter SCLK_TOGGLE bound to: 8'b00001010 
+	Parameter MOSI_DELAY bound to: 8'b00000101 
+	Parameter IDLE bound to: 3'b000 
+	Parameter START bound to: 3'b001 
+	Parameter INST_OUT bound to: 3'b010 
+	Parameter ADDR_OUT bound to: 3'b011 
+	Parameter WRITE_DATA bound to: 3'b100 
+	Parameter READ_DATA bound to: 3'b101 
+	Parameter ENDING bound to: 3'b110 
+INFO: [Synth 8-6155] done synthesizing module 'spi_adxl362_controller' (1#1) [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/spi_adxl362_controller.sv:2]
+WARNING: [Synth 8-7023] instance 'spi_module1' of module 'spi_adxl362_controller' has 13 connections declared, but only 11 given [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/top.sv:14]
+INFO: [Synth 8-6155] done synthesizing module 'top' (2#1) [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/top.sv:1]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 4232.172 ; gain = 0.000
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 4232.172 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 4232.172 ; gain = 0.000
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 4232.172 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/constrs_1/new/spi_adxl62_controller.xdc]
+WARNING: [Vivado 12-507] No nets matched 'top_i_sw_IBUF[0]'. [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/constrs_1/new/spi_adxl62_controller.xdc:86]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/constrs_1/new/spi_adxl62_controller.xdc:86]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'top_i_sw_IBUF[1]'. [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/constrs_1/new/spi_adxl62_controller.xdc:87]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/constrs_1/new/spi_adxl62_controller.xdc:87]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'top_i_sw_IBUF[2]'. [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/constrs_1/new/spi_adxl62_controller.xdc:88]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/constrs_1/new/spi_adxl62_controller.xdc:88]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'top_i_sw_IBUF[3]'. [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/constrs_1/new/spi_adxl62_controller.xdc:89]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/constrs_1/new/spi_adxl62_controller.xdc:89]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'top_i_sw_IBUF[4]'. [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/constrs_1/new/spi_adxl62_controller.xdc:90]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/constrs_1/new/spi_adxl62_controller.xdc:90]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'top_i_sw_IBUF[5]'. [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/constrs_1/new/spi_adxl62_controller.xdc:91]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/constrs_1/new/spi_adxl62_controller.xdc:91]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'top_i_sw_IBUF[6]'. [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/constrs_1/new/spi_adxl62_controller.xdc:92]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/constrs_1/new/spi_adxl62_controller.xdc:92]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'top_i_sw_IBUF[7]'. [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/constrs_1/new/spi_adxl62_controller.xdc:93]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/constrs_1/new/spi_adxl62_controller.xdc:93]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'top_i_miso_IBUF'. [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/constrs_1/new/spi_adxl62_controller.xdc:94]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/constrs_1/new/spi_adxl62_controller.xdc:94]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'top_o_mosi_OBUF'. [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/constrs_1/new/spi_adxl62_controller.xdc:95]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/constrs_1/new/spi_adxl62_controller.xdc:95]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+Finished Parsing XDC File [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/constrs_1/new/spi_adxl62_controller.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/constrs_1/new/spi_adxl62_controller.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 4232.172 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+RTL Elaboration Complete:  : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 4232.172 ; gain = 0.000
+8 Infos, 11 Warnings, 10 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 4232.172 ; gain = 0.000
+INFO: [Common 17-600] The following parameters have non-default value.
+tcl.collectionResultDisplayLimit
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.runs/synth_1
+
+launch_runs synth_1 -jobs 12
+[Wed Oct 22 11:42:18 2025] Launched synth_1...
+Run output will be captured here: C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 12
+[Wed Oct 22 11:43:01 2025] Launched impl_1...
+Run output will be captured here: C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 12
+[Wed Oct 22 11:44:49 2025] Launched impl_1...
+Run output will be captured here: C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.runs/impl_1/runme.log
+open_hw_manager
+connect_hw_server -allow_non_jtag
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2019.2
+  **** Build date : Nov  6 2019 at 22:12:23
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:3042
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+
+****** Xilinx cs_server v2019.2.0
+  **** Build date : Nov 07 2019-12:28:22
+    ** Copyright 2017-2019 Xilinx, Inc. All Rights Reserved.
+
+
+
+connect_hw_server: Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 4232.172 ; gain = 0.000
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210292BD78C2A
+set_property PROGRAM.FILE {C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.runs/impl_1/top.bit} [get_hw_devices xc7a100t_0]
+set_property PROBES.FILE {C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.runs/impl_1/top.ltx} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.runs/impl_1/top.ltx} [get_hw_devices xc7a100t_0]
+current_hw_device [get_hw_devices xc7a100t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-2302] Device xc7a100t (JTAG device index = 0) is programmed with a design that has 1 ILA core(s).
+display_hw_ila_data [ get_hw_ila_data hw_ila_data_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a100t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+set_property PROBES.FILE {C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.runs/impl_1/top.ltx} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.runs/impl_1/top.ltx} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.runs/impl_1/top.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-2302] Device xc7a100t (JTAG device index = 0) is programmed with a design that has 1 ILA core(s).
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+save_wave_config {C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.hw/hw_1/wave/hw_ila_data_1/hw_ila_data_1.wcfg}
+exit
+INFO: [Common 17-206] Exiting Vivado at Wed Oct 22 11:47:04 2025...

@@ -1,4 +1,3 @@
-`timescale 1ns / 1ps
 module spi_adxl362_controller(
     input        i_clk,
     input        i_rst,
@@ -149,7 +148,7 @@ module spi_adxl362_controller(
                     {o_mosi, r_mosi_buf} <= {r_mosi_buf, 1'b0};
                     r_bitcount <= r_bitcount + 3'd1;
                 end
-                else if (w_mosi_strobe && (r_bitcount == 3'd7)) begin
+                else if (w_mosi_strobe) begin
                     {o_mosi, r_mosi_buf} <= {i_reg_addr, 1'b0}; // nap dia chi
                     r_bitcount   <= 3'd0;
                     r_next_state <= ADDR_OUT;
@@ -161,7 +160,7 @@ module spi_adxl362_controller(
                     {o_mosi, r_mosi_buf} <= {r_mosi_buf, 1'b0};
                     r_bitcount <= r_bitcount + 3'd1;
                 end
-                else if (w_mosi_strobe && (r_bitcount == 3'd7)) begin
+                else if (w_mosi_strobe) begin
                     {o_mosi, r_mosi_buf} <= {i_dout, 1'b0}; // nap data ghi
                     r_bitcount <= 3'd0;
                     if (i_sel_rw) r_next_state <= READ_DATA;
@@ -170,11 +169,11 @@ module spi_adxl362_controller(
             end
 
             WRITE_DATA: begin
-                if (w_mosi_strobe && (r_bitcount < 3'd7 - 3'd1)) begin
+                if (w_mosi_strobe && (r_bitcount < 3'd7)) begin
                     {o_mosi, r_mosi_buf} <= {r_mosi_buf, 1'b0};
                     r_bitcount <= r_bitcount + 3'd1; // sua dung 3'd1
                 end
-                else if (w_mosi_strobe && (r_bitcount == 3'd7 - 3'd1)) begin
+                else if (w_mosi_strobe) begin
                     {o_mosi, r_mosi_buf} <= 9'h0;
                     r_bitcount   <= 3'd0;
                     r_next_state <= ENDING;
@@ -187,7 +186,7 @@ module spi_adxl362_controller(
                     r_miso_buf <= {r_miso_buf[5:0], i_miso};
                     r_bitcount <= r_bitcount + 3'd1;
                 end
-                else if (w_sclk_posedge && (r_bitcount == 3'd7)) begin
+                else if (w_sclk_posedge) begin
                     r_bitcount  <= 3'd0;
                     o_din       <= {r_miso_buf, i_miso};
                     o_din_valid <= 1'b1;
@@ -210,4 +209,6 @@ module spi_adxl362_controller(
         endcase
     end
 
-endmodule
+endmodule 
+
+

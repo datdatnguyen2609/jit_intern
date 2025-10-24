@@ -1,64 +1,84 @@
-## =========================
-## Nexys A7 constraints (template - s? fill PIN khi b?n xác nh?n PMOD)
-## =========================
+## This file is a general .xdc for the Nexys A7-100T
+## To use it in a project:
+## - uncomment the lines corresponding to used pins
+## - rename the used ports (in each line, after get_ports) according to the top level signal names in the project
+## Note: As the Nexys 4 DDR was rebranded to the Nexys A7 with no substantial changes, this XDC file will also work for the Nexys 4 DDR.
 
-## ---- Clock 100 MHz (fixed on E3) ----
-set_property PACKAGE_PIN E3 [get_ports { i_clk }]
-set_property IOSTANDARD  LVCMOS33 [get_ports { i_clk }]
-create_clock -name sys_clk -period 10.000 [get_ports { i_clk }]
+## Clock signal
+set_property -dict {PACKAGE_PIN E3 IOSTANDARD LVCMOS33} [get_ports top_i_clk]
+create_clock -period 10.000 -name sys_clk_pin -waveform {0.000 5.000} -add [get_ports top_i_clk]
 
-## ---- Reset (active-HIGH) ----
-set_property PACKAGE_PIN <PIN_RST> [get_ports { i_rst }]
-set_property IOSTANDARD  LVCMOS33  [get_ports { i_rst }]
-#set_property PULLUP     true       [get_ports { i_rst }]
 
-## ---- SPI (choose PMOD: JA/JB/JC/JD) ----
-## If JA: tell mình ?? mình ?i?n C17/D18/E18/G17/... chính xác theo manual
-## o_csn
-set_property PACKAGE_PIN <PIN_CSN>  [get_ports { o_csn  }]
-set_property IOSTANDARD  LVCMOS33   [get_ports { o_csn  }]
-set_property DRIVE       8          [get_ports { o_csn  }]
-set_property SLEW        FAST       [get_ports { o_csn  }]
+##Switches
+set_property -dict {PACKAGE_PIN J15 IOSTANDARD LVCMOS33} [get_ports {top_i_sw[0]}]
+set_property -dict {PACKAGE_PIN L16 IOSTANDARD LVCMOS33} [get_ports {top_i_sw[1]}]
+set_property -dict {PACKAGE_PIN M13 IOSTANDARD LVCMOS33} [get_ports {top_i_sw[2]}]
+set_property -dict {PACKAGE_PIN R15 IOSTANDARD LVCMOS33} [get_ports {top_i_sw[3]}]
+set_property -dict {PACKAGE_PIN R17 IOSTANDARD LVCMOS33} [get_ports {top_i_sw[4]}]
+set_property -dict {PACKAGE_PIN T18 IOSTANDARD LVCMOS33} [get_ports {top_i_sw[5]}]
+set_property -dict {PACKAGE_PIN U18 IOSTANDARD LVCMOS33} [get_ports {top_i_sw[6]}]
+set_property -dict {PACKAGE_PIN R13 IOSTANDARD LVCMOS33} [get_ports {top_i_sw[7]}]
+#set_property -dict { PACKAGE_PIN T8    IOSTANDARD LVCMOS18 } [get_ports { SW[8] }]; #IO_L24N_T3_34 Sch=sw[8]
+#set_property -dict { PACKAGE_PIN U8    IOSTANDARD LVCMOS18 } [get_ports { SW[9] }]; #IO_25_34 Sch=sw[9]
+#set_property -dict { PACKAGE_PIN R16   IOSTANDARD LVCMOS33 } [get_ports { SW[10] }]; #IO_L15P_T2_DQS_RDWR_B_14 Sch=sw[10]
+#set_property -dict { PACKAGE_PIN T13   IOSTANDARD LVCMOS33 } [get_ports { SW[11] }]; #IO_L23P_T3_A03_D19_14 Sch=sw[11]
+#set_property -dict { PACKAGE_PIN H6    IOSTANDARD LVCMOS33 } [get_ports { SW[12] }]; #IO_L24P_T3_35 Sch=sw[12]
+#set_property -dict { PACKAGE_PIN U12   IOSTANDARD LVCMOS33 } [get_ports { SW[13] }]; #IO_L20P_T3_A08_D24_14 Sch=sw[13]
+#set_property -dict { PACKAGE_PIN U11   IOSTANDARD LVCMOS33 } [get_ports { SW[14] }]; #IO_L19N_T3_A09_D25_VREF_14 Sch=sw[14]
+#set_property -dict { PACKAGE_PIN V10   IOSTANDARD LVCMOS33 } [get_ports { SW[15] }]; #IO_L21P_T3_DQS_14 Sch=sw[15]
 
-## o_sclk
-set_property PACKAGE_PIN <PIN_SCLK> [get_ports { o_sclk }]
-set_property IOSTANDARD  LVCMOS33   [get_ports { o_sclk }]
-set_property DRIVE       8          [get_ports { o_sclk }]
-set_property SLEW        FAST       [get_ports { o_sclk }]
+## LEDs
+set_property -dict {PACKAGE_PIN H17 IOSTANDARD LVCMOS33} [get_ports {top_o_din[0]}]
+set_property -dict {PACKAGE_PIN K15 IOSTANDARD LVCMOS33} [get_ports {top_o_din[1]}]
+set_property -dict {PACKAGE_PIN J13 IOSTANDARD LVCMOS33} [get_ports {top_o_din[2]}]
+set_property -dict {PACKAGE_PIN N14 IOSTANDARD LVCMOS33} [get_ports {top_o_din[3]}]
+set_property -dict {PACKAGE_PIN R18 IOSTANDARD LVCMOS33} [get_ports {top_o_din[4]}]
+set_property -dict {PACKAGE_PIN V17 IOSTANDARD LVCMOS33} [get_ports {top_o_din[5]}]
+set_property -dict {PACKAGE_PIN U17 IOSTANDARD LVCMOS33} [get_ports {top_o_din[6]}]
+set_property -dict {PACKAGE_PIN U16 IOSTANDARD LVCMOS33} [get_ports {top_o_din[7]}]
+#set_property -dict { PACKAGE_PIN V16   IOSTANDARD LVCMOS33 } [get_ports { LED[8] }]; #IO_L16N_T2_A15_D31_14 Sch=led[8]
+#set_property -dict { PACKAGE_PIN T15   IOSTANDARD LVCMOS33 } [get_ports { LED[9] }]; #IO_L14N_T2_SRCC_14 Sch=led[9]
+#set_property -dict { PACKAGE_PIN U14   IOSTANDARD LVCMOS33 } [get_ports { LED[10] }]; #IO_L22P_T3_A05_D21_14 Sch=led[10]
+#set_property -dict { PACKAGE_PIN T16   IOSTANDARD LVCMOS33 } [get_ports { LED[11] }]; #IO_L15N_T2_DQS_DOUT_CSO_B_14 Sch=led[11]
+#set_property -dict { PACKAGE_PIN V15   IOSTANDARD LVCMOS33 } [get_ports { LED[12] }]; #IO_L16P_T2_CSI_B_14 Sch=led[12]
+#set_property -dict { PACKAGE_PIN V14   IOSTANDARD LVCMOS33 } [get_ports { LED[13] }]; #IO_L22N_T3_A04_D20_14 Sch=led[13]
+#set_property -dict { PACKAGE_PIN V12   IOSTANDARD LVCMOS33 } [get_ports { LED[14] }]; #IO_L20N_T3_A07_D23_14 Sch=led[14]
+#set_property -dict { PACKAGE_PIN V11   IOSTANDARD LVCMOS33 } [get_ports { LED[15] }]; #IO_L21N_T3_DQS_A06_D22_14 Sch=led[15]
 
-## o_mosi
-set_property PACKAGE_PIN <PIN_MOSI> [get_ports { o_mosi }]
-set_property IOSTANDARD  LVCMOS33   [get_ports { o_mosi }]
-set_property DRIVE       8          [get_ports { o_mosi }]
-set_property SLEW        FAST       [get_ports { o_mosi }]
+##7 segment display
+#set_property -dict { PACKAGE_PIN T10   IOSTANDARD LVCMOS33 } [get_ports { CA }]; #IO_L24N_T3_A00_D16_14 Sch=ca
+#set_property -dict { PACKAGE_PIN R10   IOSTANDARD LVCMOS33 } [get_ports { CB }]; #IO_25_14 Sch=cb
+#set_property -dict { PACKAGE_PIN K16   IOSTANDARD LVCMOS33 } [get_ports { CC }]; #IO_25_15 Sch=cc
+#set_property -dict { PACKAGE_PIN K13   IOSTANDARD LVCMOS33 } [get_ports { CD }]; #IO_L17P_T2_A26_15 Sch=cd
+#set_property -dict { PACKAGE_PIN P15   IOSTANDARD LVCMOS33 } [get_ports { CE }]; #IO_L13P_T2_MRCC_14 Sch=ce
+#set_property -dict { PACKAGE_PIN T11   IOSTANDARD LVCMOS33 } [get_ports { CF }]; #IO_L19P_T3_A10_D26_14 Sch=cf
+#set_property -dict { PACKAGE_PIN L18   IOSTANDARD LVCMOS33 } [get_ports { CG }]; #IO_L4P_T0_D04_14 Sch=cg
+#set_property -dict { PACKAGE_PIN H15   IOSTANDARD LVCMOS33 } [get_ports { DP }]; #IO_L19N_T3_A21_VREF_15 Sch=dp
+#set_property -dict { PACKAGE_PIN J17   IOSTANDARD LVCMOS33 } [get_ports { AN[0] }]; #IO_L23P_T3_FOE_B_15 Sch=an[0]
+#set_property -dict { PACKAGE_PIN J18   IOSTANDARD LVCMOS33 } [get_ports { AN[1] }]; #IO_L23N_T3_FWE_B_15 Sch=an[1]
+#set_property -dict { PACKAGE_PIN T9    IOSTANDARD LVCMOS33 } [get_ports { AN[2] }]; #IO_L24P_T3_A01_D17_14 Sch=an[2]
+#set_property -dict { PACKAGE_PIN J14   IOSTANDARD LVCMOS33 } [get_ports { AN[3] }]; #IO_L19P_T3_A22_15 Sch=an[3]
+#set_property -dict { PACKAGE_PIN P14   IOSTANDARD LVCMOS33 } [get_ports { AN[4] }]; #IO_L8N_T1_D12_14 Sch=an[4]
+#set_property -dict { PACKAGE_PIN T14   IOSTANDARD LVCMOS33 } [get_ports { AN[5] }]; #IO_L14P_T2_SRCC_14 Sch=an[5]
+#set_property -dict { PACKAGE_PIN K2    IOSTANDARD LVCMOS33 } [get_ports { AN[6] }]; #IO_L23P_T3_35 Sch=an[6]
+#set_property -dict { PACKAGE_PIN U13   IOSTANDARD LVCMOS33 } [get_ports { AN[7] }]; #IO_L23N_T3_A02_D18_14 Sch=an[7]
 
-## i_miso
-set_property PACKAGE_PIN <PIN_MISO> [get_ports { i_miso }]
-set_property IOSTANDARD  LVCMOS33   [get_ports { i_miso }]
-#set_property PULLUP     true        [get_ports { i_miso }]
+##CPU Reset Button
+#set_property -dict { PACKAGE_PIN C12   IOSTANDARD LVCMOS33 } [get_ports { CPU_RESETN }]; #IO_L3P_T0_DQS_AD1P_15 Sch=cpu_resetn
 
-## ---- 7-seg (active-LOW): o_seg[6:0] = {a,b,c,d,e,f,g}, o_an[3:0] ----
-## Mình s? ?i?n các PIN th?t khi b?n xác nh?n board/rev; d??i ?ây là attributes chu?n.
-## Segments a..g
-set_property PACKAGE_PIN <PIN_SEGa> [get_ports { o_seg[6] }]
-set_property PACKAGE_PIN <PIN_SEGb> [get_ports { o_seg[5] }]
-set_property PACKAGE_PIN <PIN_SEGc> [get_ports { o_seg[4] }]
-set_property PACKAGE_PIN <PIN_SEGd> [get_ports { o_seg[3] }]
-set_property PACKAGE_PIN <PIN_SEGe> [get_ports { o_seg[2] }]
-set_property PACKAGE_PIN <PIN_SEGf> [get_ports { o_seg[1] }]
-set_property PACKAGE_PIN <PIN_SEGg> [get_ports { o_seg[0] }]
-set_property IOSTANDARD  LVCMOS33    [get_ports { o_seg[*] }]
-set_property DRIVE       8           [get_ports { o_seg[*] }]
-set_property SLEW        SLOW        [get_ports { o_seg[*] }]
+##Buttons
+#set_property -dict { PACKAGE_PIN N17   IOSTANDARD LVCMOS33 } [get_ports { BTNC }]; #IO_L9P_T1_DQS_14 Sch=btnc
+#set_property -dict { PACKAGE_PIN M18   IOSTANDARD LVCMOS33 } [get_ports { BTNU }]; #IO_L4N_T0_D05_14 Sch=btnu
+#set_property -dict { PACKAGE_PIN P17   IOSTANDARD LVCMOS33 } [get_ports { BTNL }]; #IO_L12P_T1_MRCC_14 Sch=btnl
+set_property -dict {PACKAGE_PIN M17 IOSTANDARD LVCMOS33} [get_ports top_i_rst]
+set_property -dict { PACKAGE_PIN P18   IOSTANDARD LVCMOS33 } [get_ports { top_i_ready }]; #IO_L9N_T1_DQS_D13_14 Sch=btnd
 
-## Digit enables an[3:0] (active-LOW)
-set_property PACKAGE_PIN <PIN_AN3>  [get_ports { o_an[3] }]
-set_property PACKAGE_PIN <PIN_AN2>  [get_ports { o_an[2] }]
-set_property PACKAGE_PIN <PIN_AN1>  [get_ports { o_an[1] }]
-set_property PACKAGE_PIN <PIN_AN0>  [get_ports { o_an[0] }]
-set_property IOSTANDARD  LVCMOS33   [get_ports { o_an[*] }]
-set_property DRIVE       8          [get_ports { o_an[*] }]
-set_property SLEW        SLOW       [get_ports { o_an[*] }]
 
-## Optional timing
-# set_false_path -from [get_ports i_rst]
+##Accelerometer
+set_property -dict {PACKAGE_PIN E15 IOSTANDARD LVCMOS33} [get_ports top_i_miso]
+set_property -dict {PACKAGE_PIN F14 IOSTANDARD LVCMOS33} [get_ports top_o_mosi]
+set_property -dict {PACKAGE_PIN F15 IOSTANDARD LVCMOS33} [get_ports top_o_sclk]
+set_property -dict {PACKAGE_PIN D15 IOSTANDARD LVCMOS33} [get_ports top_o_csn]
+#set_property -dict { PACKAGE_PIN B13   IOSTANDARD LVCMOS33 } [get_ports { ACL_INT[1] }]; #IO_L2P_T0_AD8P_15 Sch=acl_int[1]
+#set_property -dict { PACKAGE_PIN C16   IOSTANDARD LVCMOS33 } [get_ports { ACL_INT[2] }]; #IO_L20P_T3_A20_15 Sch=acl_int[2]
+

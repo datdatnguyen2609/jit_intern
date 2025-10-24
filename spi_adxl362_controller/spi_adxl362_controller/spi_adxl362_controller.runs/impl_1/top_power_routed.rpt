@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date             : Fri Oct 17 11:35:19 2025
+| Date             : Fri Oct 24 14:57:26 2025
 | Host             : Datdatnguyen running 64-bit major release  (build 9200)
 | Command          : report_power -file top_power_routed.rpt -pb top_power_summary_routed.pb -rpx top_power_routed.rpx
 | Design           : top
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.100        |
+| Total On-Chip Power (W)  | 0.103        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.003        |
+| Dynamic (W)              | 0.006        |
 | Device Static (W)        | 0.097        |
 | Effective TJA (C/W)      | 4.6          |
 | Max Ambient (C)          | 84.5         |
@@ -52,16 +52,17 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Clocks         |    <0.001 |        3 |       --- |             --- |
-| Slice Logic    |    <0.001 |      247 |       --- |             --- |
-|   LUT as Logic |    <0.001 |       87 |     63400 |            0.14 |
-|   Register     |    <0.001 |      119 |    126800 |            0.09 |
-|   CARRY4       |    <0.001 |        9 |     15850 |            0.06 |
-|   Others       |     0.000 |        4 |       --- |             --- |
-| Signals        |    <0.001 |      213 |       --- |             --- |
-| I/O            |     0.001 |       17 |       210 |            8.10 |
+| Clocks         |     0.001 |        3 |       --- |             --- |
+| Slice Logic    |    <0.001 |      277 |       --- |             --- |
+|   LUT as Logic |    <0.001 |       84 |     63400 |            0.13 |
+|   Register     |    <0.001 |      145 |    126800 |            0.11 |
+|   CARRY4       |    <0.001 |       12 |     15850 |            0.08 |
+|   Others       |     0.000 |        9 |       --- |             --- |
+| Signals        |    <0.001 |      229 |       --- |             --- |
+| DSPs           |     0.002 |        3 |       240 |            1.25 |
+| I/O            |     0.002 |       15 |       210 |            7.14 |
 | Static Power   |     0.097 |          |           |                 |
-| Total          |     0.100 |          |           |                 |
+| Total          |     0.103 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -71,7 +72,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.016 |       0.002 |      0.015 |
+| Vccint    |       1.000 |     0.019 |       0.004 |      0.015 |
 | Vccaux    |       1.800 |     0.018 |       0.000 |      0.018 |
 | Vcco33    |       3.300 |     0.004 |       0.000 |      0.004 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -124,11 +125,11 @@ Table of Contents
 2.2 Clock Constraints
 ---------------------
 
-+---------+--------+-----------------+
-| Clock   | Domain | Constraint (ns) |
-+---------+--------+-----------------+
-| sys_clk | i_clk  |            10.0 |
-+---------+--------+-----------------+
++-------------+-----------+-----------------+
+| Clock       | Domain    | Constraint (ns) |
++-------------+-----------+-----------------+
+| sys_clk_pin | top_i_clk |            10.0 |
++-------------+-----------+-----------------+
 
 
 3. Detailed Reports
@@ -140,7 +141,7 @@ Table of Contents
 +------+-----------+
 | Name | Power (W) |
 +------+-----------+
-| top  |     0.003 |
+| top  |     0.006 |
 +------+-----------+
 
 

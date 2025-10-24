@@ -17,7 +17,10 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_msg_config -id {Common 17-41} -limit 10000000
+set_param chipscope.maxJobs 3
+set_param xicom.use_bs_reader 1
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 create_project -in_memory -part xc7a100tcsg324-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -28,12 +31,15 @@ set_property parent.project_path C:/Users/datda/Downloads/jit_intern/spi_adxl362
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property board_part digilentinc.com:nexys-a7-100t:part0:1.3 [current_project]
+set_property ip_repo_paths c:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller [current_project]
+update_ip_catalog
 set_property ip_output_repo c:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_verilog -library xil_defaultlib -sv {
   C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/spi_adxl362_controller.sv
   C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/top.sv
 }
+read_verilog -library xil_defaultlib C:/Users/datda/Downloads/jit_intern/bcd2led7seg/bcd2led7seg.srcs/sources_1/new/debouncing.v
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
 # design are intentionally left as such for best results. Dcp files will be
