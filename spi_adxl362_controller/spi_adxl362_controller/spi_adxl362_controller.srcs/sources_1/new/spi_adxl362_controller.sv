@@ -210,4 +210,3 @@ module spi_adxl362_controller(
     end
 
 endmodule 
-

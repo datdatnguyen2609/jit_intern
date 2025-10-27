@@ -81,4 +81,3 @@ set_property -dict {PACKAGE_PIN F15 IOSTANDARD LVCMOS33} [get_ports top_o_sclk]
 set_property -dict {PACKAGE_PIN D15 IOSTANDARD LVCMOS33} [get_ports top_o_csn]
 #set_property -dict { PACKAGE_PIN B13   IOSTANDARD LVCMOS33 } [get_ports { ACL_INT[1] }]; #IO_L2P_T0_AD8P_15 Sch=acl_int[1]
 #set_property -dict { PACKAGE_PIN C16   IOSTANDARD LVCMOS33 } [get_ports { ACL_INT[2] }]; #IO_L20P_T3_A20_15 Sch=acl_int[2]
-
