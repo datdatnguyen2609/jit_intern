@@ -1,0 +1,11 @@
+Tên dự án: Thực tập FPGA Tên dự án: Thực tập 2025 - Tuần 4 - Tháng 3: Tiến độ 52% / Thời hạn: 12/2025
+Người thực hiện: Nguyễn Thành Đạt
+Đọc dữ liệu cảm biến ADXL362:			Thời gian 20/10 - 24/10		- Tiến độ 60% (Hiển thị được lên các LED của FPGA, nhưng dữ liệu vẫn ở dạng thô)
+Thiết kế IP cho SPI:				Thời gian /10 - /10		- Tiến độ 0% 
+Làm tài liệu:					Thời gian /10 - /10		- Tiến độ 0%
+- Điểm nổi bật: 
+	+ Module SPI đã đọc và ghi được theo từng byte 1, hiển thị được lên LED đơn
+- Vấn đề: 
+	+ Thiết kế FIFO của SPI (chuẩn bị trước cho vấn đề này)
+	+ Vấn đề sai dữ liệu khi đọc (do dữ liệu bị cắt đi 1 bit cuối để đủ các mức xung => đọc về bị sai)
+		

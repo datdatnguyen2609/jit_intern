@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date         : Fri Oct 24 14:56:57 2025
+| Date         : Fri Oct 24 16:13:31 2025
 | Host         : Datdatnguyen running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file top_control_sets_placed.rpt
 | Design       : top
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |    15 |
-|    Minimum number of control sets                        |    15 |
+| Total control sets                                       |    14 |
+|    Minimum number of control sets                        |    14 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |    31 |
+| Unused register locations in slices containing registers |    32 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,15 +39,15 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |    15 |
+| Total control sets |    14 |
 | >= 0 to < 4        |     1 |
-| >= 4 to < 6        |     2 |
+| >= 4 to < 6        |     1 |
 | >= 6 to < 8        |     2 |
-| >= 8 to < 10       |     5 |
+| >= 8 to < 10       |     4 |
 | >= 10 to < 12      |     1 |
 | >= 12 to < 14      |     0 |
-| >= 14 to < 16      |     2 |
-| >= 16              |     2 |
+| >= 14 to < 16      |     0 |
+| >= 16              |     5 |
 +--------------------+-------+
 * Control sets can be remapped at either synth_design or opt_design
 
@@ -58,36 +58,35 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              10 |            5 |
+| No           | No                    | No                     |              11 |            4 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |              68 |           22 |
-| Yes          | No                    | No                     |              15 |            4 |
+| No           | Yes                   | No                     |              93 |           26 |
+| Yes          | No                    | No                     |              15 |            5 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |              52 |           13 |
+| Yes          | Yes                   | No                     |              41 |           13 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 4. Detailed Control Set Information
 -----------------------------------
 
-+----------------------+------------------------------------------+-----------------------------------+------------------+----------------+
-|     Clock Signal     |               Enable Signal              |          Set/Reset Signal         | Slice Load Count | Bel Load Count |
-+----------------------+------------------------------------------+-----------------------------------+------------------+----------------+
-|  top_i_clk_IBUF_BUFG | u_spi/o_mosi_i_1_n_0                     | u_spi/r_bitcount[2]_i_1_n_0       |                1 |              1 |
-|  top_i_clk_IBUF_BUFG |                                          | u_spi/r_sclk_count[3]_i_1_n_0     |                1 |              4 |
-|  top_i_clk_IBUF_BUFG | u_spi/r_spi_ready_pulse                  | u_db_rst/w_rst_sync               |                1 |              4 |
-|  top_i_clk_IBUF_BUFG |                                          | u_spi/r_bitcount[2]_i_1_n_0       |                3 |              6 |
-|  top_i_clk_IBUF_BUFG | u_spi/r_miso_buf[6]_i_1_n_0              |                                   |                2 |              7 |
-|  top_i_clk_IBUF_BUFG | u_spi/r_mosi_buf[7]_i_1_n_0              |                                   |                2 |              8 |
-|  top_i_clk_IBUF_BUFG | u_spi/o_din[7]_i_1_n_0                   | u_spi/r_bitcount[2]_i_1_n_0       |                2 |              8 |
-|  top_i_clk_IBUF_BUFG | u_spi/r_mosi_delay_cnt[7]_i_2_n_0        | u_spi/r_mosi_delay_cnt[7]_i_1_n_0 |                1 |              8 |
-|  top_i_clk_IBUF_BUFG | u_spi/E[0]                               | u_db_rst/w_rst_sync               |                1 |              8 |
-|  top_i_clk_IBUF_BUFG | u_spi/FSM_sequential_r_state_reg[0]_1[0] | u_db_rst/w_rst_sync               |                3 |              8 |
-|  top_i_clk_IBUF_BUFG |                                          |                                   |                5 |             10 |
-|  top_i_clk_IBUF_BUFG |                                          | u_db_rst/w_rst_sync               |                6 |             14 |
-|  top_i_clk_IBUF_BUFG | r_led_data                               | u_db_rst/w_rst_sync               |                4 |             15 |
-|  top_i_clk_IBUF_BUFG |                                          | u_db_ready/clear                  |                6 |             22 |
-|  top_i_clk_IBUF_BUFG |                                          | u_db_rst/R_counter[0]_i_1_n_0     |                6 |             22 |
-+----------------------+------------------------------------------+-----------------------------------+------------------+----------------+
++----------------------+-----------------------------------+------------------------------------+------------------+----------------+
+|     Clock Signal     |           Enable Signal           |          Set/Reset Signal          | Slice Load Count | Bel Load Count |
++----------------------+-----------------------------------+------------------------------------+------------------+----------------+
+|  top_i_clk_IBUF_BUFG | u_spi/o_mosi_i_1_n_0              | u_spi/r_bitcount[2]_i_1_n_0        |                1 |              1 |
+|  top_i_clk_IBUF_BUFG |                                   | u_spi/r_sclk_count[3]_i_1_n_0      |                1 |              4 |
+|  top_i_clk_IBUF_BUFG |                                   | u_spi/r_bitcount[2]_i_1_n_0        |                2 |              6 |
+|  top_i_clk_IBUF_BUFG | u_spi/r_miso_buf[6]_i_1_n_0       |                                    |                1 |              7 |
+|  top_i_clk_IBUF_BUFG | u_spi/r_mosi_buf[7]_i_1_n_0       |                                    |                4 |              8 |
+|  top_i_clk_IBUF_BUFG | u_spi/o_din[7]_i_1_n_0            | u_spi/r_bitcount[2]_i_1_n_0        |                2 |              8 |
+|  top_i_clk_IBUF_BUFG | u_spi/r_mosi_delay_cnt[7]_i_2_n_0 | u_spi/r_mosi_delay_cnt[7]_i_1_n_0  |                2 |              8 |
+|  top_i_clk_IBUF_BUFG | u_spi/E[0]                        | u_db_rst/w_rst_sync                |                3 |              8 |
+|  top_i_clk_IBUF_BUFG |                                   |                                    |                4 |             11 |
+|  top_i_clk_IBUF_BUFG | u_spi/r_ready_db_d_reg[0]         | u_db_rst/w_rst_sync                |                5 |             16 |
+|  top_i_clk_IBUF_BUFG |                                   | u_db_rst/w_rst_sync                |                5 |             17 |
+|  top_i_clk_IBUF_BUFG |                                   | u_db_mode/R_counter[0]_i_1__1_n_0  |                6 |             22 |
+|  top_i_clk_IBUF_BUFG |                                   | u_db_ready/R_counter[0]_i_1__0_n_0 |                6 |             22 |
+|  top_i_clk_IBUF_BUFG |                                   | u_db_rst/R_counter[0]_i_1_n_0      |                6 |             22 |
++----------------------+-----------------------------------+------------------------------------+------------------+----------------+
 
 
