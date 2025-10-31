@@ -1,0 +1,10 @@
+Tên dự án: Thực tập FPGA Tên dự án: Thực tập 2025 - Tuần 5 - Tháng 3: Tiến độ 55% / Thời hạn: 12/2025
+Người thực hiện: Nguyễn Thành Đạt
+Đọc dữ liệu cảm biến ADXL362:			Thời gian 20/10 - 31/10		- Tiến độ 80% (Chưa xử lý được dữ liệu ở 3 góc XYZ)
+Thiết kế IP cho SPI:				Thời gian /10 - /10		- Tiến độ 0% 
+Làm tài liệu:					Thời gian /10 - /10		- Tiến độ 0%
+- Điểm nổi bật: 
+	+ Module SPI đã đọc và ghi được góc X và hiển thị được nhiệt độ
+- Vấn đề: 
+	+ Phần WRITE của SPI có vấn đề khi đọc lần thứ 2 của cảm biến (cần phải có reset)
+	+ Xử lý tính toán các công thức arc sin, cos, tan để lấy ra giá trị của các cảm biến như góc X, Y, Z 		
