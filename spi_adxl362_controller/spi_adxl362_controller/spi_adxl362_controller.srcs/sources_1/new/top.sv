@@ -2,23 +2,25 @@
 
 module top (
     input         top_i_clk,
-    input         top_i_rst,      // nút reset (m?c cao = reset)
+    input         top_i_rst,      // nut reset (muc cao = reset)
 
-    input         top_i_btn_x,    // ??c X: reg 0x0E (L), 0x0F (H)
-    input         top_i_btn_y,    // ??c Y: reg 0x10 (L), 0x11 (H)
-    input         top_i_btn_z,    // ??c Z: reg 0x12 (L), 0x13 (H)
-    input         top_i_btn_t,    // ??c TEMP: reg 0x14 (L), 0x15 (H)
+    input         top_i_btn_x,    // doc X: reg 0x0E (L), 0x0F (H)
+    input         top_i_btn_y,    // doc Y: reg 0x10 (L), 0x11 (H)
+    input         top_i_btn_z,    // doc Z: reg 0x12 (L), 0x13 (H)
+    input         top_i_btn_t,    // doc TEMP: reg 0x14 (L), 0x15 (H)
 
     output        top_o_csn,
     output        top_o_sclk,
     output        top_o_mosi,
     input         top_i_miso,
 
-    output [15:0] top_o_led       // 16 LED ??n
+    output [15:0] top_o_led,      // 16 LED don
+    output [6:0]  top_o_seg,      // {g,f,e,d,c,b,a}, active low
+    output [7:0]  top_o_an        // AN7..AN0, active low
 );
 
     // =========================================
-    // 1) Debounce reset + 4 nút b?m
+    // 1) Debounce reset + 4 nut bam
     // =========================================
     wire w_rst_sync;
     debounce #(.CLK_FREQ(100_000_000), .DEBOUNCE_TIME_MS(20)) u_db_rst (
@@ -55,7 +57,7 @@ module top (
         .O_btn_out(w_btn_t_db)
     );
 
-    // C?nh lên c?a các nút sau debounce
+    // Canh len cua cac nut sau debounce
     reg r_btn_x_q, r_btn_y_q, r_btn_z_q, r_btn_t_q;
     always @(posedge top_i_clk) begin
         if (w_rst_sync) begin
@@ -108,7 +110,7 @@ module top (
 
     assign top_o_csn = w_csn;
 
-    // Theo dõi c?nh CSN ?? bi?t giao d?ch xong
+    // Theo doi canh CSN de biet giao dich xong
     reg r_csn_q;
     always @(posedge top_i_clk) begin
         if (w_rst_sync) r_csn_q <= 1'b1;
@@ -117,9 +119,7 @@ module top (
     wire w_csn_rise = (~r_csn_q) & w_csn;   // CSN 0->1
 
     // =========================================
-    // 3) FSM ?i?u khi?n: 
-    // - init: ghi POWER_CTL (0x2D) = 0x02
-    // - sau ?ó: m?i nút ??c 2 byte (L,H) r?i hi?n th? lên LED
+    // 3) FSM dieu khien
     // =========================================
     localparam S_INIT_POWER_START = 3'd0;
     localparam S_INIT_POWER_WAIT  = 3'd1;
@@ -137,10 +137,9 @@ module top (
     localparam AXIS_T = 2'd3;
 
     reg [1:0]  r_axis_sel;
-    reg [15:0] r_axis_data;     // 16 bit ??c ???c (H:L)
-    reg [15:0] r_led_reg;       // d? li?u ??a ra LED
+    reg [15:0] r_axis_data;     // 16 bit doc duoc (H:L)
 
-    // base address cho byte th?p c?a t?ng kênh
+    // base address cho byte thap cua tung kenh
     function [7:0] axis_base_addr;
         input [1:0] axis;
         begin
@@ -160,42 +159,32 @@ module top (
             r_state       <= S_INIT_POWER_START;
 
             r_spi_ready   <= 1'b0;
-            r_spi_inst    <= 8'h0A;   // m?c ??nh WRITE
+            r_spi_inst    <= 8'h0A;   // mac dinh WRITE
             r_spi_sel_rw  <= 1'b0;
             r_spi_addr    <= 8'h00;
             r_spi_dout    <= 8'h00;
 
             r_axis_sel    <= AXIS_X;
             r_axis_data   <= 16'h0000;
-            r_led_reg     <= 16'h0000;
         end else begin
-            // m?c ??nh không phát READY
             r_spi_ready <= 1'b0;
 
             case (r_state)
-                //----------------------------------
-                // Kh?i ??ng: ghi POWER_CTL = 0x02
-                //----------------------------------
                 S_INIT_POWER_START: begin
-                    // Giao d?ch WRITE: INST=0x0A, sel_rw=0
                     r_spi_inst    <= 8'h0A;      // WRITE
                     r_spi_sel_rw  <= 1'b0;
                     r_spi_addr    <= 8'h2D;      // POWER_CTL
                     r_spi_dout    <= 8'h02;      // Measurement mode
-                    r_spi_ready   <= 1'b1;       // pulse 1 chu k?
+                    r_spi_ready   <= 1'b1;       // pulse 1 chu ky
                     r_state       <= S_INIT_POWER_WAIT;
                 end
 
                 S_INIT_POWER_WAIT: begin
-                    // ??i giao d?ch xong (CSN lên l?i)
                     if (w_csn_rise) begin
                         r_state <= S_IDLE;
                     end
                 end
 
-                //----------------------------------
-                // IDLE: ch? 4 nút
-                //----------------------------------
                 S_IDLE: begin
                     if (w_btn_x_edge) begin
                         r_axis_sel <= AXIS_X;
@@ -212,49 +201,38 @@ module top (
                     end
                 end
 
-                //----------------------------------
-                // Giao d?ch ??c byte th?p (L)
-                //----------------------------------
                 S_READ_LOW_START: begin
                     r_spi_inst    <= 8'h0B;              // READ
                     r_spi_sel_rw  <= 1'b1;               // 1=READ
-                    r_spi_addr    <= axis_base_addr(r_axis_sel); // addr_L
-                    r_spi_dout    <= 8'h00;              // dummy
-                    r_spi_ready   <= 1'b1;               // start transaction
+                    r_spi_addr    <= axis_base_addr(r_axis_sel);
+                    r_spi_dout    <= 8'h00;
+                    r_spi_ready   <= 1'b1;
                     r_state       <= S_READ_LOW_WAIT;
                 end
 
                 S_READ_LOW_WAIT: begin
-                    // L?u l?i byte th?p khi có din_valid
                     if (w_din_valid) begin
                         r_axis_data[7:0] <= w_din;       // LSB
                     end
-                    // ??i CSN lên => xong giao d?ch
                     if (w_csn_rise) begin
                         r_state <= S_READ_HIGH_START;
                     end
                 end
 
-                //----------------------------------
-                // Giao d?ch ??c byte cao (H)
-                //----------------------------------
                 S_READ_HIGH_START: begin
                     r_spi_inst    <= 8'h0B;              // READ
                     r_spi_sel_rw  <= 1'b1;
-                    r_spi_addr    <= axis_base_addr(r_axis_sel) + 8'd1; // addr_H
+                    r_spi_addr    <= axis_base_addr(r_axis_sel) + 8'd1;
                     r_spi_dout    <= 8'h00;
                     r_spi_ready   <= 1'b1;
                     r_state       <= S_READ_HIGH_WAIT;
                 end
 
                 S_READ_HIGH_WAIT: begin
-                    // L?u byte cao khi có din_valid
                     if (w_din_valid) begin
                         r_axis_data[15:8] <= w_din;      // MSB
                     end
-                    // Khi CSN lên l?i => xong 2 byte, c?p nh?t LED
                     if (w_csn_rise) begin
-                        r_led_reg <= r_axis_data;
                         r_state   <= S_IDLE;
                     end
                 end
@@ -267,8 +245,116 @@ module top (
     end
 
     // =========================================
-    // 4) ??a d? li?u ra 16 LED
+    // 4) r_axis_data -> |ACC| 0..1024 -> DEG
     // =========================================
-    assign top_o_led = r_led_reg;
+    wire [7:0] axis_l = r_axis_data[7:0];
+    wire [7:0] axis_h = r_axis_data[15:8];
+
+    // ADXL362 12 bit bu 2: [11:0] = {H[3:0], L[7:0]}
+    wire signed [11:0] axis_12 = {axis_h[3:0], axis_l};
+
+    // sign extend len 13 bit
+    wire signed [12:0] axis_13 = {axis_12[11], axis_12};
+
+    // tri tuyet doi
+    wire [12:0] axis_abs = axis_13[12] ? (~axis_13 + 13'd1) : axis_13;
+
+    // gioi han ve 0..1024
+    wire [10:0] acc_1024 = (axis_abs > 13'd1024) ? 11'd1024
+                                                 : axis_abs[10:0];
+
+    // LUT: ACC_IN (0..1024) -> DEG (0..90)
+    wire [6:0] angle_deg;
+
+    acc_scaled_to_deg u_acc2deg (
+        .ACC_IN (acc_1024),
+        .DEG    (angle_deg)
+    );
+
+    // =========================================
+    // 5) Dua goc ra 16 LED (7 bit thap)
+    // =========================================
+    assign top_o_led = {9'd0, angle_deg};
+
+    // =========================================
+    // 6) Hien thi len 7-seg Nexys A7
+    // top_o_seg[6:0] = {g,f,e,d,c,b,a}, active low
+    // top_o_an[7:0]  = AN7..AN0, active low
+    // =========================================
+    wire [6:0] deg_val = angle_deg; // 0..90
+
+    wire [3:0] bcd_hund = (deg_val >= 7'd100) ? 4'd1 : 4'd0;
+    wire [3:0] bcd_tens = deg_val / 10;
+    wire [3:0] bcd_ones = deg_val % 10;
+
+    // Encoder 7-seg, output gfedcba, active low
+    function [6:0] seg7_encode;
+        input [3:0] b;
+        begin
+            case (b)
+                4'd0: seg7_encode = 7'b1000000; // 0
+                4'd1: seg7_encode = 7'b1111001; // 1
+                4'd2: seg7_encode = 7'b0100100; // 2
+                4'd3: seg7_encode = 7'b0110000; // 3
+                4'd4: seg7_encode = 7'b0011001; // 4
+                4'd5: seg7_encode = 7'b0010010; // 5
+                4'd6: seg7_encode = 7'b0000010; // 6
+                4'd7: seg7_encode = 7'b1111000; // 7
+                4'd8: seg7_encode = 7'b0000000; // 8
+                4'd9: seg7_encode = 7'b0010000; // 9
+                default: seg7_encode = 7'b1111111; // tat
+            endcase
+        end
+    endfunction
+
+    // Bo chia tan quet 7-seg
+    reg [16:0] scan_cnt;
+    always @(posedge top_i_clk or posedge w_rst_sync) begin
+        if (w_rst_sync)
+            scan_cnt <= 17'd0;
+        else
+            scan_cnt <= scan_cnt + 17'd1;
+    end
+
+    wire [1:0] digit_sel = scan_cnt[16:15];
+
+    reg [6:0] seg_out;
+    reg [7:0] an_out;
+    reg [3:0] cur_bcd;
+
+    always @(*) begin
+        seg_out = 7'b1111111;
+        an_out  = 8'b1111_1111;
+        cur_bcd = 4'd0;
+
+        case (digit_sel)
+            2'd0: begin
+                cur_bcd = bcd_ones;
+                an_out  = 8'b1111_1110;   // AN0
+            end
+            2'd1: begin
+                cur_bcd = bcd_tens;
+                an_out  = 8'b1111_1101;   // AN1
+            end
+            2'd2: begin
+                if (deg_val >= 7'd100) begin
+                    cur_bcd = bcd_hund;
+                    an_out  = 8'b1111_1011;   // AN2
+                end else begin
+                    cur_bcd = 4'd0;
+                    an_out  = 8'b1111_1111;   // tat digit nay
+                end
+            end
+            default: begin
+                cur_bcd = 4'd0;
+                an_out  = 8'b1111_1111;
+            end
+        endcase
+
+        seg_out = seg7_encode(cur_bcd);
+    end
+
+    assign top_o_seg = seg_out;  // gfedcba
+    assign top_o_an  = an_out;
 
 endmodule

@@ -1,0 +1,10 @@
+Tên dự án: Thực tập FPGA Tên dự án: Thực tập 2025 - Tuần 2 - Tháng 4: Tiến độ 60% / Thời hạn: 12/2025
+Người thực hiện: Nguyễn Thành Đạt
+Đọc dữ liệu cảm biến ADXL362:			Thời gian 20/10 - 31/10 (Chậm)		- Tiến độ 90% (Chưa xử lý được dữ liệu ở 3 góc YZ, xử lý cơ bản được góc X)
+Thiết kế IP cho SPI:				Thời gian /10 - /10		- Tiến độ 0% 
+Làm tài liệu:					Thời gian /10 - /10		- Tiến độ 0%
+- Điểm nổi bật: 
+	+ Chuyển qua cảm biến đọc với các nút bấm để hiện X, Y, Z, temp, hiển thị được ra các góc đơn theo độ từ 0 đến 90 độ
+- Vấn đề: 
+	+ Xử lý góc chia độ tốn nhiều thời gian
+	+ Hiển thị lên LED 7 thanh bị lỗi

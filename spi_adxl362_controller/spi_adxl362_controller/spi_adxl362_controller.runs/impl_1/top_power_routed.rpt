@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date             : Fri Nov 14 14:47:06 2025
+| Date             : Mon Nov 17 08:42:58 2025
 | Host             : Datdatnguyen running 64-bit major release  (build 9200)
 | Command          : report_power -file top_power_routed.rpt -pb top_power_summary_routed.pb -rpx top_power_routed.rpx
 | Design           : top
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.105        |
+| Total On-Chip Power (W)  | 0.125        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.008        |
+| Dynamic (W)              | 0.028        |
 | Device Static (W)        | 0.097        |
 | Effective TJA (C/W)      | 4.6          |
-| Max Ambient (C)          | 84.5         |
-| Junction Temperature (C) | 25.5         |
+| Max Ambient (C)          | 84.4         |
+| Junction Temperature (C) | 25.6         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -53,15 +53,17 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |     0.002 |        3 |       --- |             --- |
-| Slice Logic    |    <0.001 |      409 |       --- |             --- |
-|   LUT as Logic |    <0.001 |      111 |     63400 |            0.18 |
-|   CARRY4       |    <0.001 |       30 |     15850 |            0.19 |
-|   Register     |    <0.001 |      234 |    126800 |            0.18 |
-|   Others       |     0.000 |       13 |       --- |             --- |
-| Signals        |    <0.001 |      341 |       --- |             --- |
-| I/O            |     0.005 |       26 |       210 |           12.38 |
+| Slice Logic    |     0.002 |      890 |       --- |             --- |
+|   LUT as Logic |     0.002 |      502 |     63400 |            0.79 |
+|   CARRY4       |    <0.001 |       38 |     15850 |            0.24 |
+|   Register     |    <0.001 |      231 |    126800 |            0.18 |
+|   F7/F8 Muxes  |    <0.001 |       12 |     63400 |            0.02 |
+|   Others       |     0.000 |       18 |       --- |             --- |
+| Signals        |     0.002 |      808 |       --- |             --- |
+| DSPs           |    <0.001 |        1 |       240 |            0.42 |
+| I/O            |     0.021 |       41 |       210 |           19.52 |
 | Static Power   |     0.097 |          |           |                 |
-| Total          |     0.105 |          |           |                 |
+| Total          |     0.125 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -71,9 +73,9 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.018 |       0.003 |      0.015 |
-| Vccaux    |       1.800 |     0.018 |       0.000 |      0.018 |
-| Vcco33    |       3.300 |     0.005 |       0.001 |      0.004 |
+| Vccint    |       1.000 |     0.022 |       0.007 |      0.015 |
+| Vccaux    |       1.800 |     0.019 |       0.001 |      0.018 |
+| Vcco33    |       3.300 |     0.010 |       0.006 |      0.004 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
@@ -137,10 +139,11 @@ Table of Contents
 3.1 By Hierarchy
 ----------------
 
-+------+-----------+
-| Name | Power (W) |
-+------+-----------+
-| top  |     0.008 |
-+------+-----------+
++-------------+-----------+
+| Name        | Power (W) |
++-------------+-----------+
+| top         |     0.028 |
+|   u_acc2deg |     0.004 |
++-------------+-----------+
 
 
