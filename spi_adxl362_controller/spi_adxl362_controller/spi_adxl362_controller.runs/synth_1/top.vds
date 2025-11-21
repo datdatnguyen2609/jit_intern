@@ -2,8 +2,8 @@
 # Vivado v2019.2 (64-bit)
 # SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
 # IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
-# Start of session at: Thu Nov 20 10:31:07 2025
-# Process ID: 7236
+# Start of session at: Fri Nov 21 09:26:56 2025
+# Process ID: 8148
 # Current directory: C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.runs/synth_1
 # Command line: vivado.exe -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
 # Log file: C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.runs/synth_1/top.vds
@@ -22,22 +22,30 @@ Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 16744 
+INFO: Helper process launched with PID 2976 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1018.059 ; gain = 234.629
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1020.086 ; gain = 235.500
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'top' [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/top.sv:3]
-	Parameter S_INIT_POWER_START bound to: 3'b000 
-	Parameter S_INIT_POWER_WAIT bound to: 3'b001 
-	Parameter S_READ_LOW_START bound to: 3'b010 
-	Parameter S_READ_LOW_WAIT bound to: 3'b011 
-	Parameter S_READ_HIGH_START bound to: 3'b100 
-	Parameter S_READ_HIGH_WAIT bound to: 3'b101 
-	Parameter S_HOLD_ANGLE bound to: 3'b110 
+	Parameter S_INIT_POWER_START bound to: 4'b0000 
+	Parameter S_INIT_POWER_WAIT bound to: 4'b0001 
+	Parameter S_READ_X_LOW_START bound to: 4'b0010 
+	Parameter S_READ_X_LOW_WAIT bound to: 4'b0011 
+	Parameter S_READ_X_HIGH_START bound to: 4'b0100 
+	Parameter S_READ_X_HIGH_WAIT bound to: 4'b0101 
+	Parameter S_READ_Y_LOW_START bound to: 4'b0110 
+	Parameter S_READ_Y_LOW_WAIT bound to: 4'b0111 
+	Parameter S_READ_Y_HIGH_START bound to: 4'b1000 
+	Parameter S_READ_Y_HIGH_WAIT bound to: 4'b1001 
+	Parameter S_READ_Z_LOW_START bound to: 4'b1010 
+	Parameter S_READ_Z_LOW_WAIT bound to: 4'b1011 
+	Parameter S_READ_Z_HIGH_START bound to: 4'b1100 
+	Parameter S_READ_Z_HIGH_WAIT bound to: 4'b1101 
+	Parameter S_HOLD_X bound to: 4'b1110 
+	Parameter S_HOLD_YZ bound to: 4'b1111 
 	Parameter AXIS_X bound to: 2'b00 
 	Parameter AXIS_Y bound to: 2'b01 
 	Parameter AXIS_Z bound to: 2'b10 
-	Parameter AXIS_T bound to: 2'b11 
 	Parameter SEG_MINUS bound to: 7'b0111111 
 INFO: [Synth 8-6157] synthesizing module 'debounce' [C:/Users/datda/Downloads/jit_intern/bcd2led7seg/bcd2led7seg.srcs/sources_1/new/debouncing.v:1]
 	Parameter CLK_FREQ bound to: 100000000 - type: integer 
@@ -55,12 +63,9 @@ INFO: [Synth 8-6157] synthesizing module 'spi_adxl362_controller' [C:/Users/datd
 	Parameter READ_DATA bound to: 3'b100 
 	Parameter ENDING bound to: 3'b101 
 INFO: [Synth 8-6155] done synthesizing module 'spi_adxl362_controller' (2#1) [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/spi_adxl362_controller.sv:9]
-INFO: [Synth 8-226] default block is never used [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/top.sv:100]
-INFO: [Synth 8-226] default block is never used [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/top.sv:100]
-INFO: [Synth 8-226] default block is never used [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/top.sv:192]
+INFO: [Synth 8-226] default block is never used [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/top.sv:135]
 INFO: [Synth 8-6157] synthesizing module 'acc_scaled_to_deg' [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/acc_scaled_to_deg.sv:1]
 INFO: [Synth 8-6155] done synthesizing module 'acc_scaled_to_deg' (3#1) [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/acc_scaled_to_deg.sv:1]
-INFO: [Synth 8-226] default block is never used [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/top.sv:310]
 INFO: [Synth 8-6155] done synthesizing module 'top' (4#1) [C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.srcs/sources_1/new/top.sv:3]
 WARNING: [Synth 8-3917] design top has port top_o_led[14] driven by constant 0
 WARNING: [Synth 8-3917] design top has port top_o_led[13] driven by constant 0
@@ -71,7 +76,7 @@ WARNING: [Synth 8-3917] design top has port top_o_led[9] driven by constant 0
 WARNING: [Synth 8-3917] design top has port top_o_led[8] driven by constant 0
 WARNING: [Synth 8-3917] design top has port top_o_led[7] driven by constant 0
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1091.465 ; gain = 308.035
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1093.438 ; gain = 308.852
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -84,12 +89,12 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1091.465 ; gain = 308.035
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1093.438 ; gain = 308.852
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1091.465 ; gain = 308.035
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1093.438 ; gain = 308.852
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1091.465 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.017 . Memory (MB): peak = 1093.438 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -100,30 +105,31 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1189.555 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1196.703 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1189.555 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1196.703 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1189.555 ; gain = 406.125
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1196.703 ; gain = 412.117
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1189.555 ; gain = 406.125
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1196.703 ; gain = 412.117
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1189.555 ; gain = 406.125
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1196.703 ; gain = 412.117
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'r_state_reg' in module 'spi_adxl362_controller'
 INFO: [Synth 8-802] inferred FSM for state register 'r_state_reg' in module 'top'
-INFO: [Synth 8-5544] ROM "r_state" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "r_spi_ready" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "r_state" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -138,17 +144,26 @@ INFO: [Synth 8-3354] encoded FSM with state register 'r_state_reg' using encodin
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
-      S_INIT_POWER_START |                              000 |                              000
-       S_INIT_POWER_WAIT |                              001 |                              001
-        S_READ_LOW_START |                              010 |                              010
-         S_READ_LOW_WAIT |                              011 |                              011
-       S_READ_HIGH_START |                              100 |                              100
-        S_READ_HIGH_WAIT |                              101 |                              101
-            S_HOLD_ANGLE |                              110 |                              110
+      S_INIT_POWER_START |                             0000 |                             0000
+       S_INIT_POWER_WAIT |                             0001 |                             0001
+      S_READ_X_LOW_START |                             0010 |                             0010
+       S_READ_X_LOW_WAIT |                             0011 |                             0011
+     S_READ_X_HIGH_START |                             0100 |                             0100
+      S_READ_X_HIGH_WAIT |                             0101 |                             0101
+      S_READ_Y_LOW_START |                             0110 |                             0110
+       S_READ_Y_LOW_WAIT |                             0111 |                             0111
+     S_READ_Y_HIGH_START |                             1000 |                             1000
+      S_READ_Y_HIGH_WAIT |                             1001 |                             1001
+      S_READ_Z_LOW_START |                             1010 |                             1010
+       S_READ_Z_LOW_WAIT |                             1011 |                             1011
+     S_READ_Z_HIGH_START |                             1100 |                             1100
+      S_READ_Z_HIGH_WAIT |                             1101 |                             1101
+                S_HOLD_X |                             1110 |                             1110
+               S_HOLD_YZ |                             1111 |                             1111
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'r_state_reg' using encoding 'sequential' in module 'top'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1189.555 ; gain = 406.125
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1196.703 ; gain = 412.117
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -161,46 +176,38 @@ Start RTL Component Statistics
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     26 Bit       Adders := 1     
-	   2 Input     13 Bit       Adders := 1     
+	   2 Input     27 Bit       Adders := 1     
+	   2 Input     13 Bit       Adders := 3     
 	   2 Input      8 Bit       Adders := 1     
 	   2 Input      4 Bit       Adders := 1     
 	   2 Input      3 Bit       Adders := 1     
-	   2 Input      2 Bit       Adders := 1     
 +---Registers : 
-	               26 Bit    Registers := 1     
-	               16 Bit    Registers := 5     
+	               27 Bit    Registers := 1     
+	               16 Bit    Registers := 4     
 	                8 Bit    Registers := 6     
 	                7 Bit    Registers := 1     
 	                4 Bit    Registers := 1     
 	                3 Bit    Registers := 1     
-	                2 Bit    Registers := 2     
-	                1 Bit    Registers := 17    
+	                1 Bit    Registers := 18    
 +---Muxes : 
-	   2 Input     26 Bit        Muxes := 1     
-	   7 Input     26 Bit        Muxes := 1     
-	   7 Input     16 Bit        Muxes := 2     
-	   4 Input     16 Bit        Muxes := 1     
-	   2 Input     13 Bit        Muxes := 1     
-	   2 Input     11 Bit        Muxes := 1     
+	   2 Input     27 Bit        Muxes := 1     
+	  16 Input     27 Bit        Muxes := 1     
+	  16 Input     16 Bit        Muxes := 1     
+	   2 Input     13 Bit        Muxes := 3     
+	   2 Input     11 Bit        Muxes := 3     
 	   2 Input      8 Bit        Muxes := 4     
 	   6 Input      8 Bit        Muxes := 1     
-	   7 Input      8 Bit        Muxes := 3     
-	   4 Input      8 Bit        Muxes := 1     
-	  89 Input      7 Bit        Muxes := 1     
-	   2 Input      7 Bit        Muxes := 1     
-	  14 Input      7 Bit        Muxes := 1     
-	   4 Input      6 Bit        Muxes := 1     
-	   4 Input      5 Bit        Muxes := 1     
+	  16 Input      8 Bit        Muxes := 3     
+	  13 Input      8 Bit        Muxes := 1     
+	  89 Input      7 Bit        Muxes := 3     
+	   2 Input      7 Bit        Muxes := 4     
+	  15 Input      7 Bit        Muxes := 1     
+	  16 Input      4 Bit        Muxes := 1     
 	   2 Input      3 Bit        Muxes := 3     
 	   6 Input      3 Bit        Muxes := 3     
-	   7 Input      3 Bit        Muxes := 1     
-	   2 Input      2 Bit        Muxes := 1     
-	   7 Input      2 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 25    
 	   6 Input      1 Bit        Muxes := 12    
-	   4 Input      1 Bit        Muxes := 4     
-	   7 Input      1 Bit        Muxes := 10    
+	  16 Input      1 Bit        Muxes := 9     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -211,33 +218,25 @@ Hierarchical RTL Component report
 Module top 
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     26 Bit       Adders := 1     
-	   2 Input     13 Bit       Adders := 1     
-	   2 Input      2 Bit       Adders := 1     
+	   2 Input     27 Bit       Adders := 1     
+	   2 Input     13 Bit       Adders := 3     
 +---Registers : 
-	               26 Bit    Registers := 1     
-	               16 Bit    Registers := 5     
+	               27 Bit    Registers := 1     
+	               16 Bit    Registers := 4     
 	                8 Bit    Registers := 3     
-	                2 Bit    Registers := 2     
-	                1 Bit    Registers := 3     
+	                1 Bit    Registers := 4     
 +---Muxes : 
-	   2 Input     26 Bit        Muxes := 1     
-	   7 Input     26 Bit        Muxes := 1     
-	   7 Input     16 Bit        Muxes := 2     
-	   4 Input     16 Bit        Muxes := 1     
-	   2 Input     13 Bit        Muxes := 1     
-	   2 Input     11 Bit        Muxes := 1     
-	   7 Input      8 Bit        Muxes := 3     
-	   4 Input      8 Bit        Muxes := 1     
-	   2 Input      7 Bit        Muxes := 1     
-	  14 Input      7 Bit        Muxes := 1     
-	   4 Input      6 Bit        Muxes := 1     
-	   4 Input      5 Bit        Muxes := 1     
-	   7 Input      3 Bit        Muxes := 1     
-	   2 Input      2 Bit        Muxes := 1     
-	   7 Input      2 Bit        Muxes := 1     
-	   4 Input      1 Bit        Muxes := 4     
-	   7 Input      1 Bit        Muxes := 10    
+	   2 Input     27 Bit        Muxes := 1     
+	  16 Input     27 Bit        Muxes := 1     
+	  16 Input     16 Bit        Muxes := 1     
+	   2 Input     13 Bit        Muxes := 3     
+	   2 Input     11 Bit        Muxes := 3     
+	  16 Input      8 Bit        Muxes := 3     
+	  13 Input      8 Bit        Muxes := 1     
+	   2 Input      7 Bit        Muxes := 4     
+	  15 Input      7 Bit        Muxes := 1     
+	  16 Input      4 Bit        Muxes := 1     
+	  16 Input      1 Bit        Muxes := 9     
 Module debounce 
 Detailed RTL Component Info : 
 +---Registers : 
@@ -291,16 +290,14 @@ WARNING: [Synth 8-3917] design top has port top_o_led[10] driven by constant 0
 WARNING: [Synth 8-3917] design top has port top_o_led[9] driven by constant 0
 WARNING: [Synth 8-3917] design top has port top_o_led[8] driven by constant 0
 WARNING: [Synth 8-3917] design top has port top_o_led[7] driven by constant 0
-WARNING: [Synth 8-3917] design top has port top_o_an[7] driven by constant 1
-WARNING: [Synth 8-3917] design top has port top_o_an[6] driven by constant 1
-WARNING: [Synth 8-3917] design top has port top_o_an[5] driven by constant 1
-WARNING: [Synth 8-3917] design top has port top_o_an[4] driven by constant 1
 INFO: [Synth 8-3886] merging instance 'r_spi_dout_reg[0]' (FDRE) to 'r_spi_dout_reg[2]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_spi/r_mosi_buf_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_spi/\r_mosi_buf_reg[0] )
 INFO: [Synth 8-3886] merging instance 'r_spi_inst_reg[1]' (FDSE) to 'r_spi_inst_reg[3]'
 INFO: [Synth 8-3886] merging instance 'r_spi_dout_reg[2]' (FDRE) to 'r_spi_dout_reg[3]'
+INFO: [Synth 8-3886] merging instance 'r_spi_addr_reg[2]' (FDRE) to 'r_spi_addr_reg[3]'
 INFO: [Synth 8-3886] merging instance 'r_spi_inst_reg[2]' (FDRE) to 'r_spi_dout_reg[3]'
 INFO: [Synth 8-3886] merging instance 'r_spi_dout_reg[3]' (FDRE) to 'r_spi_dout_reg[4]'
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\r_spi_inst_reg[3] )
 INFO: [Synth 8-3886] merging instance 'r_spi_dout_reg[4]' (FDRE) to 'r_spi_dout_reg[5]'
 INFO: [Synth 8-3886] merging instance 'r_spi_inst_reg[4]' (FDRE) to 'r_spi_dout_reg[5]'
 INFO: [Synth 8-3886] merging instance 'r_spi_dout_reg[5]' (FDRE) to 'r_spi_dout_reg[6]'
@@ -312,7 +309,7 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (\r_spi_in
 INFO: [Synth 8-3886] merging instance 'r_spi_inst_reg[0]' (FDRE) to 'r_spi_sel_rw_reg'
 INFO: [Synth 8-3886] merging instance 'r_spi_dout_reg[1]' (FDRE) to 'r_spi_addr_reg[5]'
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1189.555 ; gain = 406.125
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1196.703 ; gain = 412.117
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -324,13 +321,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1189.555 ; gain = 406.125
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 1196.703 ; gain = 412.117
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 1285.320 ; gain = 501.891
+Finished Timing Optimization : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 1200.535 ; gain = 415.949
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -342,7 +339,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 1286.375 ; gain = 502.945
+Finished Technology Mapping : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 1219.102 ; gain = 434.516
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -366,13 +363,13 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 1287.180 ; gain = 503.750
+Finished IO Insertion : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1224.883 ; gain = 440.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 1287.180 ; gain = 503.750
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1224.883 ; gain = 440.297
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -391,25 +388,25 @@ Report Check Netlist:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 1287.180 ; gain = 503.750
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1224.883 ; gain = 440.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 1287.180 ; gain = 503.750
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1224.883 ; gain = 440.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 1287.180 ; gain = 503.750
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1224.883 ; gain = 440.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 1287.180 ; gain = 503.750
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1224.883 ; gain = 440.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -426,51 +423,52 @@ Report Cell Usage:
 |      |Cell   |Count |
 +------+-------+------+
 |1     |BUFG   |     1|
-|2     |CARRY4 |    21|
-|3     |LUT1   |     5|
-|4     |LUT2   |    53|
-|5     |LUT3   |    50|
-|6     |LUT4   |    78|
-|7     |LUT5   |    53|
-|8     |LUT6   |   155|
-|9     |MUXF7  |     1|
-|10    |FDRE   |   196|
-|11    |FDSE   |     3|
-|12    |IBUF   |     3|
-|13    |OBUF   |    34|
+|2     |CARRY4 |    27|
+|3     |LUT1   |    42|
+|4     |LUT2   |    59|
+|5     |LUT3   |    64|
+|6     |LUT4   |    46|
+|7     |LUT5   |    59|
+|8     |LUT6   |   263|
+|9     |MUXF7  |    53|
+|10    |MUXF8  |    13|
+|11    |FDRE   |   182|
+|12    |FDSE   |     2|
+|13    |IBUF   |     3|
+|14    |OBUF   |    34|
 +------+-------+------+
 
 Report Instance Areas: 
 +------+-----------+-----------------------+------+
 |      |Instance   |Module                 |Cells |
 +------+-----------+-----------------------+------+
-|1     |top        |                       |   653|
-|2     |  u_db_rst |debounce               |    43|
-|3     |  u_spi    |spi_adxl362_controller |   124|
+|1     |top        |                       |   848|
+|2     |  u_db_rst |debounce               |    42|
+|3     |  u_spi    |spi_adxl362_controller |   115|
 +------+-----------+-----------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 1287.180 ; gain = 503.750
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1224.883 ; gain = 440.297
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 12 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:25 ; elapsed = 00:00:31 . Memory (MB): peak = 1287.180 ; gain = 405.660
-Synthesis Optimization Complete : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 1287.180 ; gain = 503.750
+Synthesis finished with 0 errors, 0 critical warnings and 8 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:25 ; elapsed = 00:00:31 . Memory (MB): peak = 1224.883 ; gain = 337.031
+Synthesis Optimization Complete : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1224.883 ; gain = 440.297
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1299.195 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 22 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1236.934 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 93 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1302.504 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1236.934 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-48 Infos, 22 Warnings, 0 Critical Warnings and 0 Errors encountered.
+48 Infos, 18 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:36 ; elapsed = 00:00:38 . Memory (MB): peak = 1302.504 ; gain = 806.309
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1302.504 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:36 ; elapsed = 00:00:39 . Memory (MB): peak = 1236.934 ; gain = 741.027
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1236.934 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.runs/synth_1/top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Thu Nov 20 10:31:51 2025...
+INFO: [Common 17-206] Exiting Vivado at Fri Nov 21 09:27:43 2025...

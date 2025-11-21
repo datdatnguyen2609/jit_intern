@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date             : Fri Oct 10 14:45:08 2025
+| Date             : Fri Nov 21 11:45:48 2025
 | Host             : Datdatnguyen running 64-bit major release  (build 9200)
 | Command          : report_power -file i2c_adt7420_controller_power_routed.rpt -pb i2c_adt7420_controller_power_summary_routed.pb -rpx i2c_adt7420_controller_power_routed.rpx
 | Design           : i2c_adt7420_controller
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.103        |
+| Total On-Chip Power (W)  | 0.113        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.006        |
+| Dynamic (W)              | 0.016        |
 | Device Static (W)        | 0.097        |
 | Effective TJA (C/W)      | 4.6          |
 | Max Ambient (C)          | 84.5         |
@@ -52,17 +52,18 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Clocks         |    <0.001 |        3 |       --- |             --- |
-| Slice Logic    |    <0.001 |      181 |       --- |             --- |
-|   LUT as Logic |    <0.001 |       75 |     63400 |            0.12 |
-|   Register     |    <0.001 |       59 |    126800 |            0.05 |
-|   CARRY4       |    <0.001 |        5 |     15850 |            0.03 |
+| Clocks         |     0.001 |        3 |       --- |             --- |
+| Slice Logic    |    <0.001 |      468 |       --- |             --- |
+|   LUT as Logic |    <0.001 |      235 |     63400 |            0.37 |
+|   Register     |    <0.001 |       99 |    126800 |            0.08 |
+|   CARRY4       |    <0.001 |       30 |     15850 |            0.19 |
+|   F7/F8 Muxes  |    <0.001 |       32 |     63400 |            0.05 |
 |   BUFG         |    <0.001 |        1 |        32 |            3.13 |
 |   Others       |     0.000 |        3 |       --- |             --- |
-| Signals        |    <0.001 |      145 |       --- |             --- |
-| I/O            |     0.004 |       12 |       210 |            5.71 |
+| Signals        |    <0.001 |      299 |       --- |             --- |
+| I/O            |     0.014 |       28 |       210 |           13.33 |
 | Static Power   |     0.097 |          |           |                 |
-| Total          |     0.103 |          |           |                 |
+| Total          |     0.113 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -73,8 +74,8 @@ Table of Contents
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
 | Vccint    |       1.000 |     0.017 |       0.002 |      0.015 |
-| Vccaux    |       1.800 |     0.018 |       0.000 |      0.018 |
-| Vcco33    |       3.300 |     0.005 |       0.001 |      0.004 |
+| Vccaux    |       1.800 |     0.019 |       0.001 |      0.018 |
+| Vcco33    |       3.300 |     0.008 |       0.004 |      0.004 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
@@ -125,11 +126,11 @@ Table of Contents
 2.2 Clock Constraints
 ---------------------
 
-+---------+---------+-----------------+
-| Clock   | Domain  | Constraint (ns) |
-+---------+---------+-----------------+
-| sys_clk | sys_clk |            10.0 |
-+---------+---------+-----------------+
++-------------+---------+-----------------+
+| Clock       | Domain  | Constraint (ns) |
++-------------+---------+-----------------+
+| sys_clk_pin | sys_clk |            10.0 |
++-------------+---------+-----------------+
 
 
 3. Detailed Reports
@@ -141,8 +142,7 @@ Table of Contents
 +------------------------+-----------+
 | Name                   | Power (W) |
 +------------------------+-----------+
-| i2c_adt7420_controller |     0.006 |
-|   i2c_sda_IOBUF_inst   |     0.002 |
+| i2c_adt7420_controller |     0.016 |
 +------------------------+-----------+
 
 

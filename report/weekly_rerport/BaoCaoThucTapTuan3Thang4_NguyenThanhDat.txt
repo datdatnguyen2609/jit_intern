@@ -1,0 +1,11 @@
+Tên dự án: Thực tập FPGA Tên dự án: Thực tập 2025 - Tuần 3 - Tháng 4: Tiến độ 62% / Thời hạn: 12/2025
+Người thực hiện: Nguyễn Thành Đạt
+Đọc dữ liệu cảm biến ADXL362:			Thời gian 20/10 - 31/10 (Chậm)		- Tiến độ 95% (Xử lý được 1 nửa các giá trị góc)
+Thiết kế IP cho SPI:				Thời gian /10 - /10		- Tiến độ 0% 
+Làm tài liệu:					Thời gian /10 - /10		- Tiến độ 0%
+- Điểm nổi bật: 
+	+ Hiển thị, lập bảng xử lý được 3 góc XYZ, trong khoảng -90 đến 90 với góc Y
+- Vấn đề: 
+	+ Góc X, góc Z, chưa hiển thị được hết khoảng giá trị, góc X chỉ hiển thị được đến -78 độ xong sẽ quay về nửa chiều còn lại
+	+ Góc Z cũng chỉ đến -60 độ là tối đa, rồi sẽ tụt theo nửa chiều còn lại của hệ tọa độ
+	=> Cần xác định lại khoảng giá trị
