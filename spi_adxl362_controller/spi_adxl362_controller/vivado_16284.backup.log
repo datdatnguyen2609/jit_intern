@@ -2,10 +2,10 @@
 # Vivado v2019.2 (64-bit)
 # SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
 # IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
-# Start of session at: Fri Nov 14 15:08:23 2025
-# Process ID: 2968
+# Start of session at: Mon Nov 24 08:29:23 2025
+# Process ID: 16284
 # Current directory: C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent15152 C:\Users\datda\Downloads\jit_intern\spi_adxl362_controller\spi_adxl362_controller\spi_adxl362_controller.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent7764 C:\Users\datda\Downloads\jit_intern\spi_adxl362_controller\spi_adxl362_controller\spi_adxl362_controller.xpr
 # Log file: C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/vivado.log
 # Journal file: C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller\vivado.jou
 #-----------------------------------------------------------
@@ -18,7 +18,7 @@ Finished scanning sources
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/FPGA/Xilinx_install/Vivado/2019.2/data/ip'.
-open_project: Time (s): cpu = 00:00:16 ; elapsed = 00:00:08 . Memory (MB): peak = 979.121 ; gain = 327.508
+open_project: Time (s): cpu = 00:00:19 ; elapsed = 00:00:16 . Memory (MB): peak = 892.133 ; gain = 260.078
 update_compile_order -fileset sources_1
 open_hw_manager
 connect_hw_server -allow_non_jtag
@@ -42,7 +42,7 @@ INFO: [Labtools 27-2221] Launch Output:
 
 
 
-connect_hw_server: Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 995.055 ; gain = 0.000
+connect_hw_server: Time (s): cpu = 00:00:00 ; elapsed = 00:00:08 . Memory (MB): peak = 941.895 ; gain = 5.457
 open_hw_target
 INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210292BD78BEA
 set_property PROGRAM.FILE {C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.runs/impl_1/top.bit} [get_hw_devices xc7a100t_0]
@@ -57,5 +57,38 @@ INFO: [Labtools 27-3164] End of startup status: HIGH
 refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
 INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
 ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210292BD78BEA
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210292BD78BEA
+INFO: [Labtools 27-1435] Device xc7a100t (JTAG device index = 0) is not programmed (DONE status = 0).
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.runs/impl_1/top.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210292BD78BEA
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210292BD78BEA
+INFO: [Labtools 27-1435] Device xc7a100t (JTAG device index = 0) is not programmed (DONE status = 0).
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {C:/Users/datda/Downloads/jit_intern/spi_adxl362_controller/spi_adxl362_controller/spi_adxl362_controller.runs/impl_1/top.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210292BD78BEA
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210292BD78BEA
+INFO: [Labtools 27-1435] Device xc7a100t (JTAG device index = 0) is not programmed (DONE status = 0).
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {C:/Users/datda/Downloads/2_SPI_I2C_THAMKHAO/2_SPI_I2C/SPI_I2C.rus.bk/SPI_I2C_20231225_bk.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210292BD78BEA
 exit
-INFO: [Common 17-206] Exiting Vivado at Fri Nov 14 15:59:25 2025...
+INFO: [Common 17-206] Exiting Vivado at Mon Nov 24 11:55:48 2025...
