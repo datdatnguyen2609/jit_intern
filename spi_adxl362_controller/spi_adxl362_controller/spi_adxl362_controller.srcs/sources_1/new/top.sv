@@ -94,7 +94,7 @@ module top (
     reg [15:0] r_axis_data;
 
     reg [26:0] hold_cnt;
-    reg        r_disp_mode;   // 0 hien X,Y 360  1 hien Z
+    reg        r_disp_mode;   // 0 hien X,Y 360  1 hien Z trong khoang -90..90
 
     always @(posedge top_i_clk) begin
         if (w_rst_sync) begin
@@ -348,11 +348,6 @@ module top (
 
     // =========================================
     // 4b) Goc X 0..359 do trong mat phang XZ
-    // Z < 0  gan TOP huong len  0 do
-    // X duong  Z am   0..90
-    // X duong  Z duong 90..180
-    // X am     Z duong 180..270
-    // X am     Z am   270..360
     // =========================================
     reg [8:0] angle_x_360;
 
@@ -376,7 +371,6 @@ module top (
 
     // =========================================
     // 4c) Goc Y 0..359 do trong mat phang YZ
-    // Quan he tuong tu XZ nhung dung Y thay cho X
     // =========================================
     reg [8:0] angle_y_360;
 
@@ -410,7 +404,7 @@ module top (
     // Mode 0  hien X,Y 360 do
     //   AN0..3  X  ones tens hundreds chu X
     //   AN4..7  Y  ones tens hundreds chu Y
-    // Mode 1  hien Z  trong khoang -90..90
+    // Mode 1  hien Z trong khoang -90..90
     //   AN0..3  Z  ones tens dau chu Z
     //   AN4..7  blank
     // =========================================
@@ -429,11 +423,12 @@ module top (
     wire [3:0] y_tens_360  = y_rem_100 / 10;
     wire [3:0] y_ones_360  = y_rem_100 % 10;
 
-    // Tach BCD Z 0..90
+    // Tach BCD Z -90..90 theo do tuyet doi
     wire [6:0] z_deg_val   = z_angle_mag;
     wire [3:0] z_tens      = z_deg_val / 10;
     wire [3:0] z_ones      = z_deg_val % 10;
 
+    // Bo dem quet led 7 thanh
     reg [15:0] disp_cnt;
     always @(posedge top_i_clk) begin
         if (w_rst_sync) begin
@@ -469,7 +464,7 @@ module top (
                 4'd9:  seg7_encode = 7'b0010000;
                 4'd10: seg7_encode = 7'b0111111; // dau -
                 4'd11: seg7_encode = 7'b1111111; // blank
-                4'd12: seg7_encode = 7'b0100101; // X gan giong H
+                4'd12: seg7_encode = 7'b0001001; // X gan giong H
                 4'd13: seg7_encode = 7'b0010001; // Y
                 4'd14: seg7_encode = 7'b0100100; // Z gan giong 2
                 default: seg7_encode = 7'b1111111;
@@ -511,6 +506,7 @@ module top (
                 if (r_disp_mode == 1'b0) begin
                     seg_out = seg7_encode(x_hundreds);
                 end else begin
+                    // dau am hoac blank cho Z
                     seg_out = z_sign_neg ? seg7_encode(CODE_MINUS)
                                          : seg7_encode(CODE_BLANK);
                 end

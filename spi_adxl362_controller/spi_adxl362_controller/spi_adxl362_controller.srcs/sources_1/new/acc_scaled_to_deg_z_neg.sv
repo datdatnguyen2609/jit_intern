@@ -94,17 +94,17 @@ always @* begin
         (ACC_IN <= 11'd871 ) : DEG = 7'd78;
         (ACC_IN <= 11'd874 ) : DEG = 7'd79;
 
+        // ?o?n cu?i ?ã giãn l?i, không trùng ng??ng và không quá sát
         (ACC_IN <= 11'd876 ) : DEG = 7'd80;
         (ACC_IN <= 11'd879 ) : DEG = 7'd81;
-        (ACC_IN <= 11'd881 ) : DEG = 7'd82;
-        (ACC_IN <= 11'd883 ) : DEG = 7'd83;
-        (ACC_IN <= 11'd885 ) : DEG = 7'd84;
-        (ACC_IN <= 11'd887 ) : DEG = 7'd85;
-        (ACC_IN <= 11'd888 ) : DEG = 7'd86;
-        (ACC_IN <= 11'd889 ) : DEG = 7'd87;
-        // 87 va 88 cung nguong 889
-        (ACC_IN <= 11'd889 ) : DEG = 7'd88;
-        (ACC_IN <= 11'd890 ) : DEG = 7'd89;
+        (ACC_IN <= 11'd882 ) : DEG = 7'd82;
+        (ACC_IN <= 11'd885 ) : DEG = 7'd83;
+        (ACC_IN <= 11'd888 ) : DEG = 7'd84;
+        (ACC_IN <= 11'd891 ) : DEG = 7'd85;
+        (ACC_IN <= 11'd894 ) : DEG = 7'd86;
+        (ACC_IN <= 11'd897 ) : DEG = 7'd87;
+        (ACC_IN <= 11'd900 ) : DEG = 7'd88;
+        (ACC_IN <= 11'd903 ) : DEG = 7'd89;
 
         default              : DEG = 7'd90;
 
