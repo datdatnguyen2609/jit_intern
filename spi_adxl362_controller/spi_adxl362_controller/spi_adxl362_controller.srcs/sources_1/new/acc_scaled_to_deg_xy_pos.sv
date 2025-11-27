@@ -1,4 +1,4 @@
-module acc_scaled_to_deg (
+module acc_scaled_to_deg_xy_pos (
     input  wire [10:0] ACC_IN,  // gia tri ACC 11 bit
     output reg  [6:0]  DEG      // goc 0..90
 );
