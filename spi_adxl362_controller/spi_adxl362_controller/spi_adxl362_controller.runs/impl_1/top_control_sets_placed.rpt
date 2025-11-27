@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date         : Thu Nov 27 09:21:44 2025
+| Date         : Thu Nov 27 09:58:09 2025
 | Host         : Datdatnguyen running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file top_control_sets_placed.rpt
 | Design       : top
@@ -27,7 +27,7 @@ Table of Contents
 |    Minimum number of control sets                        |    17 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |    53 |
+| Unused register locations in slices containing registers |    54 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -58,12 +58,12 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |               8 |            3 |
+| No           | No                    | No                     |               8 |            4 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |              59 |           17 |
+| No           | Yes                   | No                     |              59 |           16 |
 | Yes          | No                    | No                     |               0 |            0 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |             120 |           34 |
+| Yes          | Yes                   | No                     |             119 |           38 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -77,19 +77,19 @@ Table of Contents
 |  top_i_clk_IBUF_BUFG |                                          | u_spi/r_sclk_count[3]_i_1_n_0     |                1 |              4 |
 |  top_i_clk_IBUF_BUFG | u_spi/FSM_sequential_r_state_reg[3][1]   | u_db_rst/w_rst_sync               |                2 |              4 |
 |  top_i_clk_IBUF_BUFG | u_spi/FSM_sequential_r_state_reg[3]_0[0] | u_db_rst/w_rst_sync               |                1 |              4 |
-|  top_i_clk_IBUF_BUFG | u_spi/r_miso_buf                         | u_db_rst/w_rst_sync               |                1 |              7 |
-|  top_i_clk_IBUF_BUFG | u_spi/r_mosi_buf[7]_i_1_n_0              | u_db_rst/w_rst_sync               |                4 |              7 |
-|  top_i_clk_IBUF_BUFG |                                          |                                   |                3 |              8 |
-|  top_i_clk_IBUF_BUFG | u_spi/o_din[7]_i_1_n_0                   | u_db_rst/w_rst_sync               |                1 |              8 |
-|  top_i_clk_IBUF_BUFG | u_spi/FSM_sequential_r_state_reg[3][0]   | u_db_rst/w_rst_sync               |                2 |              8 |
-|  top_i_clk_IBUF_BUFG | u_spi/r_mosi_delay_cnt[7]_i_2_n_0        | u_spi/r_mosi_delay_cnt[7]_i_1_n_0 |                2 |              8 |
+|  top_i_clk_IBUF_BUFG | u_spi/r_miso_buf                         | u_db_rst/w_rst_sync               |                3 |              7 |
+|  top_i_clk_IBUF_BUFG | u_spi/r_mosi_buf[7]_i_1_n_0              | u_db_rst/w_rst_sync               |                2 |              7 |
+|  top_i_clk_IBUF_BUFG |                                          |                                   |                4 |              8 |
+|  top_i_clk_IBUF_BUFG | u_spi/o_din[7]_i_1_n_0                   | u_db_rst/w_rst_sync               |                4 |              8 |
+|  top_i_clk_IBUF_BUFG | u_spi/r_mosi_delay_cnt[7]_i_2_n_0        | u_spi/r_mosi_delay_cnt[7]_i_1_n_0 |                3 |              8 |
+|  top_i_clk_IBUF_BUFG | u_spi/FSM_sequential_r_state_reg[3][0]   | u_db_rst/w_rst_sync               |                3 |              8 |
 |  top_i_clk_IBUF_BUFG | u_spi/FSM_sequential_r_state_reg[3]_1[0] | u_db_rst/w_rst_sync               |                2 |              9 |
 |  top_i_clk_IBUF_BUFG | u_spi/E[0]                               | u_db_rst/w_rst_sync               |                4 |             12 |
+|  top_i_clk_IBUF_BUFG | u_spi/w_csn_d_reg_0[0]                   | u_db_rst/w_rst_sync               |                3 |             12 |
 |  top_i_clk_IBUF_BUFG | u_spi/w_csn_d_reg[0]                     | u_db_rst/w_rst_sync               |                4 |             12 |
-|  top_i_clk_IBUF_BUFG | u_spi/w_csn_d_reg_0[0]                   | u_db_rst/w_rst_sync               |                4 |             13 |
 |  top_i_clk_IBUF_BUFG |                                          | u_db_rst/R_counter[0]_i_1_n_0     |                6 |             22 |
 |  top_i_clk_IBUF_BUFG | u_spi/FSM_sequential_r_state_reg[1]_0[0] | u_db_rst/w_rst_sync               |                6 |             27 |
-|  top_i_clk_IBUF_BUFG |                                          | u_db_rst/w_rst_sync               |               10 |             33 |
+|  top_i_clk_IBUF_BUFG |                                          | u_db_rst/w_rst_sync               |                9 |             33 |
 +----------------------+------------------------------------------+-----------------------------------+------------------+----------------+
 
 

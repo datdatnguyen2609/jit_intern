@@ -94,7 +94,7 @@ module top (
     reg [15:0] r_axis_data;
 
     reg [26:0] hold_cnt;
-    reg        r_disp_mode;   // 0 hien X, 1 hien Y va Z
+    reg        r_disp_mode;   // 0 hien X,Y 360  1 hien Z
 
     always @(posedge top_i_clk) begin
         if (w_rst_sync) begin
@@ -273,7 +273,6 @@ module top (
     wire               x_sign_neg = x_13[12];
     wire [12:0]        x_abs = x_sign_neg ? (~x_13 + 13'd1) : x_13;
 
-    // clip len 1312
     wire [10:0]        x_acc_1312 = (x_abs > 13'd1312) ? 11'd1312
                                                        : x_abs[10:0];
 
@@ -348,27 +347,92 @@ module top (
     assign z_angle_mag = z_sign_neg ? z_angle_neg : z_angle_pos;
 
     // =========================================
-    // 5) Dua goc X ra 16 LED
-    // bit 15 la dau X
+    // 4b) Goc X 0..359 do trong mat phang XZ
+    // Z < 0  gan TOP huong len  0 do
+    // X duong  Z am   0..90
+    // X duong  Z duong 90..180
+    // X am     Z duong 180..270
+    // X am     Z am   270..360
     // =========================================
-    assign top_o_led = {x_sign_neg, 8'd0, x_angle_mag};
+    reg [8:0] angle_x_360;
+
+    always @* begin
+        if (z_sign_neg == 1'b1) begin
+            // Z am
+            if (x_sign_neg == 1'b0) begin
+                angle_x_360 = {2'b00, x_angle_mag};                 // 0..90
+            end else begin
+                angle_x_360 = 9'd360 - {2'b00, x_angle_mag};        // 270..360
+            end
+        end else begin
+            // Z duong
+            if (x_sign_neg == 1'b0) begin
+                angle_x_360 = 9'd180 - {2'b00, x_angle_mag};        // 90..180
+            end else begin
+                angle_x_360 = 9'd180 + {2'b00, x_angle_mag};        // 180..270
+            end
+        end
+    end
+
+    // =========================================
+    // 4c) Goc Y 0..359 do trong mat phang YZ
+    // Quan he tuong tu XZ nhung dung Y thay cho X
+    // =========================================
+    reg [8:0] angle_y_360;
+
+    always @* begin
+        if (z_sign_neg == 1'b1) begin
+            // Z am
+            if (y_sign_neg == 1'b0) begin
+                angle_y_360 = {2'b00, y_angle_mag};                 // 0..90
+            end else begin
+                angle_y_360 = 9'd360 - {2'b00, y_angle_mag};        // 270..360
+            end
+        end else begin
+            // Z duong
+            if (y_sign_neg == 1'b0) begin
+                angle_y_360 = 9'd180 - {2'b00, y_angle_mag};        // 90..180
+            end else begin
+                angle_y_360 = 9'd180 + {2'b00, y_angle_mag};        // 180..270
+            end
+        end
+    end
+
+    // =========================================
+    // 5) Dua goc X,Y ra 16 LED
+    // LED[8:0]  = goc X 0..359
+    // LED[15:9] = 7 bit thap cua goc Y
+    // =========================================
+    assign top_o_led = {angle_y_360[6:0], angle_x_360};
 
     // =========================================
     // 6) Hien thi tren 8 led 7 thanh
-    // Mode 0 trong 1 s: hien X tren 4 digit phai
-    // Mode 1 trong 1 s: hien Y tren 4 digit trai, Z tren 4 digit phai
+    // Mode 0  hien X,Y 360 do
+    //   AN0..3  X  ones tens hundreds chu X
+    //   AN4..7  Y  ones tens hundreds chu Y
+    // Mode 1  hien Z  trong khoang -90..90
+    //   AN0..3  Z  ones tens dau chu Z
+    //   AN4..7  blank
     // =========================================
 
-    wire [6:0] x_deg_val = x_angle_mag;
-    wire [6:0] y_deg_val = y_angle_mag;
-    wire [6:0] z_deg_val = z_angle_mag;
+    // Tach BCD X 0..359
+    wire [8:0] x_deg_360   = angle_x_360;
+    wire [3:0] x_hundreds  = x_deg_360 / 100;
+    wire [6:0] x_rem_100   = x_deg_360 % 100;
+    wire [3:0] x_tens_360  = x_rem_100 / 10;
+    wire [3:0] x_ones_360  = x_rem_100 % 10;
 
-    wire [3:0] x_tens = x_deg_val / 10;
-    wire [3:0] x_ones = x_deg_val % 10;
-    wire [3:0] y_tens = y_deg_val / 10;
-    wire [3:0] y_ones = y_deg_val % 10;
-    wire [3:0] z_tens = z_deg_val / 10;
-    wire [3:0] z_ones = z_deg_val % 10;
+    // Tach BCD Y 0..359
+    wire [8:0] y_deg_360   = angle_y_360;
+    wire [3:0] y_hundreds  = y_deg_360 / 100;
+    wire [6:0] y_rem_100   = y_deg_360 % 100;
+    wire [3:0] y_tens_360  = y_rem_100 / 10;
+    wire [3:0] y_ones_360  = y_rem_100 % 10;
+
+    // Tach BCD Z 0..90
+    wire [6:0] z_deg_val   = z_angle_mag;
+    wire [3:0] z_tens      = z_deg_val / 10;
+    wire [3:0] z_ones      = z_deg_val % 10;
 
     reg [15:0] disp_cnt;
     always @(posedge top_i_clk) begin
@@ -422,10 +486,10 @@ module top (
 
         case (scan_sel)
             3'd0: begin
-                // AN0
+                // AN0  digit phai nhat
                 an_out = 8'b11111110;
                 if (r_disp_mode == 1'b0) begin
-                    seg_out = seg7_encode(x_ones);
+                    seg_out = seg7_encode(x_ones_360);
                 end else begin
                     seg_out = seg7_encode(z_ones);
                 end
@@ -435,18 +499,17 @@ module top (
                 // AN1
                 an_out = 8'b11111101;
                 if (r_disp_mode == 1'b0) begin
-                    seg_out = seg7_encode(x_tens);
+                    seg_out = seg7_encode(x_tens_360);
                 end else begin
                     seg_out = seg7_encode(z_tens);
                 end
             end
 
             3'd2: begin
-                // AN2 dau
+                // AN2
                 an_out = 8'b11111011;
                 if (r_disp_mode == 1'b0) begin
-                    seg_out = x_sign_neg ? seg7_encode(CODE_MINUS)
-                                         : seg7_encode(CODE_BLANK);
+                    seg_out = seg7_encode(x_hundreds);
                 end else begin
                     seg_out = z_sign_neg ? seg7_encode(CODE_MINUS)
                                          : seg7_encode(CODE_BLANK);
@@ -464,40 +527,39 @@ module top (
             end
 
             3'd4: begin
-                // AN4 don vi Y
+                // AN4 don vi Y hoac blank
                 an_out = 8'b11101111;
-                if (r_disp_mode == 1'b1) begin
-                    seg_out = seg7_encode(y_ones);
+                if (r_disp_mode == 1'b0) begin
+                    seg_out = seg7_encode(y_ones_360);
                 end else begin
                     seg_out = seg7_encode(CODE_BLANK);
                 end
             end
 
             3'd5: begin
-                // AN5 chuc Y
+                // AN5 chuc Y hoac blank
                 an_out = 8'b11011111;
-                if (r_disp_mode == 1'b1) begin
-                    seg_out = seg7_encode(y_tens);
+                if (r_disp_mode == 1'b0) begin
+                    seg_out = seg7_encode(y_tens_360);
                 end else begin
                     seg_out = seg7_encode(CODE_BLANK);
                 end
             end
 
             3'd6: begin
-                // AN6 dau Y
+                // AN6 tram Y hoac blank
                 an_out = 8'b10111111;
-                if (r_disp_mode == 1'b1) begin
-                    seg_out = y_sign_neg ? seg7_encode(CODE_MINUS)
-                                         : seg7_encode(CODE_BLANK);
+                if (r_disp_mode == 1'b0) begin
+                    seg_out = seg7_encode(y_hundreds);
                 end else begin
                     seg_out = seg7_encode(CODE_BLANK);
                 end
             end
 
             3'd7: begin
-                // AN7 chu Y
+                // AN7 chu Y hoac blank
                 an_out = 8'b01111111;
-                if (r_disp_mode == 1'b1) begin
+                if (r_disp_mode == 1'b0) begin
                     seg_out = seg7_encode(CODE_Y);
                 end else begin
                     seg_out = seg7_encode(CODE_BLANK);
