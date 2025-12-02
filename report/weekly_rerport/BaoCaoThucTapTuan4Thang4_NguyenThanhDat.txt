@@ -1,0 +1,11 @@
+Tên dự án: Thực tập FPGA Tên dự án: Thực tập 2025 - Tuần 4 - Tháng 4: Tiến độ 65% / Thời hạn: 12/2025
+Người thực hiện: Nguyễn Thành Đạt
+
+Đọc dữ liệu cảm biến ADXL362:			Thời gian 20/10 - 31/10 (Chậm)		- Tiến độ 100% (Xử lý, hiển thị các giá trị lên LED 7 Thanh)
+
+- Điểm nổi bật: 
+	+ Hiển thị, lập bảng xử lý được 3 góc XYZ, hiển thị trong 360 độ với góc X theo mặt phẳng XZ, Y theo mặt phẳng YZ, trong khoảng -90 đến 90 với góc Z
+- Vấn đề: 
+	+ Hiển thị góc X, Y, Z phải hiệu chỉnh lại theo 5 bảng giá trị khác nhau theo các hướng góc
+	+ Sửa lại giá trị để phù hợp trong khoảng 360 độ
+	+ Góc Z là góc trục để xác định nên chưa cài đặt để hiển thị trong khoảng 360 độ được mà chỉ được 1 nửa khoảng từ -90 đến 90 độ
