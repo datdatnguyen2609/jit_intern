@@ -1,0 +1,160 @@
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+----------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
+| Date         : Thu Jan 15 16:18:01 2026
+| Host         : Dat running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file integrated_system_control_sets_placed.rpt
+| Design       : integrated_system
+| Device       : xc7a100t
+----------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    82 |
+|    Minimum number of control sets                        |    82 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |   271 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    82 |
+| >= 0 to < 4        |    23 |
+| >= 4 to < 6        |     7 |
+| >= 6 to < 8        |     7 |
+| >= 8 to < 10       |     9 |
+| >= 10 to < 12      |     1 |
+| >= 12 to < 14      |     1 |
+| >= 14 to < 16      |     1 |
+| >= 16              |    33 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              14 |            7 |
+| No           | No                    | Yes                    |              22 |           10 |
+| No           | Yes                   | No                     |             276 |          114 |
+| Yes          | No                    | No                     |             101 |           40 |
+| Yes          | No                    | Yes                    |              36 |           12 |
+| Yes          | Yes                   | No                     |             768 |          236 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++----------------------------+---------------------------------------------+--------------------------------------------+------------------+----------------+
+|        Clock Signal        |                Enable Signal                |              Set/Reset Signal              | Slice Load Count | Bel Load Count |
++----------------------------+---------------------------------------------+--------------------------------------------+------------------+----------------+
+|  u_i2c/ack__0              |                                             | u_i2c/ack_reg_i_2_n_0                      |                1 |              1 |
+|  clk_IBUF_BUFG             | u_spi/o_mosi_i_1_n_0                        | u_deb_rst/w_rst                            |                1 |              1 |
+|  clk_IBUF_BUFG             | u_deb_btn1/in_sync_i_1__0_n_0               | u_deb_rst/w_rst                            |                1 |              1 |
+|  clk_IBUF_BUFG             | GEN_SW_DEB[7].u_deb_sw/in_sync_i_1__11_n_0  | u_deb_rst/w_rst                            |                1 |              1 |
+|  clk_IBUF_BUFG             | u_deb_btn2/in_sync_i_1__1_n_0               | u_deb_rst/w_rst                            |                1 |              1 |
+|  clk_IBUF_BUFG             | u_deb_btn4/in_sync_i_1__3_n_0               | u_deb_rst/w_rst                            |                1 |              1 |
+|  clk_IBUF_BUFG             | GEN_SW_DEB[8].u_deb_sw/in_sync_i_1__12_n_0  | u_deb_rst/w_rst                            |                1 |              1 |
+|  clk_IBUF_BUFG             | GEN_SW_DEB[6].u_deb_sw/in_sync_i_1__10_n_0  | u_deb_rst/w_rst                            |                1 |              1 |
+|  clk_IBUF_BUFG             | GEN_SW_DEB[13].u_deb_sw/in_sync_i_1__17_n_0 | u_deb_rst/w_rst                            |                1 |              1 |
+|  clk_IBUF_BUFG             | GEN_SW_DEB[14].u_deb_sw/in_sync_i_1__18_n_0 | u_deb_rst/w_rst                            |                1 |              1 |
+|  clk_IBUF_BUFG             | GEN_SW_DEB[4].u_deb_sw/in_sync_i_1__8_n_0   | u_deb_rst/w_rst                            |                1 |              1 |
+|  clk_IBUF_BUFG             | GEN_SW_DEB[9].u_deb_sw/in_sync_i_1__13_n_0  | u_deb_rst/w_rst                            |                1 |              1 |
+|  clk_IBUF_BUFG             | GEN_SW_DEB[15].u_deb_sw/in_sync_i_1__19_n_0 | u_deb_rst/w_rst                            |                1 |              1 |
+|  clk_IBUF_BUFG             | u_deb_btn3/in_sync_i_1__2_n_0               | u_deb_rst/w_rst                            |                1 |              1 |
+|  clk_IBUF_BUFG             | GEN_SW_DEB[1].u_deb_sw/in_sync_i_1__5_n_0   | u_deb_rst/w_rst                            |                1 |              1 |
+|  clk_IBUF_BUFG             | GEN_SW_DEB[12].u_deb_sw/in_sync_i_1__16_n_0 | u_deb_rst/w_rst                            |                1 |              1 |
+|  clk_IBUF_BUFG             | GEN_SW_DEB[2].u_deb_sw/in_sync_i_1__6_n_0   | u_deb_rst/w_rst                            |                1 |              1 |
+|  clk_IBUF_BUFG             | GEN_SW_DEB[0].u_deb_sw/in_sync_i_1__4_n_0   | u_deb_rst/w_rst                            |                1 |              1 |
+|  clk_IBUF_BUFG             | GEN_SW_DEB[3].u_deb_sw/in_sync_i_1__7_n_0   | u_deb_rst/w_rst                            |                1 |              1 |
+|  clk_IBUF_BUFG             | GEN_SW_DEB[10].u_deb_sw/in_sync_i_1__14_n_0 | u_deb_rst/w_rst                            |                1 |              1 |
+|  clk_IBUF_BUFG             | GEN_SW_DEB[11].u_deb_sw/in_sync_i_1__15_n_0 | u_deb_rst/w_rst                            |                1 |              1 |
+|  clk_IBUF_BUFG             | GEN_SW_DEB[5].u_deb_sw/in_sync_i_1__9_n_0   | u_deb_rst/w_rst                            |                1 |              1 |
+|  clk_IBUF_BUFG             | u_deb_btn0/in_sync_i_1_n_0                  | u_deb_rst/w_rst                            |                1 |              1 |
+|  clk_IBUF_BUFG             |                                             | u_spi/r_sclk_count[3]_i_1_n_0              |                1 |              4 |
+|  cnt_delay_reg[19]_i_3_n_0 | u_i2c/cnt_bit                               | u_deb_rst/w_rst                            |                1 |              4 |
+|  cnt_delay_reg[19]_i_3_n_0 | u_i2c/state[3]_i_1_n_0                      | u_deb_rst/w_rst                            |                3 |              4 |
+|  clk_IBUF_BUFG             | u_spi/r_spi_state_reg[1][0]                 | u_deb_rst/w_rst                            |                1 |              4 |
+|  clk_IBUF_BUFG             | r_tx_len                                    | u_deb_rst/w_rst                            |                2 |              4 |
+|  clk_IBUF_BUFG             | u_uart_rx/FSM_onehot_state[4]_i_1_n_0       | u_deb_rst/w_rst                            |                2 |              5 |
+|  clk_IBUF_BUFG             | u_spi/r_spi_state_reg[1]_0[0]               | u_deb_rst/w_rst                            |                2 |              5 |
+|  clk_IBUF_BUFG             | u_deb_rst/r_mode_reg[2]                     |                                            |                4 |              6 |
+|  clk_IBUF_BUFG             | u_deb_rst/out_reg_1                         | u_deb_rst/r_mode_reg[2]_1                  |                2 |              6 |
+|  clk_IBUF_BUFG             | r_tx_idx[5]_i_1_n_0                         | u_deb_rst/w_rst                            |                2 |              6 |
+|  clk_IBUF_BUFG             | u_spi/r_mosi_buf[7]_i_1_n_0                 | u_deb_rst/w_rst                            |                2 |              7 |
+|  clk_IBUF_BUFG             | u_spi/r_miso_buf                            | u_deb_rst/w_rst                            |                1 |              7 |
+|  clk_IBUF_BUFG             | u_uart_tx/E[0]                              | u_deb_rst/w_rst                            |                4 |              7 |
+|  clk_IBUF_BUFG             | u_uart_tx/tx_shift[6]_i_1_n_0               | u_deb_rst/w_rst                            |                3 |              7 |
+|  clk_IBUF_BUFG             | u_spi/r_mosi_delay_cnt[7]_i_2_n_0           | u_spi/r_mosi_delay_cnt[7]_i_1_n_0          |                2 |              8 |
+|  cnt_delay_reg[19]_i_3_n_0 | u_i2c/rd_data0                              | u_deb_rst/w_rst                            |                1 |              8 |
+|  clk_IBUF_BUFG             | u_spi/E[0]                                  | u_deb_rst/w_rst                            |                4 |              8 |
+|  clk_IBUF_BUFG             | u_uart_rx/rx_valid_i_1_n_0                  | u_deb_rst/w_rst                            |                1 |              8 |
+|  clk_IBUF_BUFG             | u_spi/E[1]                                  | u_deb_rst/w_rst                            |                4 |              8 |
+|  clk_IBUF_BUFG             | u_uart_rx/E[1]                              | u_deb_rst/w_rst                            |                3 |              8 |
+|  clk_IBUF_BUFG             | u_uart_rx/E[0]                              | u_deb_rst/w_rst                            |                1 |              8 |
+|  clk_IBUF_BUFG             | u_spi/o_din[7]_i_1_n_0                      | u_deb_rst/w_rst                            |                2 |              8 |
+|  clk_IBUF_BUFG             | u_uart_rx/rx_valid                          | u_deb_rst/w_rst                            |                2 |              9 |
+|  clk_IBUF_BUFG             | u_uart_tx/clk_cnt[9]_i_1_n_0                | u_deb_rst/w_rst                            |                5 |             11 |
+|  cnt_delay_reg[19]_i_3_n_0 |                                             | u_deb_rst/w_rst                            |                7 |             13 |
+|  clk_IBUF_BUFG             |                                             |                                            |                7 |             14 |
+|  clk_IBUF_BUFG             | u_uart_rx/clk_cnt                           | u_deb_rst/w_rst                            |                7 |             16 |
+|  clk_IBUF_BUFG             | u_spi/r_spi_state_reg[2]_0[0]               | u_deb_rst/w_rst                            |                6 |             16 |
+|  clk_IBUF_BUFG             | u_spi/r_spi_state_reg[2]_1[0]               | u_deb_rst/w_rst                            |                6 |             16 |
+|  clk_IBUF_BUFG             | u_spi/r_spi_state_reg[2][0]                 | u_deb_rst/w_rst                            |                6 |             16 |
+|  cnt_delay_reg[19]_i_3_n_0 | u_i2c/cnt_delay                             | u_deb_rst/w_rst                            |                7 |             20 |
+|  clk_IBUF_BUFG             | u_deb_rst/E[0]                              |                                            |                9 |             20 |
+|  clk_IBUF_BUFG             | u_deb_btn2/cnt[0]_i_2__2_n_0                | u_deb_btn2/cnt[0]_i_1__2_n_0               |                6 |             21 |
+|  clk_IBUF_BUFG             | u_deb_btn4/cnt[0]_i_2__4_n_0                | u_deb_btn4/cnt[0]_i_1__4_n_0               |                6 |             21 |
+|  clk_IBUF_BUFG             | u_deb_rst/cnt[0]_i_2_n_0                    | u_deb_rst/cnt[0]_i_1_n_0                   |                6 |             21 |
+|  clk_IBUF_BUFG             | u_deb_btn1/cnt[0]_i_2__1_n_0                | u_deb_btn1/cnt[0]_i_1__1_n_0               |                6 |             21 |
+|  clk_IBUF_BUFG             | u_deb_btn0/cnt[0]_i_2__0_n_0                | u_deb_btn0/cnt[0]_i_1__0_n_0               |                6 |             21 |
+|  clk_IBUF_BUFG             | u_deb_btn3/cnt[0]_i_2__3_n_0                | u_deb_btn3/cnt[0]_i_1__3_n_0               |                6 |             21 |
+|  clk_IBUF_BUFG             | u_deb_rst/out_reg_1                         |                                            |                7 |             22 |
+|  clk_IBUF_BUFG             | GEN_SW_DEB[12].u_deb_sw/cnt[0]_i_2__17_n_0  | GEN_SW_DEB[12].u_deb_sw/cnt[0]_i_1__17_n_0 |                6 |             23 |
+|  clk_IBUF_BUFG             | GEN_SW_DEB[0].u_deb_sw/cnt[0]_i_2__5_n_0    | GEN_SW_DEB[0].u_deb_sw/cnt[0]_i_1__5_n_0   |                6 |             23 |
+|  clk_IBUF_BUFG             | GEN_SW_DEB[10].u_deb_sw/cnt[0]_i_2__15_n_0  | GEN_SW_DEB[10].u_deb_sw/cnt[0]_i_1__15_n_0 |                6 |             23 |
+|  clk_IBUF_BUFG             | GEN_SW_DEB[8].u_deb_sw/cnt[0]_i_2__13_n_0   | GEN_SW_DEB[8].u_deb_sw/cnt[0]_i_1__13_n_0  |                6 |             23 |
+|  clk_IBUF_BUFG             | GEN_SW_DEB[11].u_deb_sw/cnt[0]_i_2__16_n_0  | GEN_SW_DEB[11].u_deb_sw/cnt[0]_i_1__16_n_0 |                6 |             23 |
+|  clk_IBUF_BUFG             | GEN_SW_DEB[3].u_deb_sw/cnt[0]_i_2__8_n_0    | GEN_SW_DEB[3].u_deb_sw/cnt[0]_i_1__8_n_0   |                6 |             23 |
+|  clk_IBUF_BUFG             | GEN_SW_DEB[5].u_deb_sw/cnt[0]_i_2__10_n_0   | GEN_SW_DEB[5].u_deb_sw/cnt[0]_i_1__10_n_0  |                6 |             23 |
+|  clk_IBUF_BUFG             | GEN_SW_DEB[6].u_deb_sw/cnt[0]_i_2__11_n_0   | GEN_SW_DEB[6].u_deb_sw/cnt[0]_i_1__11_n_0  |                6 |             23 |
+|  clk_IBUF_BUFG             | GEN_SW_DEB[7].u_deb_sw/cnt[0]_i_2__12_n_0   | GEN_SW_DEB[7].u_deb_sw/cnt[0]_i_1__12_n_0  |                6 |             23 |
+|  clk_IBUF_BUFG             | GEN_SW_DEB[4].u_deb_sw/cnt[0]_i_2__9_n_0    | GEN_SW_DEB[4].u_deb_sw/cnt[0]_i_1__9_n_0   |                6 |             23 |
+|  clk_IBUF_BUFG             | GEN_SW_DEB[14].u_deb_sw/cnt[0]_i_2__19_n_0  | GEN_SW_DEB[14].u_deb_sw/cnt[0]_i_1__19_n_0 |                6 |             23 |
+|  clk_IBUF_BUFG             | GEN_SW_DEB[9].u_deb_sw/cnt[0]_i_2__14_n_0   | GEN_SW_DEB[9].u_deb_sw/cnt[0]_i_1__14_n_0  |                6 |             23 |
+|  clk_IBUF_BUFG             | GEN_SW_DEB[2].u_deb_sw/cnt[0]_i_2__7_n_0    | GEN_SW_DEB[2].u_deb_sw/cnt[0]_i_1__7_n_0   |                6 |             23 |
+|  clk_IBUF_BUFG             | GEN_SW_DEB[15].u_deb_sw/cnt[0]_i_2__20_n_0  | GEN_SW_DEB[15].u_deb_sw/cnt[0]_i_1__20_n_0 |                6 |             23 |
+|  clk_IBUF_BUFG             | GEN_SW_DEB[1].u_deb_sw/cnt[0]_i_2__6_n_0    | GEN_SW_DEB[1].u_deb_sw/cnt[0]_i_1__6_n_0   |                6 |             23 |
+|  clk_IBUF_BUFG             | GEN_SW_DEB[13].u_deb_sw/cnt[0]_i_2__18_n_0  | GEN_SW_DEB[13].u_deb_sw/cnt[0]_i_1__18_n_0 |                6 |             23 |
+|  clk_IBUF_BUFG             | u_spi/r_spi_state_reg[3][0]                 | u_deb_rst/w_rst                            |                6 |             27 |
+|  clk_IBUF_BUFG             | r_tx_timer                                  | u_deb_rst/w_rst                            |                6 |             27 |
+|  clk_IBUF_BUFG             | u_deb_rst/r_mode_reg[2]_0[0]                |                                            |               20 |             53 |
+|  clk_IBUF_BUFG             |                                             | u_deb_rst/w_rst                            |              115 |            280 |
++----------------------------+---------------------------------------------+--------------------------------------------+------------------+----------------+
+
+

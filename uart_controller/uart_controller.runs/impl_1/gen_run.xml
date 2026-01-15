@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1768468624">
+  <File Type="BITSTR-BMM" Name="integrated_system_bd.bmm"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="integrated_system_methodology_drc_opted.rpt"/>
+  <File Type="INIT-TIMING" Name="integrated_system_timing_summary_init.rpt"/>
+  <File Type="ROUTE-PWR" Name="integrated_system_power_routed.rpt"/>
+  <File Type="PA-TCL" Name="integrated_system.tcl"/>
+  <File Type="OPT-TIMING" Name="integrated_system_timing_summary_opted.rpt"/>
+  <File Type="OPT-DCP" Name="integrated_system_opt.dcp"/>
+  <File Type="ROUTE-PWR-SUM" Name="integrated_system_power_summary_routed.pb"/>
+  <File Type="REPORTS-TCL" Name="integrated_system_reports.tcl"/>
+  <File Type="OPT-DRC" Name="integrated_system_drc_opted.rpt"/>
+  <File Type="OPT-HWDEF" Name="integrated_system.hwdef"/>
+  <File Type="PWROPT-DCP" Name="integrated_system_pwropt.dcp"/>
+  <File Type="PWROPT-DRC" Name="integrated_system_drc_pwropted.rpt"/>
+  <File Type="PWROPT-TIMING" Name="integrated_system_timing_summary_pwropted.rpt"/>
+  <File Type="PLACE-DCP" Name="integrated_system_placed.dcp"/>
+  <File Type="PLACE-IO" Name="integrated_system_io_placed.rpt"/>
+  <File Type="PLACE-CLK" Name="integrated_system_clock_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL" Name="integrated_system_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL-PB" Name="integrated_system_utilization_placed.pb"/>
+  <File Type="PLACE-CTRL" Name="integrated_system_control_sets_placed.rpt"/>
+  <File Type="PLACE-SIMILARITY" Name="integrated_system_incremental_reuse_placed.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="integrated_system_incremental_reuse_pre_placed.rpt"/>
+  <File Type="PLACE-TIMING" Name="integrated_system_timing_summary_placed.rpt"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="integrated_system_postplace_pwropt.dcp"/>
+  <File Type="BG-BIN" Name="integrated_system.bin"/>
+  <File Type="POSTPLACE-PWROPT-TIMING" Name="integrated_system_timing_summary_postplace_pwropted.rpt"/>
+  <File Type="PHYSOPT-DCP" Name="integrated_system_physopt.dcp"/>
+  <File Type="PHYSOPT-DRC" Name="integrated_system_drc_physopted.rpt"/>
+  <File Type="BITSTR-MSK" Name="integrated_system.msk"/>
+  <File Type="PHYSOPT-TIMING" Name="integrated_system_timing_summary_physopted.rpt"/>
+  <File Type="ROUTE-ERROR-DCP" Name="integrated_system_routed_error.dcp"/>
+  <File Type="ROUTE-DCP" Name="integrated_system_routed.dcp"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="integrated_system_routed_bb.dcp"/>
+  <File Type="ROUTE-DRC" Name="integrated_system_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-PB" Name="integrated_system_drc_routed.pb"/>
+  <File Type="ROUTE-DRC-RPX" Name="integrated_system_drc_routed.rpx"/>
+  <File Type="BITSTR-MMI" Name="integrated_system.mmi"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="integrated_system_methodology_drc_routed.rpt"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="integrated_system_methodology_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="integrated_system_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-PWR-RPX" Name="integrated_system_power_routed.rpx"/>
+  <File Type="ROUTE-STATUS" Name="integrated_system_route_status.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="integrated_system_route_status.pb"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="integrated_system_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-TIMING-PB" Name="integrated_system_timing_summary_routed.pb"/>
+  <File Type="ROUTE-TIMING-RPX" Name="integrated_system_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-SIMILARITY" Name="integrated_system_incremental_reuse_routed.rpt"/>
+  <File Type="ROUTE-CLK" Name="integrated_system_clock_utilization_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW" Name="integrated_system_bus_skew_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW-PB" Name="integrated_system_bus_skew_routed.pb"/>
+  <File Type="ROUTE-BUS-SKEW-RPX" Name="integrated_system_bus_skew_routed.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="integrated_system_postroute_physopt.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="integrated_system_postroute_physopt_bb.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="integrated_system_timing_summary_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="integrated_system_timing_summary_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="integrated_system_timing_summary_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="integrated_system_bus_skew_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="integrated_system_bus_skew_postroute_physopted.pb"/>
+  <File Type="BG-BIT" Name="integrated_system.bit"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="integrated_system_bus_skew_postroute_physopted.rpx"/>
+  <File Type="BITSTR-RBT" Name="integrated_system.rbt"/>
+  <File Type="BITSTR-NKY" Name="integrated_system.nky"/>
+  <File Type="PDI-FILE" Name="integrated_system.pdi"/>
+  <File Type="RCFI_FILE" Name="integrated_system.rcfi"/>
+  <File Type="CFI_FILE" Name="integrated_system.cfi"/>
+  <File Type="RNPI_FILE" Name="integrated_system.rnpi"/>
+  <File Type="NPI_FILE" Name="integrated_system.npi"/>
+  <File Type="RBD_FILE" Name="integrated_system.rbd"/>
+  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
+  <File Type="BITSTR-LTX" Name="integrated_system.ltx"/>
+  <File Type="BITSTR-SYSDEF" Name="integrated_system.sysdef"/>
+  <File Type="BG-BGN" Name="integrated_system.bgn"/>
+  <File Type="BG-DRC" Name="integrated_system.drc"/>
+  <File Type="RDI-RDI" Name="integrated_system.vdi"/>
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/imports/new/debounced.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../jit_intership/UART/UART.srcs/sources_1/new/debounced.v"/>
+        <Attr Name="ImportTime" Val="1768462682"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/new/uart_rxd.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../jit_intership/UART/UART.srcs/sources_1/new/uart_rxd.v"/>
+        <Attr Name="ImportTime" Val="1768462696"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/new/uart_txd.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../jit_intership/UART/UART.srcs/sources_1/new/uart_txd.v"/>
+        <Attr Name="ImportTime" Val="1768462730"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/new/edge_detect.sv">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../jit_intership/UART/UART.srcs/sources_1/new/edge_detect.sv"/>
+        <Attr Name="ImportTime" Val="1768462987"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/new/i2c_adt7420_controller.sv">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../jit_intership/UART/UART.srcs/sources_1/new/i2c_adt7420_controller.sv"/>
+        <Attr Name="ImportTime" Val="1768451184"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/new/seg7_controller.sv">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../jit_intership/UART/UART.srcs/sources_1/new/seg7_controller.sv"/>
+        <Attr Name="ImportTime" Val="1768463012"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/new/spi_adxl362_controller.sv">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../jit_intership/UART/UART.srcs/sources_1/new/spi_adxl362_controller.sv"/>
+        <Attr Name="ImportTime" Val="1768451185"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/new/TOP.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../jit_intership/UART/UART.srcs/sources_1/new/TOP.v"/>
+        <Attr Name="ImportTime" Val="1768462665"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/new/acc_scaled_to_deg_x_neg.sv">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../jit_intership/UART/UART.srcs/sources_1/new/acc_scaled_to_deg_x_neg.sv"/>
+        <Attr Name="ImportTime" Val="1768451185"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/new/acc_scaled_to_deg_xy_pos.sv">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../jit_intership/UART/UART.srcs/sources_1/new/acc_scaled_to_deg_xy_pos.sv"/>
+        <Attr Name="ImportTime" Val="1768451185"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/new/acc_scaled_to_deg_y_neg.sv">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../jit_intership/UART/UART.srcs/sources_1/new/acc_scaled_to_deg_y_neg.sv"/>
+        <Attr Name="ImportTime" Val="1768451185"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/new/acc_scaled_to_deg_z_neg.sv">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../jit_intership/UART/UART.srcs/sources_1/new/acc_scaled_to_deg_z_neg.sv"/>
+        <Attr Name="ImportTime" Val="1768451185"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/new/acc_scaled_to_deg_z_pos.sv">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../jit_intership/UART/UART.srcs/sources_1/new/acc_scaled_to_deg_z_pos.sv"/>
+        <Attr Name="ImportTime" Val="1768451185"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/new/top.sv">
+      <FileInfo>
+        <Attr Name="UserDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../jit_intership/UART/UART.srcs/sources_1/new/top.sv"/>
+        <Attr Name="ImportTime" Val="1768451185"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="integrated_system"/>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <File Path="$PSRCDIR/constrs_1/imports/new/nexys.xdc">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../jit_intership/UART/UART.srcs/constrs_1/new/nexys.xdc"/>
+        <Attr Name="ImportTime" Val="1768465357"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1">
+    <Filter Type="Utils"/>
+    <Config>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2019">
+      <Desc>Default settings for Implementation.</Desc>
+    </StratHandle>
+    <Step Id="init_design"/>
+    <Step Id="opt_design"/>
+    <Step Id="power_opt_design"/>
+    <Step Id="place_design"/>
+    <Step Id="post_place_power_opt_design"/>
+    <Step Id="phys_opt_design" EnableStepBool="1"/>
+    <Step Id="route_design"/>
+    <Step Id="post_route_phys_opt_design"/>
+    <Step Id="write_bitstream"/>
+  </Strategy>
+</GenRun>
