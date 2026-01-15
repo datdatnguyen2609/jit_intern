@@ -1,0 +1,26 @@
+#################################################
+# Vivado projects (apply for entire repo)
+#################################################
+
+# Build results (very large, regenerate)
+**/.runs/
+**/.sim/
+**/.hw/
+
+# Vivado cache not required for rebuild
+**/.Xil/
+
+# Vivado logs & journals
+**/*.jou
+**/*.log
+
+# Vivado backup files
+**/vivado_*.backup.*
+
+#################################################
+# OS / Editor junk
+#################################################
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
