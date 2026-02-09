@@ -401,11 +401,15 @@ module integrated_system (
     wire [6:0] w_z_deg_pos, w_z_deg_neg;
     
     // Instantiate degree conversion modules
+    // Note: X and Y positive axes share the same LUT (acc_scaled_to_deg_xy_pos) because
+    // they have identical acceleration-to-angle conversion curves. Z axis has different
+    // gravity-related characteristics, so it needs separate LUTs (z_pos/z_neg).
+    
     // X positive (uses xy_pos module)
     acc_scaled_to_deg_xy_pos u_deg_x_pos (.ACC_IN(w_x_clip), .DEG(w_x_deg_pos));
     // X negative
     acc_scaled_to_deg_x_neg  u_deg_x_neg (.ACC_IN(w_x_clip), .DEG(w_x_deg_neg));
-    // Y positive (uses xy_pos module)
+    // Y positive (uses xy_pos module - same curve as X)
     acc_scaled_to_deg_xy_pos u_deg_y_pos (.ACC_IN(w_y_clip), .DEG(w_y_deg_pos));
     // Y negative
     acc_scaled_to_deg_y_neg  u_deg_y_neg (.ACC_IN(w_y_clip), .DEG(w_y_deg_neg));
