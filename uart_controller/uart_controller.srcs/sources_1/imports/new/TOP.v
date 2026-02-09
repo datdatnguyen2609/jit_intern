@@ -380,45 +380,81 @@ module integrated_system (
     // ========================================
     // 11. Pre-calculated Values (Fix Timing)
     // ========================================
+    // Extract signed 12-bit values from accelerometer data
     wire signed [11:0] w_x_signed = {r_accel_x[11:8], r_accel_x[7:0]};
     wire signed [11:0] w_y_signed = {r_accel_y[11:8], r_accel_y[7:0]};
     wire signed [11:0] w_z_signed = {r_accel_z[11:8], r_accel_z[7:0]};
     
+    // Calculate absolute values
     wire [11:0] w_x_abs = w_x_signed[11] ? (~w_x_signed + 1) : w_x_signed;
     wire [11:0] w_y_abs = w_y_signed[11] ? (~w_y_signed + 1) : w_y_signed;
     wire [11:0] w_z_abs = w_z_signed[11] ? (~w_z_signed + 1) : w_z_signed;
+    
+    // Clip to 11-bit for LUT input (max 2047)
+    wire [10:0] w_x_clip = (w_x_abs > 12'd2047) ? 11'd2047 : w_x_abs[10:0];
+    wire [10:0] w_y_clip = (w_y_abs > 12'd2047) ? 11'd2047 : w_y_abs[10:0];
+    wire [10:0] w_z_clip = (w_z_abs > 12'd2047) ? 11'd2047 : w_z_abs[10:0];
+    
+    // Degree conversion LUT outputs
+    wire [6:0] w_x_deg_pos, w_x_deg_neg;
+    wire [6:0] w_y_deg_pos, w_y_deg_neg;
+    wire [6:0] w_z_deg_pos, w_z_deg_neg;
+    
+    // Instantiate degree conversion modules
+    // Note: X and Y positive axes share the same LUT (acc_scaled_to_deg_xy_pos) because
+    // they have identical acceleration-to-angle conversion curves. Z axis has different
+    // gravity-related characteristics, so it needs separate LUTs (z_pos/z_neg).
+    
+    // X positive (uses xy_pos module)
+    acc_scaled_to_deg_xy_pos u_deg_x_pos (.ACC_IN(w_x_clip), .DEG(w_x_deg_pos));
+    // X negative
+    acc_scaled_to_deg_x_neg  u_deg_x_neg (.ACC_IN(w_x_clip), .DEG(w_x_deg_neg));
+    // Y positive (uses xy_pos module - same curve as X)
+    acc_scaled_to_deg_xy_pos u_deg_y_pos (.ACC_IN(w_y_clip), .DEG(w_y_deg_pos));
+    // Y negative
+    acc_scaled_to_deg_y_neg  u_deg_y_neg (.ACC_IN(w_y_clip), .DEG(w_y_deg_neg));
+    // Z positive
+    acc_scaled_to_deg_z_pos  u_deg_z_pos (.ACC_IN(w_z_clip), .DEG(w_z_deg_pos));
+    // Z negative
+    acc_scaled_to_deg_z_neg  u_deg_z_neg (.ACC_IN(w_z_clip), .DEG(w_z_deg_neg));
+    
+    // Select positive or negative degree based on sign bit
+    wire [6:0] w_x_deg = w_x_signed[11] ? w_x_deg_neg : w_x_deg_pos;
+    wire [6:0] w_y_deg = w_y_signed[11] ? w_y_deg_neg : w_y_deg_pos;
+    wire [6:0] w_z_deg = w_z_signed[11] ? w_z_deg_neg : w_z_deg_pos;
 
-    // Registered BCD values
-    reg [3:0] r_x_hundreds, r_x_tens, r_x_ones;
-    reg [3:0] r_y_hundreds, r_y_tens, r_y_ones;
-    reg [3:0] r_z_hundreds, r_z_tens, r_z_ones;
+    // Registered BCD values for degree display (max 90 degrees, so only 2 digits needed)
+    reg [3:0] r_x_deg_tens, r_x_deg_ones;
+    reg [3:0] r_y_deg_tens, r_y_deg_ones;
+    reg [3:0] r_z_deg_tens, r_z_deg_ones;
     reg r_x_neg, r_y_neg, r_z_neg;
     reg [3:0] r_temp_int_tens, r_temp_int_ones;
     reg [3:0] r_temp_frac_tens, r_temp_frac_ones;
     
     always @(posedge clk) begin
         if (w_rst) begin
-            r_x_hundreds <= 0; r_x_tens <= 0; r_x_ones <= 0; r_x_neg <= 0;
-            r_y_hundreds <= 0; r_y_tens <= 0; r_y_ones <= 0; r_y_neg <= 0;
-            r_z_hundreds <= 0; r_z_tens <= 0; r_z_ones <= 0; r_z_neg <= 0;
+            r_x_deg_tens <= 0; r_x_deg_ones <= 0; r_x_neg <= 0;
+            r_y_deg_tens <= 0; r_y_deg_ones <= 0; r_y_neg <= 0;
+            r_z_deg_tens <= 0; r_z_deg_ones <= 0; r_z_neg <= 0;
             r_temp_int_tens <= 0; r_temp_int_ones <= 0;
             r_temp_frac_tens <= 0; r_temp_frac_ones <= 0;
         end else begin
-            r_x_neg      <= w_x_signed[11];
-            r_x_hundreds <= (w_x_abs / 100) % 10;
-            r_x_tens     <= (w_x_abs / 10) % 10;
-            r_x_ones     <= w_x_abs % 10;
+            // Store sign bits
+            r_x_neg <= w_x_signed[11];
+            r_y_neg <= w_y_signed[11];
+            r_z_neg <= w_z_signed[11];
             
-            r_y_neg      <= w_y_signed[11];
-            r_y_hundreds <= (w_y_abs / 100) % 10;
-            r_y_tens     <= (w_y_abs / 10) % 10;
-            r_y_ones     <= w_y_abs % 10;
+            // Convert degree values to BCD (0-90 degrees)
+            r_x_deg_tens <= w_x_deg / 10;
+            r_x_deg_ones <= w_x_deg % 10;
             
-            r_z_neg      <= w_z_signed[11];
-            r_z_hundreds <= (w_z_abs / 100) % 10;
-            r_z_tens     <= (w_z_abs / 10) % 10;
-            r_z_ones     <= w_z_abs % 10;
+            r_y_deg_tens <= w_y_deg / 10;
+            r_y_deg_ones <= w_y_deg % 10;
             
+            r_z_deg_tens <= w_z_deg / 10;
+            r_z_deg_ones <= w_z_deg % 10;
+            
+            // Temperature conversion (unchanged)
             r_temp_int_tens  <= (w_temp_data / 4) / 10;
             r_temp_int_ones  <= (w_temp_data / 4) % 10;
             r_temp_frac_tens <= ((w_temp_data % 4) * 25) / 10;
@@ -491,29 +527,30 @@ module integrated_system (
                     
                     case (r_mode)
                         3'd0: begin
+                            // Format: M0:X=+45d Y=-30d Z=+89d\r\n
                             r_tx_buffer[0]  <= "M";
                             r_tx_buffer[1]  <= "0";
-                            r_tx_buffer[2]  <= ": ";
+                            r_tx_buffer[2]  <= ":";
                             r_tx_buffer[3]  <= "X";
                             r_tx_buffer[4]  <= "=";
                             r_tx_buffer[5]  <= r_x_neg ? "-" : "+";
-                            r_tx_buffer[6]  <= dig2ascii(r_x_hundreds);
-                            r_tx_buffer[7]  <= dig2ascii(r_x_tens);
-                            r_tx_buffer[8]  <= dig2ascii(r_x_ones);
+                            r_tx_buffer[6]  <= dig2ascii(r_x_deg_tens);
+                            r_tx_buffer[7]  <= dig2ascii(r_x_deg_ones);
+                            r_tx_buffer[8]  <= "d";   // degree symbol
                             r_tx_buffer[9]  <= " ";
                             r_tx_buffer[10] <= "Y";
                             r_tx_buffer[11] <= "=";
-                            r_tx_buffer[12] <= r_y_neg ?  "-" : "+";
-                            r_tx_buffer[13] <= dig2ascii(r_y_hundreds);
-                            r_tx_buffer[14] <= dig2ascii(r_y_tens);
-                            r_tx_buffer[15] <= dig2ascii(r_y_ones);
+                            r_tx_buffer[12] <= r_y_neg ? "-" : "+";
+                            r_tx_buffer[13] <= dig2ascii(r_y_deg_tens);
+                            r_tx_buffer[14] <= dig2ascii(r_y_deg_ones);
+                            r_tx_buffer[15] <= "d";   // degree symbol
                             r_tx_buffer[16] <= " ";
                             r_tx_buffer[17] <= "Z";
                             r_tx_buffer[18] <= "=";
                             r_tx_buffer[19] <= r_z_neg ? "-" : "+";
-                            r_tx_buffer[20] <= dig2ascii(r_z_hundreds);
-                            r_tx_buffer[21] <= dig2ascii(r_z_tens);
-                            r_tx_buffer[22] <= dig2ascii(r_z_ones);
+                            r_tx_buffer[20] <= dig2ascii(r_z_deg_tens);
+                            r_tx_buffer[21] <= dig2ascii(r_z_deg_ones);
+                            r_tx_buffer[22] <= "d";   // degree symbol
                             r_tx_buffer[23] <= 8'h0D;
                             r_tx_buffer[24] <= 8'h0A;
                             r_tx_len <= 6'd25;
@@ -574,15 +611,16 @@ module integrated_system (
                         end
 
                         3'd4: begin
+                            // Format: M4:X=+45d T=26C S=FFFF\r\n
                             r_tx_buffer[0]  <= "M";
                             r_tx_buffer[1]  <= "4";
                             r_tx_buffer[2]  <= ":";
                             r_tx_buffer[3]  <= "X";
                             r_tx_buffer[4]  <= "=";
-                            r_tx_buffer[5]  <= r_x_neg ?  "-" : "+";
-                            r_tx_buffer[6]  <= dig2ascii(r_x_hundreds);
-                            r_tx_buffer[7]  <= dig2ascii(r_x_tens);
-                            r_tx_buffer[8]  <= dig2ascii(r_x_ones);
+                            r_tx_buffer[5]  <= r_x_neg ? "-" : "+";
+                            r_tx_buffer[6]  <= dig2ascii(r_x_deg_tens);
+                            r_tx_buffer[7]  <= dig2ascii(r_x_deg_ones);
+                            r_tx_buffer[8]  <= "d";   // degree symbol
                             r_tx_buffer[9]  <= " ";
                             r_tx_buffer[10] <= "T";
                             r_tx_buffer[11] <= "=";
